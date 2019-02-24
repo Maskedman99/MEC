@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, TouchableOpacity, ActivityIndicator, Linking } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, ActivityIndicator, Linking } from 'react-native';
 import axios from 'axios';
 
 var HTMLParser = require('fast-html-parser');
@@ -23,9 +23,23 @@ axios.get("https://ktu.edu.in/home.htm")
 
 render() {
 
-    var rows = this.state.loading ? [] : this.state.root.querySelectorAll('b');
-    rows.pop(); //To remove the unwanted 'n' appearing in the announcement list
+    var rows = this.state.loading ? [] : this.state.root.querySelectorAll('.annuncement');
+    if(!this.state.loading)
+    {
+    var str = '';
+    str = JSON.stringify(rows[0].rawText);
+    str = str.replace(/\\t/g, '');
+    str = str.replace(/"/g, '');
+    str = str.replace(/  /g, '');
+    rows = str.split("\\n");
 
+    for(i=0; i<rows.length; i++)
+     if(rows[i].length < 2)
+     {
+       rows.splice(i, 1);
+       i = -1;    //Every time splice is used a new array is copied into the old one, if 0 used 1st null don't 
+     }            // get deleted. If the statement not used then then index of the old array is used.  
+    }
     return (
       this.state.loading ?
 
@@ -34,13 +48,17 @@ render() {
        </View>
       :
       <View style = {{backgroundColor: '#4E4E4E', flex: 1, justifyContent: 'center', alignItems: 'center'}}> 
-        <FlatList style ={{backgroundColor: '#4E4E4E'}}
-            data = {rows}
-            renderItem = {({item}) => 
-                    <Text style={{marginVertical:5, color: 'white', marginLeft: 10, fontSize: 16}}>
-                                {JSON.stringify(item.childNodes[0].rawText).replace(/["\\]/g,'')} </Text>}
-        />
-        
+       <ScrollView style={{color: 'white',}}>
+        <View style={{marginHorizontal: 5, marginVertical:15}}>
+        { rows.map((item, keys)=>(
+            keys%2 ?
+              <Text style={{color: 'white', fontSize: 16, borderBottomWidth: 1,borderBottomColor: "white", fontWeight: 'bold'}}>{item}{'\n'}</Text>
+            :  
+              <Text style ={{color: 'white',}}>{item}{'\n'}</Text>
+          ))            
+        }
+        </View>
+        </ScrollView>
         <TouchableOpacity onPress={ ()=>{ Linking.openURL('https://ktu.edu.in/eu/core/announcements.htm')}}>
         <Text style={{color:'violet', fontSize: 17, fontStyle: 'italic', textDecorationLine: 'underline'}}>
                 View More{'\n'}</Text>
