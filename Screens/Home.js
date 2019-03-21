@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import SplashScreen from 'react-native-splash-screen';
+
 import { View, Text, ImageBackground, StyleSheet, ScrollView, StatusBar, TouchableOpacity, Image} from 'react-native';
 
 export class Home extends Component {
+  
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+
   render() {
     return (
       <View>
