@@ -12,7 +12,7 @@ export class Home extends Component {
   render() {
     return (
       <View>
-      <StatusBar backgroundColor="#4E4E4E" barStyle="light-content"/>
+      <StatusBar backgroundColor="#4280f0" barStyle="light-content"/>
       <ImageBackground source={require('../Assets/MEC.jpg')} style={styles.container}>
         <View style={styles.inner}>
         <ScrollView style={{marginTop: 40}}>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     height:110,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'mediumslateblue',
+    backgroundColor: '#429103',
     borderRadius:3,
     borderWidth: 0.2,
     borderColor: 'white'

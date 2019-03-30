@@ -43,11 +43,11 @@ render() {
     return (
       this.state.loading ?
 
-       <View style = {{flex:1, backgroundColor: '#4E4E4E',justifyContent: 'center', alignItems: 'center'}}>
+       <View style = {{flex:1, backgroundColor: '#4280f0',justifyContent: 'center', alignItems: 'center'}}>
              <ActivityIndicator color="white" size="large" />  
        </View>
       :
-      <View style = {{backgroundColor: '#4E4E4E', flex: 1, justifyContent: 'center', alignItems: 'center'}}> 
+      <View style = {{backgroundColor: '#4280f0', flex: 1, justifyContent: 'center', alignItems: 'center'}}> 
        <ScrollView style={{color: 'white',}}>
         <View style={{marginHorizontal: 5, marginVertical:15}}>
         { rows.map((item, keys)=>(
@@ -60,7 +60,7 @@ render() {
         </View>
         </ScrollView>
         <TouchableOpacity onPress={ ()=>{ Linking.openURL('https://ktu.edu.in/eu/core/announcements.htm')}}>
-        <Text style={{color:'violet', fontSize: 17, fontStyle: 'italic', textDecorationLine: 'underline'}}>
+        <Text style={{color:'#429103', fontSize: 17, fontStyle: 'italic', textDecorationLine: 'underline'}}>
                 View More{'\n'}</Text>
         </TouchableOpacity>        
         </View>

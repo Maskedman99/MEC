@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, Alert } from 'react-native';
 export class Settings extends Component {
   render() {
     return (
-      <View style={{backgroundColor: '#4E4E4E', flex: 1,}}>
+      <View style={{backgroundColor: '#4280f0', flex: 1,}}>
 
         <TouchableOpacity onPress={() => {Alert.alert('No Updates Available');}}>
               <View style={{margin: 15, marginTop:30, borderBottomWidth: 0.5, borderBottomColor:'white'}}>

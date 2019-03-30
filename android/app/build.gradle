@@ -99,7 +99,7 @@ android {
 
     defaultConfig {
         applicationId "com.mec"
-        minSdkVersion rootProject.ext.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
         versionName "1.2"
