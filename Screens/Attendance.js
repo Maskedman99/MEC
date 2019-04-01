@@ -100,12 +100,12 @@ export default class Attendance extends Component {
     return (
       this.state.loading ?
 
-       <View style = {{flex:1, backgroundColor: '#4E4E4E',justifyContent: 'center', alignItems: 'center'}}>
+       <View style = {{flex:1, backgroundColor: '#4280f0',justifyContent: 'center', alignItems: 'center'}}>
              <ActivityIndicator color="white" size="large" />  
        </View>
       :
     
-        <View style = {{flex: 1, backgroundColor: '#4E4E4E',}}> 
+        <View style = {{flex: 1, backgroundColor: '#4280f0',}}> 
 
         <View style={{flexDirection: 'row',justifyContent: 'center', alignItems: 'center', marginTop: 10}}>
           <Text style={{color: 'white', fontSize: 16}}>Name:   </Text>

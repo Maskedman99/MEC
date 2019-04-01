@@ -16,7 +16,7 @@ export class Attendance1 extends Component {
 
   render() {
     return (
-    <View style={{backgroundColor: '#4E4E4E', flex: 1,}}>
+    <View style={{backgroundColor: '#4280f0', flex: 1,}}>
         <Text style={{marginLeft:10, marginTop:20, color:'white', fontSize:16,marginBottom:10}}>Branch:</Text>
         {
          this.state.data.map((data,key)=>{
