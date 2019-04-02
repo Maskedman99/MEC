@@ -60,7 +60,7 @@ render() {
         </View>
         </ScrollView>
         <TouchableOpacity onPress={ ()=>{ Linking.openURL('https://ktu.edu.in/eu/core/announcements.htm')}}>
-        <Text style={{color:'#429103', fontSize: 17, fontStyle: 'italic', textDecorationLine: 'underline'}}>
+        <Text style={{color:'#00ff00', fontSize: 17, fontStyle: 'italic', textDecorationLine: 'underline', fontWeight: 'bold'}}>
                 View More{'\n'}</Text>
         </TouchableOpacity>        
         </View>
