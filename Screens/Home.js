@@ -11,7 +11,7 @@ export class Home extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{backgroundColor: '#4280f0', flex: 1,}}> 
       <StatusBar backgroundColor="#4280f0" barStyle="light-content"/>
       <ImageBackground source={require('../Assets/MEC.jpg')} style={styles.container}>
         <View style={styles.inner}>
