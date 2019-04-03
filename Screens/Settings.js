@@ -18,7 +18,7 @@ export class Settings extends Component {
               </View> 
         </TouchableOpacity>
         
-        <TouchableOpacity onPress={() => {Alert.alert('Version 1.0');}}>
+        <TouchableOpacity onPress={() => {Alert.alert('Version 2.0');}}>
               <View style={{margin: 15, borderBottomWidth: 0.5, borderBottomColor:'white'}}>
                 <Text style={{color: 'white', fontWeight: 'bold', fontSize: 18}}> About</Text>
               </View>

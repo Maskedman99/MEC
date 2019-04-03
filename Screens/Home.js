@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 
-import { View, Text, ImageBackground, StyleSheet, ScrollView, StatusBar, TouchableOpacity, Image} from 'react-native';
+import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, ScrollView, StatusBar, Image} from 'react-native';
 
 export class Home extends Component {
   
@@ -20,14 +20,14 @@ export class Home extends Component {
           <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('EvaluationScreen')}>
                     <View style={styles.button}>
-                    <Image style={styles.img} source={require('../Assets/Evaluation.png')}/>
+                        <Image style={styles.img} source={require('../Assets/Evaluation.png')}/>
                         <Text style={styles.textstyle}>EVALUATION</Text>
                     </View>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Attendance1Screen')}>
                     <View style={styles.button}>
-                    <Image style={styles.img} source={require('../Assets/Attendance.png')}/>
+                        <Image style={styles.img} source={require('../Assets/Attendance.png')}/>
                         <Text style={styles.textstyle}>ATTENDANCE</Text>
                     </View>
             </TouchableOpacity>
