@@ -8,18 +8,18 @@
   },
   "dependencies": {
     "fast-html-parser": "^1.0.1",
-    "react": "16.6.3",
-    "react-native": "0.58.4",
-    "react-native-gesture-handler": "^1.0.15",
+    "react": "16.8.6",
+    "react-native": "0.59.4",
+    "react-native-gesture-handler": "^1.1.0",
     "react-native-splash-screen": "^3.2.0",
-    "react-navigation": "^3.1.5"
+    "react-navigation": "^3.8.1"
   },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "24.1.0",
-    "jest": "24.1.0",
-    "metro-react-native-babel-preset": "0.51.1",
-    "react-test-renderer": "16.6.3"
+    "babel-jest": "24.7.1",
+    "jest": "24.7.1",
+    "metro-react-native-babel-preset": "0.53.1",
+    "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native"

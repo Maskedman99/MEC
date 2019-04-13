@@ -42,7 +42,7 @@ export class Attendance1 extends Component {
             <Text style={{color:'white', fontSize: 16}}>Semester:           </Text>  
         <Picker
             selectedValue={this.state.sem}
-            style={{ height: 20, width: 100, color: 'white',}}
+            style={{ height: 20, width: 100, color: 'white',flex:1,}}
             onValueChange={(itemValue, itemIndex) => this.setState({sem: itemValue})}>
             <Picker.Item label="1" value = "1" />
             <Picker.Item label="2" value = "2" />
@@ -61,7 +61,7 @@ export class Attendance1 extends Component {
             <Text style={{fontSize: 16, color: 'white',}}>Division:              </Text>
             <Picker
                 selectedValue={this.state.div}
-                style={{ height: 20, width: 100, color: 'white',}}
+                style={{ height: 20, width: 100, color: 'white', flex: 1}}
                 onValueChange={(itemValue, itemIndex) => this.setState({div: itemValue})}
                 mode='dropdown'>
                 <Picker.Item label="A" value = "A" />
