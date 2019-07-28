@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import SplashScreen from 'react-native-splash-screen';
 
-import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, ScrollView, StatusBar, Image} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, StatusBar, Image} from 'react-native';
 
 export class Home extends Component {
   
@@ -11,11 +11,11 @@ export class Home extends Component {
 
   render() {
     return (
-      <View style={{backgroundColor: '#4280f0', flex: 1,}}> 
-      <StatusBar backgroundColor="#4280f0" barStyle="light-content"/>
-      <ImageBackground source={require('../Assets/MEC.jpg')} style={styles.container}>
+      <View style={styles.container}> 
+      <StatusBar backgroundColor="#000000" barStyle="light-content"/>
+      
         <View style={styles.inner}>
-        <ScrollView style={{marginTop: 40}}>
+        <ScrollView>
 
           <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('EvaluationScreen')}>
@@ -51,7 +51,7 @@ export class Home extends Component {
 
         </ScrollView>
         </View>
-      </ImageBackground>
+    
       </View>
     );
   }
@@ -62,12 +62,15 @@ const styles = StyleSheet.create({
   {
     width: '100%', height: '100%',
     alignItems: 'center',
-    justifyContent: 'flex-end',    
+    justifyContent: 'flex-end', 
+    backgroundColor: '#000000',
+    flex: 1,   
   },
   inner:
   {
-    height:'70%', width:'95%',
-    backgroundColor: 'rgba(255,255,255,0)',
+    height:'60%', width:'95%',
+  //  borderWidth: 0.5,
+  //  borderColor: 'white',
   },
 
   buttonContainer: {
@@ -80,10 +83,12 @@ const styles = StyleSheet.create({
     height:110,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#429103',
-    borderRadius:5,
+    backgroundColor: '#388e3c',
+    borderRadius:2,
     borderWidth: 0.2,
-    borderColor: 'white'
+    marginRight: 0.75,
+    marginBottom: 0.75,
+    borderColor: '#76ff03'
   },
 
   textstyle: {

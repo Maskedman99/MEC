@@ -16,8 +16,8 @@ export class Attendance1 extends Component {
 
   render() {
     return (
-    <View style={{backgroundColor: '#4280f0', flex: 1,}}>
-        <Text style={{marginLeft:10, marginTop:20, color:'white', fontSize:16,marginBottom:10}}>Branch:</Text>
+    <View style={{backgroundColor: '#000000', flex: 1, borderTopWidth: 1, borderColor:'white'}}>
+        <Text style={{marginLeft:10, marginTop:10, color:'white', fontSize:16,marginBottom:10}}>Branch:</Text>
         {
          this.state.data.map((data,key)=>{
            return(
@@ -26,23 +26,26 @@ export class Attendance1 extends Component {
                 this.state.checked == key ? 
                     <TouchableOpacity style={styles.btn}>
                         <Image style={styles.img} source={require('../Assets/Checked.png')}/>
-                        <Text style={{color:'white'}}>{data}</Text>
+                        <Text style={{color:'#4caf50', fontSize:16, marginBottom:5}}>{data}</Text>
                     </TouchableOpacity>
                 :
                     <TouchableOpacity onPress = {()=>{this.setState({checked:key})}} style={styles.btn}>
                         <Image style={styles.img} source={require('../Assets/Unchecked.png')}/>
-                        <Text style={{color:'white'}}>{data}</Text>
+                        <Text style={{color:'white', fontSize:15, marginBottom:5}}>{data}</Text>
                     </TouchableOpacity>
             }
             </View>   
             )})
         }
-           
+
+
+        <View style = {{flexDirection: 'row'}}>
+
         <View style = {{flexDirection: 'row', marginLeft: 10,marginTop: 10}}> 
-            <Text style={{color:'white', fontSize: 16}}>Semester:           </Text>  
+            <Text style={{color:'white', fontSize: 16}}>Semester:       </Text>  
         <Picker
             selectedValue={this.state.sem}
-            style={{ height: 20, width: 100, color: 'white',flex:1,}}
+            style={{ height: 20, width: 125, color: '#4caf50',}}
             onValueChange={(itemValue, itemIndex) => this.setState({sem: itemValue})}>
             <Picker.Item label="1" value = "1" />
             <Picker.Item label="2" value = "2" />
@@ -57,11 +60,11 @@ export class Attendance1 extends Component {
 
         {
         this.state.checked == 0 | this.state.checked == 1 ?
-            <View style = {{flexDirection: 'row', marginLeft: 10,marginTop: 20}}>
-            <Text style={{fontSize: 16, color: 'white',}}>Division:              </Text>
+            <View style = {{flexDirection: 'row', marginLeft: -35, marginTop: 10}}>
+            <Text style={{fontSize: 16, color: 'white',}}>Division:     </Text>
             <Picker
                 selectedValue={this.state.div}
-                style={{ height: 20, width: 100, color: 'white', flex: 1}}
+                style={{ height: 20, width: 125, color: '#4caf50',}}
                 onValueChange={(itemValue, itemIndex) => this.setState({div: itemValue})}
                 mode='dropdown'>
                 <Picker.Item label="A" value = "A" />
@@ -70,21 +73,28 @@ export class Attendance1 extends Component {
             </View>    
         :
             
-            <Text style={{marginTop:20, fontSize:16}}></Text>
+            <Text style={{fontSize:16}}></Text>
         }
+
+        </View>
 
         <View style = {{marginTop: 20, marginLeft: 10, flexDirection: 'row'}} >
             <Text style = {{color:'white', fontSize: 16,marginTop: 5}}>Roll no:                 </Text>
             <TextInput 
-                style={{height: 40, color: 'white', fontSize: 16}}
+                style={{height: 40, color: '#4caf50', fontSize: 19}}
                 placeholder = "Enter Roll no. here"
+                placeholderTextColor = "#9e9e9e"
                 keyboardType = 'numeric'
+                returnKeyType = {"go"}
+                selectionColor = 'white'
+                enablesReturnKeyAutomatically = {true}
+                keyboardAppearance = {"dark"}
                 onChangeText={(rollno) => this.setState({rollno})}/>
         </View>
         {
         this.state.rollno == 0 ?   
-        <View style = {{marginTop: 20, alignItems: 'center', justifyContent: 'center'}}>
-        <Text style = {{color: 'white', fontStyle: 'italic',}}>Enter Roll no.</Text>
+        <View style = {{marginTop: 5, alignItems: 'center', justifyContent: 'center'}}>
+            <Text style = {{color: 'red', textDecorationLine: 'underline'}}>Enter Roll no.</Text>
         </View>
         :
         <TouchableOpacity onPress={() => this.props.navigation.navigate('AttendanceScreen',{ 
@@ -93,8 +103,8 @@ export class Attendance1 extends Component {
                                     div: this.state.div,
                                     rollno: this.state.rollno,
                                 })}
-                             style={{marginTop: 20, alignItems: 'center'}}>
-            <Text style = {{color: 'white', fontWeight: 'bold', fontSize: 20, textDecorationLine:'underline',}}>
+            style={{alignItems: 'center', borderColor: 'green', borderWidth: 1, marginTop: -5}}>
+            <Text style = {{color: '#8bc34a', fontWeight: 'bold', fontSize: 25,}}>
                                 SUBMIT</Text>
         </TouchableOpacity>        
         }
