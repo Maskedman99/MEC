@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import SplashScreen from 'react-native-splash-screen';
+//import SplashScreen from 'react-native-splash-screen';
 
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, ScrollView, StatusBar, Image} from 'react-native';
 
 export class Home extends Component {
   
-  componentDidMount() {
-    SplashScreen.hide();
-  }
+//  componentDidMount() {
+//    SplashScreen.hide();
+//  }
 
   render() {
     return (
@@ -76,12 +76,12 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: 175,
+    width: 170,
     height:110,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#429103',
-    borderRadius:3,
+    borderRadius:5,
     borderWidth: 0.2,
     borderColor: 'white'
   },
