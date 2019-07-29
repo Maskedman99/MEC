@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Alert, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableHighlight, Alert, StyleSheet, ScrollView } from 'react-native';
 
 export class Settings extends Component {
   render() {
@@ -8,17 +8,17 @@ export class Settings extends Component {
 
       <ScrollView style = {{marginTop: 20}}>
 
-        <TouchableOpacity onPress={() => {Alert.alert('No Updates Available');}}>
+        <TouchableHighlight activeOpacity={0.5} onPress={() => {Alert.alert('No Updates Available');}}>
                 <Text style={styles.menutext}>{'\t\t'}Check for Updates</Text>
-        </TouchableOpacity>
+        </TouchableHighlight>
 
-        <TouchableOpacity onPress={() =>this.props.navigation.navigate('CreditsScreen')}>
+        <TouchableHighlight activeOpacity={0.5} onPress={() =>this.props.navigation.navigate('CreditsScreen')}>
                 <Text style={styles.menutext}>{'\t\t'}Credits</Text>
-        </TouchableOpacity>
+        </TouchableHighlight>
         
-        <TouchableOpacity onPress={() => {Alert.alert('Version 2.0');}}>
+        <TouchableHighlight activeOpacity={0.5} onPress={() => {Alert.alert('Version 2.0');}}>
                 <Text style={styles.menutext}>{'\t\t'}About</Text>
-        </TouchableOpacity>
+        </TouchableHighlight>
   
       </ScrollView>
 

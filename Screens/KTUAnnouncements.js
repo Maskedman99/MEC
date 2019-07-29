@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, ActivityIndicator, Linking, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, TouchableHighlight, ActivityIndicator, Linking, StyleSheet } from 'react-native';
 import axios from 'axios';
 
 var HTMLParser = require('fast-html-parser');
@@ -61,9 +61,10 @@ render() {
               <Text style={styles.date}>{rows[rows.length - 2]}</Text>
         </ScrollView>
 
-        <TouchableOpacity onPress={ ()=>{ Linking.openURL('https://ktu.edu.in/eu/core/announcements.htm')}}>
+        <TouchableHighlight activeOpacity={0.5} 
+                            onPress={ ()=>{ Linking.openURL('https://ktu.edu.in/eu/core/announcements.htm')}}>
             <Text style={styles.viewmore}>🔗View More{'\n'}</Text>
-        </TouchableOpacity>   
+        </TouchableHighlight>   
 
         </View>
     );
@@ -73,7 +74,7 @@ render() {
 const styles = StyleSheet.create({
     viewmore:{
       color:'#00ff00', 
-      fontSize: 17, 
+      fontSize: 18, 
       fontStyle: 'italic', 
       textDecorationLine: 'underline', 
       fontWeight: 'bold',  

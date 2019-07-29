@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import SplashScreen from 'react-native-splash-screen';
 
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, StatusBar, Image} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, StatusBar, Image, TouchableHighlight} from 'react-native';
 
 export class Home extends Component {
   
@@ -18,35 +18,35 @@ export class Home extends Component {
         <ScrollView>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('EvaluationScreen')}>
+            <TouchableHighlight onPress={() =>  this.props.navigation.navigate('EvaluationScreen')}>
                     <View style={styles.button}>
                         <Image style={styles.img} source={require('../Assets/Evaluation.png')}/>
                         <Text style={styles.textstyle}>EVALUATION</Text>
                     </View>
-            </TouchableOpacity>
+            </TouchableHighlight>
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Attendance1Screen')}>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Attendance1Screen')}>
                     <View style={styles.button}>
                         <Image style={styles.img} source={require('../Assets/Attendance.png')}/>
                         <Text style={styles.textstyle}>ATTENDANCE</Text>
                     </View>
-            </TouchableOpacity>
+            </TouchableHighlight>
           </View> 
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('KTUAnnouncementsScreen')}>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('KTUAnnouncementsScreen')}>
                     <View style={styles.button}>
                         <Image style={styles.img} source={require('../Assets/Announcements.png')}/> 
                         <Text style={styles.textstyle}>ANNOUNCEMENTS</Text>
                     </View>
-            </TouchableOpacity>
+            </TouchableHighlight>
         
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('SettingScreen')}>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('SettingScreen')}>
                     <View style={styles.button}>
                         <Image style={styles.img} source={require('../Assets/Settings.png')}/>
                         <Text style={styles.textstyle}>SETTINGS</Text>
                     </View>
-            </TouchableOpacity> 
+            </TouchableHighlight> 
           </View>
 
         </ScrollView>

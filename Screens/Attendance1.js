@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Picker, TouchableOpacity, Image, StyleSheet, TextInput} from 'react-native';
+import { View, Text, Picker, TouchableHighlight, Image, StyleSheet, TextInput} from 'react-native';
 
 export class Attendance1 extends Component {
 
@@ -24,15 +24,17 @@ export class Attendance1 extends Component {
             <View>
             {   
                 this.state.checked == key ? 
-                    <TouchableOpacity style={styles.btn}>
+                    <View  style={styles.btn}>
                         <Image style={styles.img} source={require('../Assets/Checked.png')}/>
                         <Text style={{color:'#4caf50', fontSize:16, marginBottom:5}}>{data}</Text>
-                    </TouchableOpacity>
+                    </View>
                 :
-                    <TouchableOpacity onPress = {()=>{this.setState({checked:key})}} style={styles.btn}>
-                        <Image style={styles.img} source={require('../Assets/Unchecked.png')}/>
-                        <Text style={{color:'white', fontSize:15, marginBottom:5}}>{data}</Text>
-                    </TouchableOpacity>
+                    <TouchableHighlight onPress = {()=>{this.setState({checked:key})}}>
+                        <View  style={styles.btn}>  
+                            <Image style={styles.img} source={require('../Assets/Unchecked.png')}/>
+                            <Text style={{color:'white', fontSize:15, marginBottom:5}}>{data}</Text>
+                        </View>
+                    </TouchableHighlight>
             }
             </View>   
             )})
@@ -97,7 +99,7 @@ export class Attendance1 extends Component {
             <Text style = {{color: 'red', textDecorationLine: 'underline'}}>Enter Roll no.</Text>
         </View>
         :
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('AttendanceScreen',{ 
+        <TouchableHighlight onPress={() => this.props.navigation.navigate('AttendanceScreen',{ 
                                     branch: this.state.checked,
                                     sem: this.state.sem,
                                     div: this.state.div,
@@ -106,7 +108,7 @@ export class Attendance1 extends Component {
             style={{alignItems: 'center', borderColor: 'green', borderWidth: 1, marginTop: -5}}>
             <Text style = {{color: '#8bc34a', fontWeight: 'bold', fontSize: 25,}}>
                                 SUBMIT</Text>
-        </TouchableOpacity>        
+        </TouchableHighlight>        
         }
     </View>
     );
