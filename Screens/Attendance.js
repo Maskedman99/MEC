@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {ScrollView, ActivityIndicator, Text, View} from 'react-native';
+import {ScrollView, ActivityIndicator, Text, View, StyleSheet} from 'react-native';
 import axios from 'axios';
 
 
 var HTMLParser = require('fast-html-parser');
 
-export default class Attendance extends Component {
+export class Attendance extends Component {
   
   state = {
             loading: true,
@@ -14,7 +14,6 @@ export default class Attendance extends Component {
             NOS: null,         //Number of Subjects
             data: null,
   }
-
 
 
   componentDidMount() {
@@ -100,29 +99,34 @@ export default class Attendance extends Component {
     return (
       this.state.loading ?
 
-       <View style = {{flex:1, backgroundColor: '#4280f0',justifyContent: 'center', alignItems: 'center'}}>
+       <View style = {{flex:1, backgroundColor: '#000000',justifyContent: 'center', alignItems: 'center'}}>
              <ActivityIndicator color="white" size="large" />  
        </View>
       :
     
-        <View style = {{flex: 1, backgroundColor: '#4280f0',}}> 
+        <View style = {{flex: 1, backgroundColor: '#000000', borderTopWidth: 1, borderColor:'white'}}> 
 
         <View style={{flexDirection: 'row',justifyContent: 'center', alignItems: 'center', marginTop: 10}}>
           <Text style={{color: 'white', fontSize: 16}}>Name:   </Text>
-          <Text style={{color: 'white', fontWeight: 'bold', fontSize: 16}}>{x2[2]}</Text>
+          <Text style={{color: '#8bc34a', fontWeight: 'bold', fontSize: 16}}>{x2[2]}</Text>
         </View>
 
         <View style={{flexDirection: 'row',justifyContent: 'center', alignItems: 'center', marginTop: 10}}>
           <Text style={{color: 'white', fontSize: 16}}>Roll no:   </Text>
-          <Text style={{color: 'white', fontWeight: 'bold', fontSize: 16}}>{x2[1]}</Text>
+          <Text style={{color: '#8bc34a', fontWeight: 'bold', fontSize: 16}}>{x2[1]}</Text>
         </View>
 
-        <ScrollView style={{color: 'white',marginTop: 10, borderTopColor:'white', borderTopWidth: 2}}>
+        <ScrollView style={{color: 'white',marginTop: 10, borderTopColor:'#8bc34a', borderTopWidth: 2}}>
 
         <View style={{marginLeft: 5, marginTop: 15, marginRight: 5}}>
         { a2.map((item, key)=>(
-         <Text key={key} style={{color: 'white', marginBottom: 15, borderBottomWidth: 1, borderBottomColor:'white'}}>
-                    {item}{'\n'}Percentage:  {x2[key+3]}{'\n'}Entries till:     {et2[key+2]}</Text>
+         <Text key={key} style={[styles.rows,x2[key+3]>75?{borderColor:'#8bc34a'}:{borderColor:'#ef5350'}]}>
+                    {item}{'\n'}
+                      Percentage:  <Text style={x2[key+3]>75?{color:'#8bc34a'}:{color:'#ef5350'}}>
+                                    {x2[key+3]}{'\t\t\t\t\t\t\t\t'}
+                                   </Text>
+                      Entries till:     {et2[key+2]}
+          </Text>
          )
          )}
         </View>
@@ -131,5 +135,18 @@ export default class Attendance extends Component {
     );
   }
 }
+
+
+const styles = StyleSheet.create({
+    rows:{
+        color: 'white', 
+        marginBottom: 15, 
+        borderBottomWidth: 1,  
+      //  alignSelf:'center', 
+        fontSize: 14.7
+    },
+})
+
+export default Attendance;
 
 //rows[rows.length -42] is the last entry

@@ -42,10 +42,10 @@ export class Attendance1 extends Component {
         <View style = {{flexDirection: 'row'}}>
 
         <View style = {{flexDirection: 'row', marginLeft: 10,marginTop: 10}}> 
-            <Text style={{color:'white', fontSize: 16}}>Semester:       </Text>  
+            <Text style={{color:'white', fontSize: 16}}>Semester:               </Text>  
         <Picker
             selectedValue={this.state.sem}
-            style={{ height: 20, width: 125, color: '#4caf50',}}
+            style={styles.pickr}
             onValueChange={(itemValue, itemIndex) => this.setState({sem: itemValue})}>
             <Picker.Item label="1" value = "1" />
             <Picker.Item label="2" value = "2" />
@@ -60,11 +60,11 @@ export class Attendance1 extends Component {
 
         {
         this.state.checked == 0 | this.state.checked == 1 ?
-            <View style = {{flexDirection: 'row', marginLeft: -35, marginTop: 10}}>
-            <Text style={{fontSize: 16, color: 'white',}}>Division:     </Text>
+            <View style = {{flexDirection: 'row', marginLeft: -65, marginTop: 10}}>
+            <Text style={{fontSize: 16, color: 'white',}}>Division:              </Text>
             <Picker
                 selectedValue={this.state.div}
-                style={{ height: 20, width: 125, color: '#4caf50',}}
+                style={styles.pickr}
                 onValueChange={(itemValue, itemIndex) => this.setState({div: itemValue})}
                 mode='dropdown'>
                 <Picker.Item label="A" value = "A" />
@@ -79,9 +79,9 @@ export class Attendance1 extends Component {
         </View>
 
         <View style = {{marginTop: 20, marginLeft: 10, flexDirection: 'row'}} >
-            <Text style = {{color:'white', fontSize: 16,marginTop: 5}}>Roll no:                 </Text>
+            <Text style = {{color:'white', fontSize: 16,marginTop: 5}}>Roll no:                      </Text>
             <TextInput 
-                style={{height: 40, color: '#4caf50', fontSize: 19}}
+                style={[styles.pickr, {height:40}]}
                 placeholder = "Enter Roll no. here"
                 placeholderTextColor = "#9e9e9e"
                 keyboardType = 'numeric'
@@ -124,7 +124,14 @@ const styles= StyleSheet.create({
         alignItems:'center', 
         marginLeft: 20,
         marginBottom: 10,
-    }
+    },
+    pickr:{
+        height: 20,
+        width: 125, 
+        color: '#4caf50', 
+        alignSelf: 'center',
+        transform: [{scale: 1.5}],
+    },
 
 })
 
