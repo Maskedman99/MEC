@@ -129,7 +129,7 @@ const styles= StyleSheet.create({
         height: 20,
         width: 125, 
         color: '#4caf50', 
-        alignSelf: 'center',
+        //alignSelf: 'center',
         transform: [{scale: 1.5}],
     },
 

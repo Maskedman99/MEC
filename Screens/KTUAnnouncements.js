@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, ActivityIndicator, Linking } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, ActivityIndicator, Linking, StyleSheet } from 'react-native';
 import axios from 'axios';
 
 var HTMLParser = require('fast-html-parser');
@@ -43,29 +43,59 @@ render() {
     return (
       this.state.loading ?
 
-       <View style = {{flex:1, backgroundColor: '#4280f0',justifyContent: 'center', alignItems: 'center'}}>
+       <View style = {{flex:1, backgroundColor: '#000000',justifyContent: 'center', alignItems: 'center'}}>
              <ActivityIndicator color="white" size="large" />  
        </View>
       :
-      <View style = {{backgroundColor: '#4280f0', flex: 1, justifyContent: 'center', alignItems: 'center'}}> 
-       <ScrollView style={{color: 'white',}}>
-        <View style={{marginHorizontal: 5, marginVertical:15}}>
-        { rows.map((item, keys)=>(
+      <View style = {styles.container}> 
+
+        <ScrollView style={{color: 'white', marginHorizontal: 5,}}>
+        { 
+          rows.map((item, keys)=>(
             keys%2 ?
-              <Text style={{color: 'white', fontSize: 16, borderBottomWidth: 1,borderBottomColor: "white", fontWeight: 'bold'}}>{item}{'\n'}</Text>
+              <Text style ={styles.announcements}>{rows[keys]}{'\n'}</Text>
             :  
-              <Text style ={{color: 'white',}}>{item}{'\n'}</Text>
+              <Text style={styles.date}>{rows[keys-2]}</Text>
           ))            
         }
-        </View>
+              <Text style={styles.date}>{rows[rows.length - 2]}</Text>
         </ScrollView>
+
         <TouchableOpacity onPress={ ()=>{ Linking.openURL('https://ktu.edu.in/eu/core/announcements.htm')}}>
-        <Text style={{color:'#00ff00', fontSize: 17, fontStyle: 'italic', textDecorationLine: 'underline', fontWeight: 'bold'}}>
-                View More{'\n'}</Text>
-        </TouchableOpacity>        
+            <Text style={styles.viewmore}>🔗View More{'\n'}</Text>
+        </TouchableOpacity>   
+
         </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+    viewmore:{
+      color:'#00ff00', 
+      fontSize: 17, 
+      fontStyle: 'italic', 
+      textDecorationLine: 'underline', 
+      fontWeight: 'bold',  
+      alignSelf: 'center',
+    },
+    container:{
+      backgroundColor: '#000000', 
+      flex: 1,
+      borderTopWidth: 1, 
+      borderColor:'white',
+    },
+    announcements:{
+      color: 'white', 
+      fontSize: 16,  
+      fontWeight: 'bold',
+    },
+    date:{
+      borderBottomWidth: 1,
+      borderBottomColor: '#8bc34a',
+      color: 'white',
+      textAlign: 'right',
+    }
+})
 
 export default KTUAnnouncements;

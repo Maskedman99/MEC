@@ -1,33 +1,49 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Alert, StyleSheet, ScrollView } from 'react-native';
 
 export class Settings extends Component {
   render() {
     return (
-      <View style={{backgroundColor: '#4280f0', flex: 1,}}>
+      <View style={styles.container}>
+
+      <ScrollView style = {{marginTop: 20}}>
 
         <TouchableOpacity onPress={() => {Alert.alert('No Updates Available');}}>
-              <View style={{margin: 15, marginTop:30, borderBottomWidth: 0.5, borderBottomColor:'white'}}>
-                <Text style={{color: 'white', fontWeight: 'bold', fontSize: 18}}> Check for Updates</Text>
-              </View>
+                <Text style={styles.menutext}>{'\t\t'}Check for Updates</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() =>this.props.navigation.navigate('CreditsScreen')}>
-             <View style={{margin: 15, borderBottomWidth: 0.5, borderBottomColor:'white'}}>
-                <Text style={{color: 'white', fontWeight: 'bold', fontSize: 18}}> Credits</Text>
-              </View> 
+                <Text style={styles.menutext}>{'\t\t'}Credits</Text>
         </TouchableOpacity>
         
         <TouchableOpacity onPress={() => {Alert.alert('Version 2.0');}}>
-              <View style={{margin: 15, borderBottomWidth: 0.5, borderBottomColor:'white'}}>
-                <Text style={{color: 'white', fontWeight: 'bold', fontSize: 18}}> About</Text>
-              </View>
+                <Text style={styles.menutext}>{'\t\t'}About</Text>
         </TouchableOpacity>
   
+      </ScrollView>
+
       </View>
     );
   }
 }
 
+const styles = StyleSheet.create({
 
+  container:{
+    backgroundColor: '#000000', 
+    flex: 1, 
+    borderTopWidth: 1, 
+    borderColor:'white',
+  },
+
+  menutext:{
+    color: 'white', 
+    fontWeight: 'bold', 
+    fontSize: 18,
+    marginVertical: 15,
+    marginHorizontal: 10, 
+    borderBottomWidth: 0.5, 
+    borderBottomColor:'#8bc34a',
+  }
+})
 export default Settings;
