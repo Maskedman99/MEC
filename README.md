@@ -1,4 +1,6 @@
 # MEC
+## Framework
+* react-native 0.60
 ## Packages
 * axios
 * fast-html-parser
