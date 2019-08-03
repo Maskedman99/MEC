@@ -1,7 +1,29 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, Alert, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableHighlight, Alert, StyleSheet, ScrollView, Share } from 'react-native';
 
 export class Settings extends Component {
+/*
+  onShare = async() =>{
+    try{
+      {
+        await Share.share(
+          {
+            message: 'http://gen.lib.rus.ec/  ',
+            url: 'http://gen.lib.rus.ec/',    //Only IOS
+            title: 'Hey there, checkout this app!'
+          },
+          { // Android only:
+            dialogTitle: 'Share MEC with your freinds!',
+            // iOS only:
+            excludedActivityTypes: ['com.apple.UIKit.activity.PostToTwitter']
+          }) 
+        }
+    }
+    catch (error){
+      alert(error.message);
+    }
+  };
+*/
   render() {
     return (
       <View style={styles.container}>
@@ -12,6 +34,10 @@ export class Settings extends Component {
                 <Text style={styles.menutext}>{'\t\t'}Check for Updates</Text>
         </TouchableHighlight>
 
+{//        <TouchableHighlight activeOpacity={0.5} onPress={this.onShare} >
+  //              <Text style={styles.menutext}>{'\t\t'}Share</Text>
+  //      </TouchableHighlight>
+    }
         <TouchableHighlight activeOpacity={0.5} onPress={() =>this.props.navigation.navigate('CreditsScreen')}>
                 <Text style={styles.menutext}>{'\t\t'}Credits</Text>
         </TouchableHighlight>
