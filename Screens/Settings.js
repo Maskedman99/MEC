@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, Alert, StyleSheet, ScrollView, Share } from 'react-native';
 
 export class Settings extends Component {
-/*
+
   onShare = async() =>{
     try{
       {
@@ -23,7 +23,7 @@ export class Settings extends Component {
       alert(error.message);
     }
   };
-*/
+
   render() {
     return (
       <View style={styles.container}>
@@ -34,10 +34,10 @@ export class Settings extends Component {
                 <Text style={styles.menutext}>{'\t\t'}Check for Updates</Text>
         </TouchableHighlight>
 
-{//        <TouchableHighlight activeOpacity={0.5} onPress={this.onShare} >
-  //              <Text style={styles.menutext}>{'\t\t'}Share</Text>
-  //      </TouchableHighlight>
-    }
+        <TouchableHighlight activeOpacity={0.5} onPress={this.onShare} >
+                <Text style={styles.menutext}>{'\t\t'}Share</Text>
+        </TouchableHighlight>
+
         <TouchableHighlight activeOpacity={0.5} onPress={() =>this.props.navigation.navigate('CreditsScreen')}>
                 <Text style={styles.menutext}>{'\t\t'}Credits</Text>
         </TouchableHighlight>
