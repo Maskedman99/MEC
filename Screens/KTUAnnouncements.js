@@ -49,7 +49,7 @@ render() {
       :
       <View style = {styles.container}> 
 
-        <ScrollView style={{color: 'white', marginHorizontal: 5,}}>
+        <ScrollView style={{color: 'white', marginHorizontal: 5, marginTop: -5}}>
         { 
           rows.map((item, keys)=>(
             keys%2 ?

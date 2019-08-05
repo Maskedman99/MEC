@@ -30,7 +30,7 @@ export class Settings extends Component {
 
       <ScrollView style = {{marginTop: 20}}>
 
-        <TouchableHighlight activeOpacity={0.5} onPress={() => {Alert.alert('No Updates Available');}}>
+        <TouchableHighlight activeOpacity={0.5} onPress={() => {Alert.alert('Updates','Looks like no updates are currently available, check again later');}}>
                 <Text style={styles.menutext}>{'\t\t'}Check for Updates</Text>
         </TouchableHighlight>
 
@@ -42,7 +42,7 @@ export class Settings extends Component {
                 <Text style={styles.menutext}>{'\t\t'}Credits</Text>
         </TouchableHighlight>
         
-        <TouchableHighlight activeOpacity={0.5} onPress={() => {Alert.alert('Version 2.0');}}>
+        <TouchableHighlight activeOpacity={0.5} onPress={() => {Alert.alert('About','Version 0.6');}}>
                 <Text style={styles.menutext}>{'\t\t'}About</Text>
         </TouchableHighlight>
   
