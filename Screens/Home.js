@@ -25,12 +25,11 @@ export class Home extends Component {
         <View style ={styles.imgcontainer}>
           <ImageSlider  
             autoPlayWithInterval={4000}
-            images={images}
-
+            images={images} //required for some reason
             customSlide={({ index, item, style, width }) => (
               <View key={index} style={[style, styles.customSlide]}>
                 <Image source={{uri : item}} 
-                style={{height: '100%', width: '90%', resizeMode: 'stretch'}} />
+                style={{height: '100%', width: '95%', resizeMode: 'stretch'}} />
               </View>
           )} 
           />   

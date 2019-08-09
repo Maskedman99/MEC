@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {ScrollView, ActivityIndicator, Text, View, StyleSheet} from 'react-native';
 import axios from 'axios';
 
-
 var HTMLParser = require('fast-html-parser');
 
 export class Attendance extends Component {
@@ -11,7 +10,6 @@ export class Attendance extends Component {
             loading: true,
             root: {},
             Rollno: null,
-            NOS: null,         //Number of Subjects
             data: null,
   }
 
@@ -22,14 +20,7 @@ export class Attendance extends Component {
     const sem = navigation.getParam('sem', '1');
     const div = navigation.getParam('div', 'A');
     var rollno = navigation.getParam('rollno', '1');
-    this.setState({Rollno: rollno});
-
-    if(sem ==1 | sem == 2)
-        this.setState({NOS: 6});
-    else if(sem ==3 | sem ==4)
-        this.setState({NOS: 5});
-    else
-        this.setState({NOS: 5.5})        
+    this.setState({Rollno: rollno});     
 
     var url2 = sem;
     if (branch == 0)
@@ -53,48 +44,48 @@ export class Attendance extends Component {
   
   render() {
     
-    var rows = this.state.loading ? [] : this.state.root.querySelectorAll('td');
+    var rows  = this.state.loading ? [] : this.state.root.querySelectorAll('td');
+    var ttnos = this.state.loading ? [] : this.state.root.querySelectorAll('table');
 
     for(i=0;i<rows.length;i++)
       rows[i] = JSON.stringify(rows[i].rawText).replace(/["\\]/g,'');
 
-  /*
-  for(i=0;i<rows.length;i++){                 |
-    var x = rows[i].split(" ");               | //Not required
-    for(j=0; j<x.length;j++)                  |
-      if(x[j] == this.state.Rollno){          |
-        console.log(i);                       |
-        break;                                |
-      }  
-  }
-  */
-  var x1 = '';
-  for(i = 0; i<this.state.NOS * 2; i++)
-    x1 = x1 + '+' + rows[this.state.Rollno * this.state.NOS * 2 + i];  
-  
-  //x1 = x1.replace(/[rnt]/g,'') // Can't do, letters r,n,t in name gets replaced
-  x1 = x1.replace("rn",'');
-  x1 = x1.split('rnt').join('');
-  x1 = x1.split('t ').join('') 
-  const x2 = x1.split("+");
+    var ns = 0;
+   if(this.state.loading == false)
+    {
+      ns = ttnos[0].childNodes[1].childNodes.length - 7; //Total no.of subjects
+      ns = (ns+2)/2
+    }
 
-  var t1 = '';
-  for(i = (rows.length - 41 -(((this.state.NOS*2)-2)*2)); i<rows.length - 41; i++)
-    t1 = t1 + '+' + rows[i];
-  const t2 = t1.split("+rn");
+    var x1 = '';
+    for(i = 0; i < ns * 2; i++)
+        x1 = x1 + '+' + rows[this.state.Rollno * ns * 2 + i];  
   
-  var a1 ='';
-  var et = ''; 
-  for(i=0; i<t2.length; i++)
-  {
-    if(i%2 != 0)
-      a1 = a1 + '+' + t2[i];
-    else
-      et = et + '+' + t2[i];
-  }
-  const a2 = a1.split('+');
-  const et2 = et.split('+');
-  a2.shift();
+    //x1 = x1.replace(/[rnt]/g,'') // Can't do, letters r,n,t in name gets replaced
+  
+    x1 = x1.replace("rn",'');
+    x1 = x1.split('rnt').join('');
+    x1 = x1.split('t ').join('') 
+    const x2 = x1.split("+");
+
+    var t1 = '';
+    for(i = (rows.length - 41 -(((ns*2)-2)*2)); i<rows.length - 41; i++)
+        t1 = t1 + '+' + rows[i];
+    const t2 = t1.split("+rn");
+  
+    var a1 ='';
+    var et = ''; 
+    for(i=0; i<t2.length; i++)
+    {
+      if(i%2 != 0)
+        a1 = a1 + '+' + t2[i];
+      else
+        et = et + '+' + t2[i];
+    }
+
+    const a2 = a1.split('+');
+    const et2 = et.split('+');
+    a2.shift();
 
     return (
       this.state.loading ?
