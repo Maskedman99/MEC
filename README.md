@@ -7,3 +7,4 @@
 * react-navigation
 * react-native-gesture-handler
 * util
+* react-native-image-slider
