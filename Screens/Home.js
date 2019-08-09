@@ -14,9 +14,9 @@ export class Home extends Component {
   render() {
 
     const images = [
-              'https://pbs.twimg.com/media/D-uH-wZUEAA9tBH.jpg',
-              'https://pbs.twimg.com/media/DqAZAl7VYAARoaY.jpg',
-              'http://placeimg.com/640/480/any',];
+              'https://www.excelmec.org/static/media/excel.c7c894bc.png',
+              'https://pbs.twimg.com/media/EBg4aeQUIAAhUvU.jpg',
+              'https://pbs.twimg.com/media/EBSh5kgVAAI4Y-0.jpg',];
 
     return (
       <View style={styles.container}> 
@@ -91,7 +91,9 @@ const styles = StyleSheet.create({
   imgcontainer: {
     borderWidth: 1,
     borderColor: '#8bc34a',
+    borderRadius : 2.5,
     flex: 1,
+    marginTop: 5,
   },
 
   customSlide: {
@@ -103,8 +105,8 @@ const styles = StyleSheet.create({
 
   inner:
   {
-    height:'50%', width:'95%',
-    marginTop: 10,
+    height:'53%', width:'95%',
+    marginTop: 20,
   },
 
   buttonContainer: {
