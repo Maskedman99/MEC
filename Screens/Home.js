@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ImageSlider from 'react-native-image-slider';
 //import SplashScreen from 'react-native-splash-screen';
 
 import { View, Text, StyleSheet, ScrollView, StatusBar, Image, TouchableHighlight} from 'react-native';
@@ -9,11 +10,32 @@ export class Home extends Component {
 //    SplashScreen.hide();
 //  }
 
+
   render() {
+
+    const images = [
+              'https://pbs.twimg.com/media/D-uH-wZUEAA9tBH.jpg',
+              'https://pbs.twimg.com/media/DqAZAl7VYAARoaY.jpg',
+              'http://placeimg.com/640/480/any',];
+
     return (
       <View style={styles.container}> 
       <StatusBar backgroundColor="#000000" barStyle="light-content"/>
-      
+
+        <View style ={styles.imgcontainer}>
+          <ImageSlider  
+            autoPlayWithInterval={4000}
+            images={images}
+
+            customSlide={({ index, item, style, width }) => (
+              <View key={index} style={[style, styles.customSlide]}>
+                <Image source={{uri : item}} 
+                style={{height: '100%', width: '90%', resizeMode: 'stretch'}} />
+              </View>
+          )} 
+          />   
+        </View>
+  
         <View style={styles.inner}>
         <ScrollView>
 
@@ -64,13 +86,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end', 
     backgroundColor: '#000000',
-    flex: 1,   
+    flex: 1,  
   },
+
+  imgcontainer: {
+    borderWidth: 1,
+    borderColor: '#8bc34a',
+    flex: 1,
+  },
+
+  customSlide: {
+    backgroundColor: '#000000',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+
   inner:
   {
-    height:'60%', width:'95%',
-  //  borderWidth: 0.5,
-  //  borderColor: 'white',
+    height:'50%', width:'95%',
+    marginTop: 10,
   },
 
   buttonContainer: {
