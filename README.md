@@ -1,3 +1,6 @@
+<p align = "center">
+  <img alt="MEC" src="Assets/MecIcon.svg?sanitize=true" width="300">
+</p>
 # MEC
 ## Framework
 * react-native 0.60
