@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
 import ImageSlider from 'react-native-image-slider';
-//import SplashScreen from 'react-native-splash-screen';
 
 import { View, Text, StyleSheet, ScrollView, StatusBar, Image, TouchableHighlight} from 'react-native';
 
-export class Home extends Component {
-  
-//  componentDidMount() {
-//    SplashScreen.hide();
-//  }
 
+export class Home extends Component {
 
   render() {
 
     const images = [
               'https://www.excelmec.org/static/media/excel.c7c894bc.png',
               'https://pbs.twimg.com/media/EBg4aeQUIAAhUvU.jpg',
-              'https://pbs.twimg.com/media/EBSh5kgVAAI4Y-0.jpg',];
+              'https://pbs.twimg.com/media/EBSh5kgVAAI4Y-0.jpg',];       
 
     return (
       <View style={styles.container}> 
