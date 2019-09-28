@@ -1,4 +1,5 @@
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 
 import Settings from "./Screens/Settings";
 import Home from "./Screens/Home";
