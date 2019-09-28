@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  Picker,
   TouchableHighlight,
-  Image,
   StyleSheet,
   TextInput
 } from "react-native";
@@ -13,15 +11,9 @@ export class Attendance1 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [
-        "Computer Science and Engineering",
-        "Electronics and Communication Engineering",
-        "Electrical Engineering",
-        "Biomedical Engineering"
-      ],
+      data: ["CSA", "CSB", "EEE", "ECA", "ECB", "EB"],
       checked: 0,
       sem: 1,
-      div: "A",
       rollno: 0
     };
   }
@@ -29,89 +21,12 @@ export class Attendance1 extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={[styles.textnorm, styles.branchtext]}>Branch:</Text>
-        {this.state.data.map((data, key) => {
-          return (
-            <View>
-              {this.state.checked === key ? (
-                <View style={styles.btn}>
-                  <Image
-                    style={styles.img}
-                    source={require("../Assets/Checked.png")}
-                  />
-                  <Text style={styles.checkedtext}>{data}</Text>
-                </View>
-              ) : (
-                <TouchableHighlight
-                  onPress={() => {
-                    this.setState({ checked: key });
-                  }}
-                >
-                  <View style={styles.btn}>
-                    <Image
-                      style={styles.img}
-                      source={require("../Assets/Unchecked.png")}
-                    />
-                    <Text style={styles.uncheckedtext}>{data}</Text>
-                  </View>
-                </TouchableHighlight>
-              )}
-            </View>
-          );
-        })}
-        <View style={styles.row}>
-          <View style={styles.row}>
-            <Text style={styles.textnorm}>Semester: </Text>
-            <Picker
-              selectedValue={this.state.sem}
-              style={styles.pickr}
-              onValueChange={(itemValue, itemIndex) =>
-                this.setState({ sem: itemValue })
-              }
-            >
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
-              <Picker.Item label="3" value="3" />
-              <Picker.Item label="4" value="4" />
-              <Picker.Item label="5" value="5" />
-              <Picker.Item label="6" value="6" />
-              <Picker.Item label="7" value="7" />
-              <Picker.Item label="8" value="8" />
-            </Picker>
-          </View>
-
-          {this.state.checked === 0 || this.state.checked === 1 ? (
-            <View style={styles.division}>
-              <Text style={styles.textnorm}>Division: </Text>
-              <Picker
-                selectedValue={this.state.div}
-                style={styles.pickr}
-                onValueChange={(itemValue, itemIndex) =>
-                  this.setState({ div: itemValue })
-                }
-                mode="dropdown"
-              >
-                <Picker.Item label="A" value="A" />
-                <Picker.Item label="B" value="B" />
-              </Picker>
-            </View>
-          ) : (
-            <Text>{"\n"}</Text>
-          )}
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.textnorm}>{"\t"}Roll no: </Text>
-          <TextInput
-            style={[styles.pickr, styles.textinp]}
-            placeholder="Enter  Roll no.  here "
-            placeholderTextColor="#9e9e9e"
-            keyboardType="numeric"
-            returnKeyType={"go"}
-            selectionColor="white"
-            enablesReturnKeyAutomatically={true}
-            keyboardAppearance={"dark"}
-            onChangeText={rollno => this.setState({ rollno })}
-          />
+        <View style={styles.livetextcontainer}>
+          <Text style={styles.livetext}>
+            {this.state.data[this.state.checked]}
+          </Text>
+          <Text style={styles.livetext}>{this.state.sem}</Text>
+          <Text style={styles.livetext}>{this.state.rollno}</Text>
         </View>
 
         {// eslint-disable-next-line eqeqeq
@@ -126,7 +41,6 @@ export class Attendance1 extends Component {
               this.props.navigation.navigate("AttendanceScreen", {
                 branch: this.state.checked,
                 sem: this.state.sem,
-                div: this.state.div,
                 rollno: this.state.rollno
               })
             }
@@ -134,6 +48,121 @@ export class Attendance1 extends Component {
             <Text style={styles.submittext}>SUBMIT</Text>
           </TouchableHighlight>
         )}
+
+        <Text style={styles.headtext}>Class</Text>
+        <View style={styles.class}>
+          <View style={styles.classinner}>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ checked: 0 })}
+            >
+              <Text style={styles.buttontext}>CSA</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ checked: 1 })}
+            >
+              <Text style={styles.buttontext}>CSB</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ checked: 2 })}
+            >
+              <Text style={styles.buttontext}>EEE</Text>
+            </TouchableHighlight>
+          </View>
+          <View style={styles.classinner}>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ checked: 3 })}
+            >
+              <Text style={styles.buttontext}>ECA</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ checked: 4 })}
+            >
+              <Text style={styles.buttontext}>ECB</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ checked: 5 })}
+            >
+              <Text style={styles.buttontext}>EB</Text>
+            </TouchableHighlight>
+          </View>
+        </View>
+
+        <Text style={styles.headtext}>Semester</Text>
+        <View style={styles.class}>
+          <View style={styles.classinner}>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ sem: 1 })}
+            >
+              <Text style={styles.buttontext}>1</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ sem: 2 })}
+            >
+              <Text style={styles.buttontext}>2</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ sem: 3 })}
+            >
+              <Text style={styles.buttontext}>3</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ sem: 4 })}
+            >
+              <Text style={styles.buttontext}>4</Text>
+            </TouchableHighlight>
+          </View>
+          <View style={styles.classinner}>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ sem: 5 })}
+            >
+              <Text style={styles.buttontext}>5</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ sem: 6 })}
+            >
+              <Text style={styles.buttontext}>6</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ sem: 7 })}
+            >
+              <Text style={styles.buttontext}>7</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.classbutton}
+              onPress={() => this.setState({ sem: 8 })}
+            >
+              <Text style={styles.buttontext}>8</Text>
+            </TouchableHighlight>
+          </View>
+        </View>
+
+        <View style={styles.classinner}>
+          <Text style={styles.textnorm}>{"\n\t"}Roll no: </Text>
+          <TextInput
+            style={styles.textinput}
+            placeholder="Enter Roll no. here "
+            placeholderTextColor="#9e9e9e"
+            keyboardType="numeric"
+            returnKeyType={"go"}
+            selectionColor="white"
+            enablesReturnKeyAutomatically={true}
+            keyboardAppearance={"dark"}
+            onChangeText={rollno => this.setState({ rollno })}
+          />
+        </View>
       </View>
     );
   }
@@ -147,34 +176,49 @@ const styles = StyleSheet.create({
     borderColor: "white"
   },
 
-  img: {
-    height: 20,
-    width: 20,
-    marginRight: 20
-  },
-
-  branchtext: {
-    margin: 10,
-    marginTop: 15
-  },
-
-  btn: {
+  livetextcontainer: {
+    marginTop: 30,
+    marginVertical: 10,
     flexDirection: "row",
-    alignItems: "center",
-    marginLeft: 20,
-    marginBottom: 10
+    justifyContent: "space-around"
   },
 
-  checkedtext: {
-    color: "#4caf50",
-    fontSize: 16,
-    marginBottom: 5
+  livetext: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#4caf50"
   },
 
-  uncheckedtext: {
+  headtext: {
+    margin: 5,
+    marginTop: 25,
     color: "white",
-    fontSize: 15
-    //    marginBottom: 5
+    fontSize: 15,
+    textAlign: "center"
+  },
+
+  class: {
+    marginHorizontal: 3
+  },
+
+  classinner: {
+    flexDirection: "row",
+    justifyContent: "space-around"
+  },
+
+  classbutton: {
+    borderWidth: 1,
+    borderColor: "#4caf50",
+    borderRadius: 3,
+    flex: 1
+  },
+
+  buttontext: {
+    margin: 15,
+    color: "white",
+    fontSize: 15,
+    textAlign: "center",
+    fontWeight: "bold"
   },
 
   textnorm: {
@@ -183,49 +227,50 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
 
-  row: {
-    flexDirection: "row",
-    margin: 5
-  },
-
   division: {
     flexDirection: "row",
     marginLeft: -65,
     marginTop: 5
   },
-  pickr: {
-    height: 20,
-    width: 125,
-    color: "#4caf50",
-    //alignSelf: 'center',
-    marginHorizontal: 40,
-    transform: [{ scale: 1.5 }]
-  },
 
-  textinp: {
-    height: 40,
-    paddingTop: 2
+  textinput: {
+    borderBottomColor: "#4caf50",
+    borderBottomWidth: 1,
+    marginHorizontal: 30,
+    flex: 1
   },
 
   warningcontainer: {
-    marginTop: 5,
     alignItems: "center",
-    justifyContent: "center"
+    borderColor: "red",
+    borderWidth: 2,
+    marginTop: 15,
+    borderRadius: 3,
+    margin: 10
   },
 
   warningtext: {
-    color: "red",
-    textDecorationLine: "underline"
+    color: "#ed1c22",
+    fontSize: 25,
+    fontWeight: "bold",
+    margin: 5
   },
 
   submitcontainer: {
     alignItems: "center",
     borderColor: "green",
-    borderWidth: 1,
-    marginTop: -5
+    borderWidth: 3,
+    marginTop: 15,
+    borderRadius: 2,
+    margin: 10
   },
 
-  submittext: { color: "#8bc34a", fontWeight: "bold", fontSize: 25 }
+  submittext: {
+    color: "#8bc34a",
+    fontWeight: "bold",
+    fontSize: 25,
+    margin: 5
+  }
 });
 
 export default Attendance1;

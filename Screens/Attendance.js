@@ -22,17 +22,18 @@ export class Attendance extends Component {
 
   componentDidMount() {
     const { navigation } = this.props;
-    const branch = navigation.getParam("branch", "0");
+    const clas = navigation.getParam("branch", "0");
     const sem = navigation.getParam("sem", "1");
-    const div = navigation.getParam("div", "A");
     var rollno = navigation.getParam("rollno", "1");
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({ Rollno: rollno });
 
     var url2 = sem;
-    if (branch === 0) url2 = "C" + url2 + div;
-    else if (branch === 1) url2 = "E" + url2 + div;
-    else if (branch === 2) url2 = "EE" + url2;
+    if (clas === 0) url2 = "C" + url2 + "A";
+    else if (clas === 1) url2 = "C" + url2 + "B";
+    else if (clas === 2) url2 = "EE" + url2;
+    else if (clas === 3) url2 = "E" + url2 + "A";
+    else if (clas === 4) url2 = "E" + url2 + "B";
     else url2 = "B" + url2;
 
     const url =
