@@ -59,24 +59,26 @@ export class KTUAnnouncements extends Component {
           {rows.map((item, keys) =>
             keys % 2 ? (
               <Text style={styles.announcements}>
-                {rows[keys]}
                 {"\n"}
+                {rows[keys]}
               </Text>
             ) : (
               <Text style={styles.date}>{rows[keys - 2]}</Text>
             )
           )}
           <Text style={styles.date}>{rows[rows.length - 2]}</Text>
-        </ScrollView>
 
-        <TouchableHighlight
-          activeOpacity={0.5}
-          onPress={() => {
-            Linking.openURL("https://ktu.edu.in/eu/core/announcements.htm");
-          }}
-        >
-          <Text style={styles.viewmore}>🔗View More{"\n"}</Text>
-        </TouchableHighlight>
+          <TouchableHighlight
+            activeOpacity={0.5}
+            onPress={() => {
+              Linking.openURL("https://ktu.edu.in/eu/core/announcements.htm");
+            }}
+          >
+            <Text style={styles.viewmore}>
+              {"\n"}https://ktu.edu.in/eu/core/announcements.htm{"\n"}
+            </Text>
+          </TouchableHighlight>
+        </ScrollView>
       </View>
     );
   }
@@ -84,11 +86,10 @@ export class KTUAnnouncements extends Component {
 
 const styles = StyleSheet.create({
   viewmore: {
-    color: "#00ff00",
-    fontSize: 18,
+    color: "#00cdcd",
+    fontSize: 16,
     fontStyle: "italic",
     textDecorationLine: "underline",
-    fontWeight: "bold",
     alignSelf: "center"
   },
   container: {
@@ -99,8 +100,8 @@ const styles = StyleSheet.create({
   },
   announcements: {
     color: "white",
-    fontSize: 16,
-    fontWeight: "bold"
+    fontSize: 15,
+    fontFamily: "sans-serif"
   },
   date: {
     borderBottomWidth: 1,
@@ -114,7 +115,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  scroll: { color: "white", marginHorizontal: 5, marginTop: -5 }
+  scroll: {
+    color: "white",
+    marginHorizontal: 3,
+    marginTop: -15
+  }
 });
 
 export default KTUAnnouncements;
