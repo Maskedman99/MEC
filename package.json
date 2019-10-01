@@ -15,7 +15,7 @@
     "react-native-gesture-handler": "^1.4.1",
     "react-native-image-slider": "^2.0.3",
     "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^1.9.1",
+    "react-navigation-stack": "^1.9.3",
     "util": "^0.12.1"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
     "@babel/runtime": "7.6.2",
     "@react-native-community/eslint-config": "0.0.5",
     "babel-jest": "24.9.0",
-    "eslint": "6.5.0",
+    "eslint": "6.5.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.1",
     "jest": "24.9.0",
