@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ImageSlider from "react-native-image-slider";
 
+import SplashScreen from "react-native-splash-screen";
+
 import {
   View,
   Text,
@@ -12,6 +14,10 @@ import {
 } from "react-native";
 
 export class Home extends Component {
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+
   render() {
     const images = [
       "https://www.excelmec.org/static/media/excel.c7c894bc.png",
