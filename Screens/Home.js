@@ -15,7 +15,9 @@ import {
 
 export class Home extends Component {
   componentDidMount() {
-    SplashScreen.hide();
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 150);
   }
 
   render() {
