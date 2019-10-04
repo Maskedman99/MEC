@@ -96,7 +96,9 @@ export class Attendance extends Component {
     const et2 = et.split("+");
     a2.shift();
 
-    console.log(x1);
+    //    console.log(x1);
+
+    // x2 => Name, roll.no and percentages, e2 => Subject names and entries till
 
     return this.state.loading ? (
       <View style={styles.container}>
