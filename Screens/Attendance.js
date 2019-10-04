@@ -76,12 +76,14 @@ export class Attendance extends Component {
     x1 = x1.replace("rn", "");
     x1 = x1.split("rnt").join("");
     x1 = x1.split("t ").join("");
+    x1 = x1.split("n ").join("");
+    x1 = x1.split("nt").join("");
     const x2 = x1.split("+");
 
     var t1 = "";
     for (i = rows.length - 41 - (ns * 2 - 2) * 2; i < rows.length - 41; i++)
       t1 = t1 + "+" + rows[i];
-    const t2 = t1.split("+rn");
+    const t2 = t1.split("+n");
 
     var a1 = "";
     var et = "";
@@ -93,6 +95,8 @@ export class Attendance extends Component {
     const a2 = a1.split("+");
     const et2 = et.split("+");
     a2.shift();
+
+    console.log(x1);
 
     return this.state.loading ? (
       <View style={styles.container}>
