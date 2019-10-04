@@ -10,8 +10,8 @@
   "dependencies": {
     "axios": "^0.19.0",
     "fast-html-parser": "^1.0.1",
-    "react": "16.10.1",
-    "react-native": "0.61.1",
+    "react": "16.10.2",
+    "react-native": "0.61.2",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-image-slider": "^2.0.3",
     "react-native-splash-screen": "^3.2.0",
@@ -30,7 +30,7 @@
     "jest": "24.9.0",
     "metro-react-native-babel-preset": "0.56.0",
     "prettier": "^1.18.2",
-    "react-test-renderer": "16.10.1"
+    "react-test-renderer": "16.10.2"
   },
   "jest": {
     "preset": "react-native"
