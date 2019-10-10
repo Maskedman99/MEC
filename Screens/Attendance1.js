@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AsyncStorage from "@react-native-community/async-storage";
 import {
   View,
   Text,
@@ -16,9 +17,40 @@ export class Attendance1 extends Component {
       sem: 1,
       rollno: 0
     };
+    this.getMyValue();
   }
 
+  getMyValue = async () => {
+    try {
+      this.setState({
+        checked: JSON.parse(await AsyncStorage.getItem("@branch"))
+      });
+      this.setState({ sem: JSON.parse(await AsyncStorage.getItem("@sem")) });
+      this.setState({
+        rollno: JSON.parse(await AsyncStorage.getItem("@rollno"))
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  setValue = async () => {
+    try {
+      await AsyncStorage.setItem("@branch", JSON.stringify(this.state.checked));
+      await AsyncStorage.setItem("@sem", JSON.stringify(this.state.sem));
+      await AsyncStorage.setItem("@rollno", JSON.stringify(this.state.rollno));
+    } catch (e) {
+      console.log(e);
+    }
+    this.props.navigation.navigate("AttendanceScreen", {
+      branch: this.state.checked,
+      sem: this.state.sem,
+      rollno: this.state.rollno
+    });
+  };
+
   render() {
+    //  this.getMyValue;
     return (
       <View style={styles.container}>
         <View style={styles.livetextcontainer}>
@@ -37,13 +69,7 @@ export class Attendance1 extends Component {
         ) : (
           <TouchableHighlight
             style={styles.submitcontainer}
-            onPress={() =>
-              this.props.navigation.navigate("AttendanceScreen", {
-                branch: this.state.checked,
-                sem: this.state.sem,
-                rollno: this.state.rollno
-              })
-            }
+            onPress={this.setValue}
           >
             <Text style={styles.submittext}>SUBMIT</Text>
           </TouchableHighlight>
@@ -54,19 +80,25 @@ export class Attendance1 extends Component {
           <View style={styles.classinner}>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ checked: 0 })}
+              onPress={() => {
+                this.setState({ checked: 0 });
+              }}
             >
               <Text style={styles.buttontext}>CSA</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ checked: 1 })}
+              onPress={() => {
+                this.setState({ checked: 1 });
+              }}
             >
               <Text style={styles.buttontext}>CSB</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ checked: 2 })}
+              onPress={() => {
+                this.setState({ checked: 2 });
+              }}
             >
               <Text style={styles.buttontext}>EEE</Text>
             </TouchableHighlight>
@@ -74,19 +106,25 @@ export class Attendance1 extends Component {
           <View style={styles.classinner}>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ checked: 3 })}
+              onPress={() => {
+                this.setState({ checked: 3 });
+              }}
             >
               <Text style={styles.buttontext}>ECA</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ checked: 4 })}
+              onPress={() => {
+                this.setState({ checked: 4 });
+              }}
             >
               <Text style={styles.buttontext}>ECB</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ checked: 5 })}
+              onPress={() => {
+                this.setState({ checked: 5 });
+              }}
             >
               <Text style={styles.buttontext}>EB</Text>
             </TouchableHighlight>
@@ -98,25 +136,33 @@ export class Attendance1 extends Component {
           <View style={styles.classinner}>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ sem: 1 })}
+              onPress={() => {
+                this.setState({ sem: 1 });
+              }}
             >
               <Text style={styles.buttontext}>1</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ sem: 2 })}
+              onPress={() => {
+                this.setState({ sem: 2 });
+              }}
             >
               <Text style={styles.buttontext}>2</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ sem: 3 })}
+              onPress={() => {
+                this.setState({ sem: 3 });
+              }}
             >
               <Text style={styles.buttontext}>3</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ sem: 4 })}
+              onPress={() => {
+                this.setState({ sem: 4 });
+              }}
             >
               <Text style={styles.buttontext}>4</Text>
             </TouchableHighlight>
@@ -124,25 +170,33 @@ export class Attendance1 extends Component {
           <View style={styles.classinner}>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ sem: 5 })}
+              onPress={() => {
+                this.setState({ sem: 5 });
+              }}
             >
               <Text style={styles.buttontext}>5</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ sem: 6 })}
+              onPress={() => {
+                this.setState({ sem: 6 });
+              }}
             >
               <Text style={styles.buttontext}>6</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ sem: 7 })}
+              onPress={() => {
+                this.setState({ sem: 7 });
+              }}
             >
               <Text style={styles.buttontext}>7</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.classbutton}
-              onPress={() => this.setState({ sem: 8 })}
+              onPress={() => {
+                this.setState({ sem: 8 });
+              }}
             >
               <Text style={styles.buttontext}>8</Text>
             </TouchableHighlight>

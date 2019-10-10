@@ -17,3 +17,4 @@
 - util
 - react-native-image-slider
 - react-navigation-stack
+- @react-native-community/async-storage
