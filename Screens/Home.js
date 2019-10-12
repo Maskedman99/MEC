@@ -1,17 +1,10 @@
 import React, { Component } from "react";
+import { View, StyleSheet, ScrollView, StatusBar, Image } from "react-native";
+
+import HomeButton from "../Components/HomeButton";
+
 import ImageSlider from "react-native-image-slider";
-
 import SplashScreen from "react-native-splash-screen";
-
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  StatusBar,
-  Image,
-  TouchableHighlight
-} from "react-native";
 
 export class Home extends Component {
   componentDidMount() {
@@ -26,7 +19,7 @@ export class Home extends Component {
       "https://pbs.twimg.com/media/EBg4aeQUIAAhUvU.jpg",
       "https://pbs.twimg.com/media/EBSh5kgVAAI4Y-0.jpg"
     ];
-
+    console.log(this.props);
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#000000" barStyle="light-content" />
@@ -46,61 +39,33 @@ export class Home extends Component {
         <View style={styles.inner}>
           <ScrollView>
             <View style={styles.buttonContainer}>
-              <TouchableHighlight
-                onPress={() =>
-                  this.props.navigation.navigate("EvaluationScreen")
-                }
-              >
-                <View style={styles.button}>
-                  <Image
-                    style={styles.img}
-                    source={require("../Assets/Evaluation.png")}
-                  />
-                  <Text style={styles.textstyle}>EVALUATION</Text>
-                </View>
-              </TouchableHighlight>
-
-              <TouchableHighlight
-                onPress={() =>
-                  this.props.navigation.navigate("Attendance1Screen")
-                }
-              >
-                <View style={styles.button}>
-                  <Image
-                    style={styles.img}
-                    source={require("../Assets/Attendance.png")}
-                  />
-                  <Text style={styles.textstyle}>ATTENDANCE</Text>
-                </View>
-              </TouchableHighlight>
+              <HomeButton
+                navscreen="EvaluationScreen"
+                nav={this.props.navigation}
+                title="EVALUATION"
+                img={require("../Assets/Evaluation.png")}
+              />
+              <HomeButton
+                navscreen="Attendance1Screen"
+                nav={this.props.navigation}
+                title="ATTENDANCE"
+                img={require("../Assets/Attendance.png")}
+              />
             </View>
 
             <View style={styles.buttonContainer}>
-              <TouchableHighlight
-                onPress={() =>
-                  this.props.navigation.navigate("KTUAnnouncementsScreen")
-                }
-              >
-                <View style={styles.button}>
-                  <Image
-                    style={styles.img}
-                    source={require("../Assets/Announcements.png")}
-                  />
-                  <Text style={styles.textstyle}>ANNOUNCEMENTS</Text>
-                </View>
-              </TouchableHighlight>
-
-              <TouchableHighlight
-                onPress={() => this.props.navigation.navigate("SettingScreen")}
-              >
-                <View style={styles.button}>
-                  <Image
-                    style={styles.img}
-                    source={require("../Assets/Settings.png")}
-                  />
-                  <Text style={styles.textstyle}>SETTINGS</Text>
-                </View>
-              </TouchableHighlight>
+              <HomeButton
+                navscreen="KTUAnnouncementsScreen"
+                nav={this.props.navigation}
+                title="ANNOUNCEMENTS"
+                img={require("../Assets/Announcements.png")}
+              />
+              <HomeButton
+                navscreen="SettingScreen"
+                nav={this.props.navigation}
+                title="SETTINGS"
+                img={require("../Assets/Settings.png")}
+              />
             </View>
           </ScrollView>
         </View>
@@ -149,30 +114,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "center"
-  },
-
-  button: {
-    width: 170,
-    height: 110,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#388e3c",
-    borderRadius: 2,
-    borderWidth: 0.2,
-    marginRight: 0.75,
-    marginBottom: 0.75,
-    borderColor: "#76ff03"
-  },
-
-  textstyle: {
-    color: "white",
-    fontWeight: "bold"
-  },
-
-  img: {
-    height: 45,
-    width: 45,
-    marginBottom: 5
   }
 });
 
