@@ -61,6 +61,21 @@ export class Home extends Component {
                 img={require("../Assets/Announcements.png")}
               />
               <HomeButton
+                navscreen="SyllabusScreen"
+                nav={this.props.navigation}
+                title="SYLLABUS"
+                img={require("../Assets/Settings.png")}
+              />
+            </View>
+
+            <View style={styles.buttonContainer}>
+              <HomeButton
+                navscreen="KTUAnnouncementsScreen"
+                nav={this.props.navigation}
+                title="TIME-TABLE"
+                img={require("../Assets/Announcements.png")}
+              />
+              <HomeButton
                 navscreen="SettingScreen"
                 nav={this.props.navigation}
                 title="SETTINGS"
@@ -106,9 +121,9 @@ const styles = StyleSheet.create({
   },
 
   inner: {
-    height: "53%",
-    width: "95%",
-    marginTop: 20
+    height: "57%",
+    marginTop: 15,
+    marginRight: -5
   },
 
   buttonContainer: {
