@@ -61,10 +61,10 @@ export class Home extends Component {
                 img={require("../Assets/Announcements.png")}
               />
               <HomeButton
-                navscreen="SyllabusScreen"
+                navscreen="SyllabusMenuScreen"
                 nav={this.props.navigation}
                 title="SYLLABUS"
-                img={require("../Assets/Settings.png")}
+                img={require("../Assets/Syllabus.png")}
               />
             </View>
 
@@ -73,7 +73,7 @@ export class Home extends Component {
                 navscreen="KTUAnnouncementsScreen"
                 nav={this.props.navigation}
                 title="TIME-TABLE"
-                img={require("../Assets/Announcements.png")}
+                img={require("../Assets/Timetable.png")}
               />
               <HomeButton
                 navscreen="SettingScreen"

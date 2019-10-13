@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
 
-export class Syllabus extends Component {
+export class SyllabusMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -187,4 +187,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Syllabus;
+export default SyllabusMenu;

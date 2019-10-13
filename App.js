@@ -8,7 +8,7 @@ import Evaluation from "./Screens/Evaluation";
 import Announcements from "./Screens/KTUAnnouncements";
 import Credits from "./Screens/Credits";
 import Attendance1 from "./Screens/Attendance1";
-import Syllabus from "./Screens/Syllabus";
+import SyllabusMenu from "./Screens/SyllabusMenu";
 
 const AppNavigator = createStackNavigator({
   HomeScreen: { screen: Home, navigationOptions: { header: null } },
@@ -79,8 +79,8 @@ const AppNavigator = createStackNavigator({
     }
   },
 
-  SyllabusScreen: {
-    screen: Syllabus,
+  SyllabusMenuScreen: {
+    screen: SyllabusMenu,
     navigationOptions: {
       title: "Syllabus",
       headerStyle: {

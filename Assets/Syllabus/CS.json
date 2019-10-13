@@ -1,0 +1,25 @@
+{
+  "S5": {
+    "Graph Theory": {
+      "Course-code": "CS309",
+      "Year-of-Introduction": "2016",
+      "M1": "Introductory concepts - What is graph – Application of graphs – finite and infinite graphs – Incidence and Degree – Isolated vertex,pendent vertex and Null graph. Paths and circuits – Isomorphism, sub graphs, walks, paths and circuits, Connected graphs, disconnect graphs.",
+      "M2": "Euler graphs, Hamiltonian paths and circuits, Dirac's theorem for Hamiltonicity, Travelling salesman problem. Directed graphs – types of digraphs, Digraphs and binary relation",
+      "M3": "Trees – properties, pendent vertex, Distance and centres - Rooted and binary tree, counting trees, spanning trees.",
+      "M4": "Vertex Connectivity, Edge Connectivity, Cut set and Cut Vertices, Fundamental circuits, Planar graphs, Different representation of planar graphs, Euler's theorem, Geometric dual, Combinatorial dual.",
+      "M5": "Matrix representation of graphs- Adjacency matrix, Incidence Matrix, Circuit matrix, Fundamental Circuit matrix and Rank, Cut set matrix, Path matrix",
+      "M6": "Graphs theoretic algorithms - Algorithm for computer representation of a graph, algorithm for connectedness and components, spanning tree, shortest path."
+    },
+    "System Software": {
+      "Course-code": "CS303",
+      "Year-of-Introduction": "2015",
+      "Text-Book": "1. Leland L. Beck, System Software: An Introduction to Systems Programming, 3/E, Pearson Education Asia.",
+      "M1": "System Software Vs. Application Software, Different System Software– Assembler, Linker, Loader, Macro Processor, Text Editor, Debugger, Device Driver, Compiler, Interpreter, Operating System(Basic Concepts only) SIC & SIC/XE Architecture, Addressing modes, SIC & SIC/XE Instruction set, Assembler Directives and Programming.",
+      "M2": "Assemblers: \nBasic Functions of Assembler. Assembler output format – Header, Text and End Records- Assembler data structures, Two pass assembler algorithm, Hand assembly of SIC/XE program, Machine dependent assembler features.",
+      "M3": "Assembler design options: \nMachine Independent assembler features – program blocks, Control sections, Assembler design options- Algorithm for Single Pass assembler, Multi pass assembler, Implementation example of MASM Assembler",
+      "M4": "Linker and Loader: \nBasic Loader functions - Design of absolute loader, Simple bootstrap Loader, Machine dependent loader features- Relocation, Program Linking, Algorithm and data structures of two pass Linking Loader, Machine dependent loader features, Loader Design Options.",
+      "M5": "Macro Preprocessor: \nMacro Instruction Definition and Expansion. One pass Macro processor Algorithm and data structures, Machine Independent Macro Processor Features, Macro processor design options",
+      "M6": "Device drivers: \nAnatomy of a device driver, Character and block device drivers, General design of device drivers. Text Editors: \nOverview of Editing, User Interface, Editor Structure. Debuggers: \nDebugging Functions and Capabilities, Relationship with other parts of the system, Debugging Methods- By Induction, Deduction and Backtracking."
+    }
+  }
+}
