@@ -19,7 +19,6 @@ export class Home extends Component {
       "https://pbs.twimg.com/media/EBg4aeQUIAAhUvU.jpg",
       "https://pbs.twimg.com/media/EBSh5kgVAAI4Y-0.jpg"
     ];
-    console.log(this.props);
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#000000" barStyle="light-content" />

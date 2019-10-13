@@ -1,6 +1,6 @@
 {
   "S5": {
-    "Graph Theory": {
+    "GT": {
       "Course-code": "CS309",
       "Year-of-Introduction": "2016",
       "M1": "Introductory concepts - What is graph – Application of graphs – finite and infinite graphs – Incidence and Degree – Isolated vertex,pendent vertex and Null graph. Paths and circuits – Isomorphism, sub graphs, walks, paths and circuits, Connected graphs, disconnect graphs.",
@@ -10,7 +10,7 @@
       "M5": "Matrix representation of graphs- Adjacency matrix, Incidence Matrix, Circuit matrix, Fundamental Circuit matrix and Rank, Cut set matrix, Path matrix",
       "M6": "Graphs theoretic algorithms - Algorithm for computer representation of a graph, algorithm for connectedness and components, spanning tree, shortest path."
     },
-    "System Software": {
+    "SS": {
       "Course-code": "CS303",
       "Year-of-Introduction": "2015",
       "Text-Book": "1. Leland L. Beck, System Software: An Introduction to Systems Programming, 3/E, Pearson Education Asia.",

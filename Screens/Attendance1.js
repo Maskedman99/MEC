@@ -8,9 +8,13 @@ import {
   TextInput
 } from "react-native";
 
+import ClassButton from "../Components/ClassButton";
+
 export class Attendance1 extends Component {
   constructor(props) {
     super(props);
+    this.branchhandler = this.branchhandler.bind(this);
+    this.semhandler = this.semhandler.bind(this);
     this.state = {
       data: ["CSA", "CSB", "EEE", "ECA", "ECB", "EB"],
       ind: 0,
@@ -19,6 +23,20 @@ export class Attendance1 extends Component {
     };
     this.getMyValue();
   }
+
+  branchhandler = value => {
+    console.log();
+    this.setState({
+      ind: value
+    });
+  };
+
+  semhandler = value => {
+    console.log();
+    this.setState({
+      sem: value
+    });
+  };
 
   getMyValue = async () => {
     try {
@@ -46,171 +64,78 @@ export class Attendance1 extends Component {
   };
 
   render() {
-    //  this.getMyValue;
     return (
       <View style={styles.container}>
-        <View style={styles.livetextcontainer}>
-          <Text style={styles.livetext}>{this.state.data[this.state.ind]}</Text>
-          <Text style={styles.livetext}>{this.state.sem}</Text>
-          <Text style={styles.livetext}>{this.state.roll}</Text>
-        </View>
-
-        {// eslint-disable-next-line eqeqeq
-        this.state.roll == 0 ? ( //above comment disables eslint warning to strict compare
-          <View style={styles.warningcontainer}>
-            <Text style={styles.warningtext}> Enter a Roll number </Text>
+        <View style={{ flex: 1 }}>
+          <View style={styles.livetextcontainer}>
+            <Text style={styles.livetext}>
+              {this.state.data[this.state.ind]}
+            </Text>
+            <Text style={styles.livetext}>{this.state.sem}</Text>
+            <Text style={styles.livetext}>{this.state.roll}</Text>
           </View>
-        ) : (
-          <TouchableHighlight
-            style={styles.submitcontainer}
-            onPress={this.setValue}
-          >
-            <Text style={styles.submittext}>SUBMIT</Text>
-          </TouchableHighlight>
-        )}
+          {// eslint-disable-next-line eqeqeq
+          this.state.roll == 0 ? ( //above comment disables eslint warning to strict compare
+            <View style={styles.warningcontainer}>
+              <Text style={styles.warningtext}> Enter a Roll number </Text>
+            </View>
+          ) : (
+            <TouchableHighlight
+              style={styles.submitcontainer}
+              onPress={this.setValue}
+            >
+              <Text style={styles.submittext}>SUBMIT</Text>
+            </TouchableHighlight>
+          )}
 
-        <Text style={styles.headtext}>Class</Text>
-        <View style={styles.class}>
-          <View style={styles.classinner}>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ ind: 0 });
-              }}
-            >
-              <Text style={styles.buttontext}>CSA</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ ind: 1 });
-              }}
-            >
-              <Text style={styles.buttontext}>CSB</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ ind: 2 });
-              }}
-            >
-              <Text style={styles.buttontext}>EEE</Text>
-            </TouchableHighlight>
+          <Text style={styles.headtext}>Class</Text>
+          <View style={styles.class}>
+            <View style={styles.classinner}>
+              <ClassButton title="CSA" value={0} action={this.branchhandler} />
+              <ClassButton title="CSB" value={1} action={this.branchhandler} />
+              <ClassButton title="CSA" value={2} action={this.branchhandler} />
+            </View>
+            <View style={styles.classinner}>
+              <ClassButton title="ECA" value={3} action={this.branchhandler} />
+              <ClassButton title="ECB" value={4} action={this.branchhandler} />
+              <ClassButton title="EB" value={5} action={this.branchhandler} />
+            </View>
           </View>
-          <View style={styles.classinner}>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ ind: 3 });
-              }}
-            >
-              <Text style={styles.buttontext}>ECA</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ ind: 4 });
-              }}
-            >
-              <Text style={styles.buttontext}>ECB</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ ind: 5 });
-              }}
-            >
-              <Text style={styles.buttontext}>EB</Text>
-            </TouchableHighlight>
+          <Text style={styles.headtext}>Semester</Text>
+          <View style={styles.class}>
+            <View style={styles.classinner}>
+              <ClassButton title="1" value={1} action={this.semhandler} />
+              <ClassButton title="2" value={2} action={this.semhandler} />
+              <ClassButton title="3" value={3} action={this.semhandler} />
+              <ClassButton title="4" value={4} action={this.semhandler} />
+            </View>
+            <View style={styles.classinner}>
+              <ClassButton title="5" value={5} action={this.semhandler} />
+              <ClassButton title="6" value={6} action={this.semhandler} />
+              <ClassButton title="7" value={7} action={this.semhandler} />
+              <ClassButton title="8" value={8} action={this.semhandler} />
+            </View>
           </View>
         </View>
 
-        <Text style={styles.headtext}>Semester</Text>
-        <View style={styles.class}>
-          <View style={styles.classinner}>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 1 });
-              }}
-            >
-              <Text style={styles.buttontext}>1</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 2 });
-              }}
-            >
-              <Text style={styles.buttontext}>2</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 3 });
-              }}
-            >
-              <Text style={styles.buttontext}>3</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 4 });
-              }}
-            >
-              <Text style={styles.buttontext}>4</Text>
-            </TouchableHighlight>
-          </View>
-          <View style={styles.classinner}>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 5 });
-              }}
-            >
-              <Text style={styles.buttontext}>5</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 6 });
-              }}
-            >
-              <Text style={styles.buttontext}>6</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 7 });
-              }}
-            >
-              <Text style={styles.buttontext}>7</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 8 });
-              }}
-            >
-              <Text style={styles.buttontext}>8</Text>
-            </TouchableHighlight>
-          </View>
+        <View style={styles.rollview}>
+          <Text style={styles.rolltext}>
+            {"\t\t"}Roll no.{"\t\t"}
+          </Text>
         </View>
-
-        <View style={styles.classinner}>
-          <Text style={styles.textnorm}>{"\n\t"}Roll no: </Text>
-          <TextInput
-            style={styles.textinput}
-            placeholder="Enter Roll no. here "
-            placeholderTextColor="#9e9e9e"
-            keyboardType="numeric"
-            returnKeyType={"go"}
-            selectionColor="white"
-            enablesReturnKeyAutomatically={true}
-            keyboardAppearance={"dark"}
-            onChangeText={roll => this.setState({ roll })}
-          />
-        </View>
+        <TextInput
+          style={styles.textinput}
+          placeholder="Enter Roll no. here "
+          placeholderTextColor="white"
+          keyboardType="numeric"
+          maxLength={2}
+          returnKeyType={"go"}
+          selectionColor="white"
+          enablesReturnKeyAutomatically={true}
+          onSubmitEditing={this.setValue}
+          keyboardAppearance={"dark"}
+          onChangeText={roll => this.setState({ roll })}
+        />
       </View>
     );
   }
@@ -254,38 +179,28 @@ const styles = StyleSheet.create({
     justifyContent: "space-around"
   },
 
-  classbutton: {
-    borderWidth: 1,
-    borderColor: "#4caf50",
-    borderRadius: 3,
-    flex: 1
+  rollview: {
+    alignSelf: "center",
+    borderRadius: 3
   },
 
-  buttontext: {
-    margin: 15,
+  rolltext: {
+    marginTop: 20,
     color: "white",
     fontSize: 15,
     textAlign: "center",
-    fontWeight: "bold"
-  },
-
-  textnorm: {
-    color: "white",
-    fontSize: 16,
-    marginTop: 5
-  },
-
-  division: {
-    flexDirection: "row",
-    marginLeft: -65,
-    marginTop: 5
+    borderRadius: 3,
+    backgroundColor: "#4caf50"
   },
 
   textinput: {
-    borderBottomColor: "#4caf50",
-    borderBottomWidth: 1,
-    marginHorizontal: 30,
-    flex: 1
+    marginHorizontal: 3,
+    textAlign: "center",
+    paddingBottom: 5,
+    backgroundColor: "#4caf50",
+    marginBottom: 5,
+    borderRadius: 3,
+    marginTop: -2
   },
 
   warningcontainer: {

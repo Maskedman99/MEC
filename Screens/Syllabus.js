@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import TXT from "../Assets/Syllabus/CS.json";
 
 export class Syllabus extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Syllabus</Text>
+        <Text style={styles.text}>{TXT.S5.GT.M1}</Text>
+        <Text style={styles.text}>Hello</Text>
       </View>
     );
   }
