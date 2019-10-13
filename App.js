@@ -9,6 +9,7 @@ import Announcements from "./Screens/KTUAnnouncements";
 import Credits from "./Screens/Credits";
 import Attendance1 from "./Screens/Attendance1";
 import SyllabusMenu from "./Screens/SyllabusMenu";
+import Syllabus from "./Screens/Syllabus";
 
 const AppNavigator = createStackNavigator({
   HomeScreen: { screen: Home, navigationOptions: { header: null } },
@@ -81,6 +82,17 @@ const AppNavigator = createStackNavigator({
 
   SyllabusMenuScreen: {
     screen: SyllabusMenu,
+    navigationOptions: {
+      title: "Syllabus",
+      headerStyle: {
+        backgroundColor: "#000000"
+      },
+      headerTintColor: "#fff"
+    }
+  },
+
+  SyllabusScreen: {
+    screen: Syllabus,
     navigationOptions: {
       title: "Syllabus",
       headerStyle: {

@@ -21,6 +21,13 @@ export class SyllabusMenu extends Component {
           <Text style={styles.livetext}>{this.state.sem}</Text>
         </View>
 
+        <TouchableHighlight
+          style={styles.submitcontainer}
+          onPress={() => this.props.navigation.navigate("SyllabusScreen")}
+        >
+          <Text style={styles.submittext}>SUBMIT</Text>
+        </TouchableHighlight>
+
         <Text style={styles.headtext}>Class</Text>
         <View style={styles.class}>
           <View style={styles.classinner}>
@@ -184,6 +191,22 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     color: "#4caf50"
+  },
+
+  submitcontainer: {
+    alignItems: "center",
+    borderColor: "green",
+    borderWidth: 3,
+    marginTop: 15,
+    borderRadius: 2,
+    margin: 10
+  },
+
+  submittext: {
+    color: "#8bc34a",
+    fontWeight: "bold",
+    fontSize: 25,
+    margin: 5
   }
 });
 

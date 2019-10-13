@@ -13,39 +13,35 @@ export class Attendance1 extends Component {
     super(props);
     this.state = {
       data: ["CSA", "CSB", "EEE", "ECA", "ECB", "EB"],
-      checked: 0,
+      ind: 0,
       sem: 1,
-      rollno: 0
+      roll: 0
     };
     this.getMyValue();
   }
 
   getMyValue = async () => {
     try {
-      this.setState({
-        checked: JSON.parse(await AsyncStorage.getItem("@branch"))
-      });
+      this.setState({ ind: JSON.parse(await AsyncStorage.getItem("@branch")) });
       this.setState({ sem: JSON.parse(await AsyncStorage.getItem("@sem")) });
-      this.setState({
-        rollno: JSON.parse(await AsyncStorage.getItem("@rollno"))
-      });
+      this.setState({ roll: JSON.parse(await AsyncStorage.getItem("@roll")) });
     } catch (e) {
-      console.log(e);
+      //  console.log(e);
     }
   };
 
   setValue = async () => {
     try {
-      await AsyncStorage.setItem("@branch", JSON.stringify(this.state.checked));
+      await AsyncStorage.setItem("@branch", JSON.stringify(this.state.ind));
       await AsyncStorage.setItem("@sem", JSON.stringify(this.state.sem));
-      await AsyncStorage.setItem("@rollno", JSON.stringify(this.state.rollno));
+      await AsyncStorage.setItem("@roll", JSON.stringify(this.state.roll));
     } catch (e) {
-      console.log(e);
+      //  console.log(e);
     }
     this.props.navigation.navigate("AttendanceScreen", {
-      branch: this.state.checked,
+      branch: this.state.ind,
       sem: this.state.sem,
-      rollno: this.state.rollno
+      roll: this.state.roll
     });
   };
 
@@ -54,15 +50,13 @@ export class Attendance1 extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.livetextcontainer}>
-          <Text style={styles.livetext}>
-            {this.state.data[this.state.checked]}
-          </Text>
+          <Text style={styles.livetext}>{this.state.data[this.state.ind]}</Text>
           <Text style={styles.livetext}>{this.state.sem}</Text>
-          <Text style={styles.livetext}>{this.state.rollno}</Text>
+          <Text style={styles.livetext}>{this.state.roll}</Text>
         </View>
 
         {// eslint-disable-next-line eqeqeq
-        this.state.rollno == 0 ? ( //above comment disables eslint warning to strict compare
+        this.state.roll == 0 ? ( //above comment disables eslint warning to strict compare
           <View style={styles.warningcontainer}>
             <Text style={styles.warningtext}> Enter a Roll number </Text>
           </View>
@@ -81,7 +75,7 @@ export class Attendance1 extends Component {
             <TouchableHighlight
               style={styles.classbutton}
               onPress={() => {
-                this.setState({ checked: 0 });
+                this.setState({ ind: 0 });
               }}
             >
               <Text style={styles.buttontext}>CSA</Text>
@@ -89,7 +83,7 @@ export class Attendance1 extends Component {
             <TouchableHighlight
               style={styles.classbutton}
               onPress={() => {
-                this.setState({ checked: 1 });
+                this.setState({ ind: 1 });
               }}
             >
               <Text style={styles.buttontext}>CSB</Text>
@@ -97,7 +91,7 @@ export class Attendance1 extends Component {
             <TouchableHighlight
               style={styles.classbutton}
               onPress={() => {
-                this.setState({ checked: 2 });
+                this.setState({ ind: 2 });
               }}
             >
               <Text style={styles.buttontext}>EEE</Text>
@@ -107,7 +101,7 @@ export class Attendance1 extends Component {
             <TouchableHighlight
               style={styles.classbutton}
               onPress={() => {
-                this.setState({ checked: 3 });
+                this.setState({ ind: 3 });
               }}
             >
               <Text style={styles.buttontext}>ECA</Text>
@@ -115,7 +109,7 @@ export class Attendance1 extends Component {
             <TouchableHighlight
               style={styles.classbutton}
               onPress={() => {
-                this.setState({ checked: 4 });
+                this.setState({ ind: 4 });
               }}
             >
               <Text style={styles.buttontext}>ECB</Text>
@@ -123,7 +117,7 @@ export class Attendance1 extends Component {
             <TouchableHighlight
               style={styles.classbutton}
               onPress={() => {
-                this.setState({ checked: 5 });
+                this.setState({ ind: 5 });
               }}
             >
               <Text style={styles.buttontext}>EB</Text>
@@ -214,7 +208,7 @@ export class Attendance1 extends Component {
             selectionColor="white"
             enablesReturnKeyAutomatically={true}
             keyboardAppearance={"dark"}
-            onChangeText={rollno => this.setState({ rollno })}
+            onChangeText={roll => this.setState({ roll })}
           />
         </View>
       </View>
