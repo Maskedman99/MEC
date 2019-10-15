@@ -3,7 +3,7 @@
     "GT": [
       {
         "id": "1",
-        "M": "Introductory concepts - What is graph – Application of graphs – finite and infinite graphs – Incidence and Degree – Isolated vertex,pendent vertex and Null graph. Paths and circuits – Isomorphism, sub graphs, walks, paths and circuits, Connected graphs, disconnect graphs."
+        "M": "Introductory concepts - What is graph – Application of graphs – finite and infinite graphs – Incidence and Degree – Isolated vertex, pendent vertex and Null graph. Paths and circuits – Isomorphism, sub graphs, walks, paths and circuits, Connected graphs, disconnect graphs."
       },
       {
         "id": "2",
@@ -55,7 +55,105 @@
     "DC": [
       {
         "id": "1",
-        "M": "Data Transmission:\n Communication model Simplex, half duplex and full duplex transmission \nPeriodic Analog signals:\n Sine wave, phase, wavelength, time and frequency domain, bandwidth - Digital Signals; Digital data Transmission:- Analog & Digital data, Analog & transmission Digital – signals, Analog Transmission & Digital Impairments:\n Attenuation, Delay distortion, Noise \nChannel capacity:\n Nyquist Bandwidth, Shannon's Capacity formula"
+        "M": "Data Transmission:\n Communication model Simplex, half duplex and full duplex transmission \nPeriodic Analog signals:\n Sine wave, phase, wavelength, time and frequency domain, bandwidth - Digital Signals; \nDigital data Transmission:-\n Analog & Digital data, Analog & transmission Digital – signals, Analog Transmission & Digital Impairments:\n Attenuation, Delay distortion, Noise \nChannel capacity:\n Nyquist Bandwidth, Shannon's Capacity formula"
+      },
+      {
+        "id": "2",
+        "M": "Transmission media - Guided Transmission Media: Twisted pair, Coaxial cable, optical fiber, Wireless Transmission, Terrestrial microwave, Satellite microwave. Wireless Propagation: Ground wave propagation, Sky Wave propagation, LoS Propagation."
+      },
+      {
+        "id": "3",
+        "M": "Signal Encoding techniques - Digital Data Digital Signals: NRZ, Multilevel binary, Biphase - Digital Data Analog Signals: ASK, FSK, PSK  - Analog Data Digital Signals: Sampling theorem, PCM, Delta Modulation - Analog Data Analog Signals: AM, FM, PM."
+      },
+      {
+        "id": "4",
+        "M": "Multiplexing- Space Division Multiplexing- Frequency Division Multiplexing: Wave length Division Multiplexing - Time Division multiplexing: Characteristics, Digital Carrier system, SONET/SDH-Statistical time division multiplexing: Cable Modem - Code Division Multiplexing. Multiple Access– CDMA."
+      },
+      {
+        "id": "5",
+        "M": "Digital Data Communication Techniques - Asynchronous transmission, Synchronous transmission - Detecting and Correcting Errors - Types of Errors-Error Detection: Parity check, Cyclic Redundancy Check (CRC) - Error Control Error Correction: Forward Error Correction and Hamming Distance"
+      },
+      {
+        "id": "6",
+        "M": "Spread Spectrum Spread Spectrum Techniques-Direct (DSSS), Frequency Sequence Hopping Spread Spectrum (FHSS). Basic principles of switching - Circuit Switched Networks, Structure of Circuit Switch - Packet Switching: Datagram Networks, Virtual Circuit Networks, Structure of packet switches."
+      }
+    ],
+    "MM": [
+      {
+        "id": "1",
+        "M": "Evolution of microprocessors, 8086 Microprocessor - Architecture and signals, Memory organisation, Minimum and Maximmum mode of operation, Minimum mode Timing Diagram. Comparison of 8086 and 8088"
+      },
+      {
+        "id": "2",
+        "M": "8086 Addressing Modes, 8086 Instruction set and Assembler Directives - Assembly Language Programming with Subroutines, Macros, Passing Parameters, Use of stack."
+      },
+      {
+        "id": "3",
+        "M": "Interrupts - Types of Interrupts and Interrupt Service Routine. Handling Interrupts in 8086, Interrupt programming. Basic Peripherals and their Interfacing with 8086 - Programmable Interrupt Controller - 8259 - Architecture."
+      },
+      {
+        "id": "4",
+        "M": "Interfacing Memory, I/O, 8255 - Detailed study - Architecture, Control word format and modes of operation, Architecture and modes of operation of 8279 and 8257 (Just mention the control word, no need to memorize the control word format)"
+      },
+      {
+        "id": "5",
+        "M": "Microcontrollers - Types of Microcontrollers - Criteria for selecting a microcontroller - Example Applications. Characteristics and Resources of a microcontroller. Organization and design of these resources in a typical microcontroller - 8051. 8051 Architecture, Register Organization, Memory and I/O addressing, Interrupts and Stack."
+      },
+      {
+        "id": "6",
+        "M": "8051 Addressing Modes, Different types of instructions and Instruction Set, Simple programs. Peripheral Chips for timing control - 8254/8253."
+      }
+    ],
+    "TOC": [
+      {
+        "id": "1",
+        "M": "Introduction to Automata Theory and its significance. Type 3 Formalism: Finite state automata – Properties of transition functions, Designing finite automata, NFA, Finite Automata with Epsilon Transitions, Equivalence of NFA and DFA, Conversion of NFA to DFA, Equivalence and Conversion of NFA with and without Epsilon Transitions"
+      },
+      {
+        "id": "2",
+        "M": "Myhill-Nerode Theorem, Minimal State FA Computation. Finite State Machines with Output- Mealy and Moore machine (Design Only), Two- Way Finite Automata. Regular Grammar, Regular Expressions, Equivalence of regular expressions and NFA with epsilon transitions. Converting Regular Expressions to NFA with epsilon transitions Equivalence of DFA and regular expressions, converting DFA to Regular Expressions."
+      },
+      {
+        "id": "3",
+        "M": "Pumping Lemma for Regular Languages, Applications of Pumping Lemma. Closure Properties of Regular sets (Proofs not required), Decision Problems related with Type 3 Formalism Type 2 Formalism:- Context-Free Languages (CFL), Context-Free Grammar (CFG), Derivation trees, Ambiguity, Simplification of CFG, Chomsky Normal Form, Greibach normal forms"
+      },
+      {
+        "id": "4",
+        "M": "Non-Deterministic Pushdown Automata (NPDA), design. Equivalence of acceptance by final state and empty stack in PDA. Equivalence between NPDA and CFG, Deterministic Push Down Automata, Closure properties of CFLs (Proof not required), Decision Problems related with Type 3 Formalism."
+      },
+      {
+        "id": "5",
+        "M": "Pumping Lemma for CFLs, Applications of Pumping Lemma. \nType 1 Formalism: Context-sensitive Grammar. Linear Bounded Automata (Design not required) \nType 0 Formalism: Turing Machine (TM) – Basics and formal definition, TMs as language acceptors, TMs as Transducers, Designing Turing Machines."
+      },
+      {
+        "id": "6",
+        "M": "Variants of TMs -Universal Turing Machine, Multi- tape TMs, Non Deterministic TMs, Enumeration Machine (Equivalence not required), Recursively Enumerable Languages, Recursive languages, Properties of Recursively Enumerable Languages and Recursive Languages, Decidability and Halting Problem. Chomsky Hierarchy"
+      }
+    ],
+    "SC": [
+      {
+        "id": "1",
+        "M": "Introduction to Soft Computing Artificial neural networks - biological neurons, Basic models of artificial neural networks – Connections, Learning, Activation Functions, McCulloch and Pitts Neuron, Hebb network."
+      },
+      {
+        "id": "2",
+        "M": "Perceptron networks – Learning rule – Training and testing algorithm, Adaptive Linear Neuron, Back propagation Network – Architecture, Training algorithm"
+      },
+      {
+        "id": "3",
+        "M": "Fuzzy logic - fuzzy sets - properties - operations on fuzzy sets, fuzzy relations - operations on fuzzy relations"
+      },
+      {
+        "id": "4",
+        "M": "Fuzzy membership functions, fuzzification, Methods of membership value assignments – intuition – inference – rank ordering, Lambda –cuts for fuzzy sets, Defuzzification methods"
+      },
+      {
+        "id": "5",
+        "M": "Truth values and Tables in Fuzzy Logic, Fuzzy propositions, Formation of fuzzy rules - Decomposition of rules – Aggregation of rules, Fuzzy Inference Systems - Mamdani and Sugeno types, Neuro-fuzzy hybrid systems – characteristics - classification"
+      },
+      {
+        "id": "6",
+        "M": "Introduction to genetic algorithm, operators in genetic algorithm - coding - selection - cross over – mutation, Stopping condition for genetic algorithm flow, Genetic-neuro hybrid systems, Genetic-Fuzzy rule based system"
       }
     ]
   }

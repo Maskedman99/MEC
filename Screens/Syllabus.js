@@ -14,6 +14,12 @@ export class Syllabus extends Component {
         <SyllabusList data={TXT.S5.GT} />
         <Text style={styles.head}>DATA COMMUNICATION</Text>
         <SyllabusList data={TXT.S5.DC} />
+        <Text style={styles.head}>MICROPROCESSORS AND MICROCONTROLLERS</Text>
+        <SyllabusList data={TXT.S5.MM} />
+        <Text style={styles.head}>THEORY OF COMPUTATION</Text>
+        <SyllabusList data={TXT.S5.TOC} />
+        <Text style={styles.head}>SOFT COMPUTING</Text>
+        <SyllabusList data={TXT.S5.SC} />
       </ScrollView>
     );
   }
