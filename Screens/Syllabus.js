@@ -1,21 +1,27 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { ScrollView, View, Text, StyleSheet } from "react-native";
 import TXT from "../Assets/Syllabus/CS.json";
+
+import SyllabusList from "../Components/SyllabusList";
 
 export class Syllabus extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>{TXT.S5.GT.M1}</Text>
-        <Text style={styles.text}>Hello</Text>
-      </View>
+      <ScrollView style={styles.container}>
+        <Text style={styles.head}>SYSTEM SOFTWARE</Text>
+        <SyllabusList data={TXT.S5.SS} />
+        <Text style={styles.head}>GRAPH THEORY</Text>
+        <SyllabusList data={TXT.S5.GT} />
+        <Text style={styles.head}>DATA COMMUNICATION</Text>
+        <SyllabusList data={TXT.S5.DC} />
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  text: {
-    marginLeft: 15,
+  head: {
+    textAlign: "center",
     marginTop: 10,
     color: "#8bc34a",
     fontWeight: "bold",

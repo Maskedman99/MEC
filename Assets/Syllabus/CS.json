@@ -1,25 +1,62 @@
 {
   "S5": {
-    "GT": {
-      "Course-code": "CS309",
-      "Year-of-Introduction": "2016",
-      "M1": "Introductory concepts - What is graph – Application of graphs – finite and infinite graphs – Incidence and Degree – Isolated vertex,pendent vertex and Null graph. Paths and circuits – Isomorphism, sub graphs, walks, paths and circuits, Connected graphs, disconnect graphs.",
-      "M2": "Euler graphs, Hamiltonian paths and circuits, Dirac's theorem for Hamiltonicity, Travelling salesman problem. Directed graphs – types of digraphs, Digraphs and binary relation",
-      "M3": "Trees – properties, pendent vertex, Distance and centres - Rooted and binary tree, counting trees, spanning trees.",
-      "M4": "Vertex Connectivity, Edge Connectivity, Cut set and Cut Vertices, Fundamental circuits, Planar graphs, Different representation of planar graphs, Euler's theorem, Geometric dual, Combinatorial dual.",
-      "M5": "Matrix representation of graphs- Adjacency matrix, Incidence Matrix, Circuit matrix, Fundamental Circuit matrix and Rank, Cut set matrix, Path matrix",
-      "M6": "Graphs theoretic algorithms - Algorithm for computer representation of a graph, algorithm for connectedness and components, spanning tree, shortest path."
-    },
-    "SS": {
-      "Course-code": "CS303",
-      "Year-of-Introduction": "2015",
-      "Text-Book": "1. Leland L. Beck, System Software: An Introduction to Systems Programming, 3/E, Pearson Education Asia.",
-      "M1": "System Software Vs. Application Software, Different System Software– Assembler, Linker, Loader, Macro Processor, Text Editor, Debugger, Device Driver, Compiler, Interpreter, Operating System(Basic Concepts only) SIC & SIC/XE Architecture, Addressing modes, SIC & SIC/XE Instruction set, Assembler Directives and Programming.",
-      "M2": "Assemblers: \nBasic Functions of Assembler. Assembler output format – Header, Text and End Records- Assembler data structures, Two pass assembler algorithm, Hand assembly of SIC/XE program, Machine dependent assembler features.",
-      "M3": "Assembler design options: \nMachine Independent assembler features – program blocks, Control sections, Assembler design options- Algorithm for Single Pass assembler, Multi pass assembler, Implementation example of MASM Assembler",
-      "M4": "Linker and Loader: \nBasic Loader functions - Design of absolute loader, Simple bootstrap Loader, Machine dependent loader features- Relocation, Program Linking, Algorithm and data structures of two pass Linking Loader, Machine dependent loader features, Loader Design Options.",
-      "M5": "Macro Preprocessor: \nMacro Instruction Definition and Expansion. One pass Macro processor Algorithm and data structures, Machine Independent Macro Processor Features, Macro processor design options",
-      "M6": "Device drivers: \nAnatomy of a device driver, Character and block device drivers, General design of device drivers. Text Editors: \nOverview of Editing, User Interface, Editor Structure. Debuggers: \nDebugging Functions and Capabilities, Relationship with other parts of the system, Debugging Methods- By Induction, Deduction and Backtracking."
-    }
+    "GT": [
+      {
+        "id": "1",
+        "M": "Introductory concepts - What is graph – Application of graphs – finite and infinite graphs – Incidence and Degree – Isolated vertex,pendent vertex and Null graph. Paths and circuits – Isomorphism, sub graphs, walks, paths and circuits, Connected graphs, disconnect graphs."
+      },
+      {
+        "id": "2",
+        "M": "Euler graphs, Hamiltonian paths and circuits, Dirac's theorem for Hamiltonicity, Travelling salesman problem. Directed graphs – types of digraphs, Digraphs and binary relation"
+      },
+      {
+        "id": "3",
+        "M": "Trees – properties, pendent vertex, Distance and centres - Rooted and binary tree, counting trees, spanning trees."
+      },
+      {
+        "id": "4",
+        "M": "Vertex Connectivity, Edge Connectivity, Cut set and Cut Vertices, Fundamental circuits, Planar graphs, Different representation of planar graphs, Euler's theorem, Geometric dual, Combinatorial dual."
+      },
+      {
+        "id": "5",
+        "M": "Matrix representation of graphs- Adjacency matrix, Incidence Matrix, Circuit matrix, Fundamental Circuit matrix and Rank, Cut set matrix, Path matrix"
+      },
+      {
+        "id": "6",
+        "M": "Graphs theoretic algorithms - Algorithm for computer representation of a graph, algorithm for connectedness and components, spanning tree, shortest path."
+      }
+    ],
+    "SS": [
+      {
+        "id": "1",
+        "M": "System Software Vs. Application Software, Different System Software– Assembler, Linker, Loader, Macro Processor, Text Editor, Debugger, Device Driver, Compiler, Interpreter, Operating System(Basic Concepts only) SIC & SIC/XE Architecture, Addressing modes, SIC & SIC/XE Instruction set, Assembler Directives and Programming."
+      },
+      {
+        "id": "2",
+        "M": "Assemblers:\n Basic Functions of Assembler. Assembler output format – Header, Text and End Records- Assembler data structures, Two pass assembler algorithm, Hand assembly of SIC/XE program, Machine dependent assembler features."
+      },
+      {
+        "id": "3",
+        "M": "Assembler design options:\n Machine Independent assembler features – program blocks, Control sections, Assembler design options- Algorithm for Single Pass assembler, Multi pass assembler, Implementation example of MASM Assembler"
+      },
+      {
+        "id": "4",
+        "M": "Linker and Loader:\n Basic Loader functions - Design of absolute loader, Simple bootstrap Loader, Machine dependent loader features- Relocation, Program Linking, Algorithm and data structures of two pass Linking Loader, Machine dependent loader features, Loader Design Options."
+      },
+      {
+        "id": "5",
+        "M": "Macro Preprocessor:\n Macro Instruction Definition and Expansion. One pass Macro processor Algorithm and data structures, Machine Independent Macro Processor Features, Macro processor design options"
+      },
+      {
+        "id": "6",
+        "M": "Device drivers:\n Anatomy of a device driver, Character and block device drivers, General design of device drivers.\nText Editors:\n Overview of Editing, User Interface, Editor Structure.\nDebuggers:\n Debugging Functions and Capabilities, Relationship with other parts of the system, Debugging Methods- By Induction, Deduction and Backtracking."
+      }
+    ],
+    "DC": [
+      {
+        "id": "1",
+        "M": "Data Transmission:\n Communication model Simplex, half duplex and full duplex transmission \nPeriodic Analog signals:\n Sine wave, phase, wavelength, time and frequency domain, bandwidth - Digital Signals; Digital data Transmission:- Analog & Digital data, Analog & transmission Digital – signals, Analog Transmission & Digital Impairments:\n Attenuation, Delay distortion, Noise \nChannel capacity:\n Nyquist Bandwidth, Shannon's Capacity formula"
+      }
+    ]
   }
 }
