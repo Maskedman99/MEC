@@ -1,23 +1,36 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
 
+import ClassButton from "../Components/ClassButton";
+
 export class SyllabusMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: ["CS", "EEE", "EC", "EB"],
-      checked: 0,
+      ind: 0,
       sem: 1
     };
   }
+
+  // Function is necessary for the child component to change the state value of parent (Refer Components/ClassButton)
+  branchhandler = value => {
+    this.setState({
+      ind: value
+    });
+  };
+
+  semhandler = value => {
+    this.setState({
+      sem: value
+    });
+  };
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.livetextcontainer}>
-          <Text style={styles.livetext}>
-            {this.state.data[this.state.checked]}
-          </Text>
+          <Text style={styles.livetext}>{this.state.data[this.state.ind]}</Text>
           <Text style={styles.livetext}>{this.state.sem}</Text>
         </View>
 
@@ -29,117 +42,28 @@ export class SyllabusMenu extends Component {
         </TouchableHighlight>
 
         <Text style={styles.headtext}>Class</Text>
-        <View style={styles.class}>
-          <View style={styles.classinner}>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ checked: 0 });
-              }}
-            >
-              <Text style={styles.buttontext}>CS</Text>
-            </TouchableHighlight>
 
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ checked: 2 });
-              }}
-            >
-              <Text style={styles.buttontext}>EEE</Text>
-            </TouchableHighlight>
-          </View>
-          <View style={styles.classinner}>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ checked: 3 });
-              }}
-            >
-              <Text style={styles.buttontext}>EC</Text>
-            </TouchableHighlight>
-
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ checked: 5 });
-              }}
-            >
-              <Text style={styles.buttontext}>EB</Text>
-            </TouchableHighlight>
-          </View>
+        <View style={styles.classinner}>
+          <ClassButton title="CS" value={0} action={this.branchhandler} />
+          <ClassButton title="EEE" value={1} action={this.branchhandler} />
+        </View>
+        <View style={styles.classinner}>
+          <ClassButton title="EC" value={2} action={this.branchhandler} />
+          <ClassButton title="EB" value={3} action={this.branchhandler} />
         </View>
 
         <Text style={styles.headtext}>Semester</Text>
-        <View style={styles.class}>
-          <View style={styles.classinner}>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 1 });
-              }}
-            >
-              <Text style={styles.buttontext}>1</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 2 });
-              }}
-            >
-              <Text style={styles.buttontext}>2</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 3 });
-              }}
-            >
-              <Text style={styles.buttontext}>3</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 4 });
-              }}
-            >
-              <Text style={styles.buttontext}>4</Text>
-            </TouchableHighlight>
-          </View>
-          <View style={styles.classinner}>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 5 });
-              }}
-            >
-              <Text style={styles.buttontext}>5</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 6 });
-              }}
-            >
-              <Text style={styles.buttontext}>6</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 7 });
-              }}
-            >
-              <Text style={styles.buttontext}>7</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={styles.classbutton}
-              onPress={() => {
-                this.setState({ sem: 8 });
-              }}
-            >
-              <Text style={styles.buttontext}>8</Text>
-            </TouchableHighlight>
-          </View>
+        <View style={styles.classinner}>
+          <ClassButton title="1" value={1} action={this.semhandler} />
+          <ClassButton title="2" value={2} action={this.semhandler} />
+          <ClassButton title="3" value={3} action={this.semhandler} />
+          <ClassButton title="4" value={4} action={this.semhandler} />
+        </View>
+        <View style={styles.classinner}>
+          <ClassButton title="5" value={5} action={this.semhandler} />
+          <ClassButton title="6" value={6} action={this.semhandler} />
+          <ClassButton title="7" value={7} action={this.semhandler} />
+          <ClassButton title="8" value={8} action={this.semhandler} />
         </View>
       </View>
     );
@@ -159,20 +83,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 15,
     textAlign: "center"
-  },
-  buttontext: {
-    margin: 15,
-    color: "white",
-    fontSize: 15,
-    textAlign: "center",
-    fontWeight: "bold"
-  },
-
-  classbutton: {
-    borderWidth: 1,
-    borderColor: "#4caf50",
-    borderRadius: 3,
-    flex: 1
   },
 
   classinner: {
