@@ -5,6 +5,7 @@ class SyllabusList extends Component {
   render() {
     return (
       <View>
+        <Text style={styles.head}>{this.props.title}</Text>
         <FlatList
           data={this.props.data}
           renderItem={({ item }) => (
@@ -24,6 +25,14 @@ class SyllabusList extends Component {
 }
 
 const styles = StyleSheet.create({
+  head: {
+    textAlign: "center",
+    marginTop: 10,
+    color: "#8bc34a",
+    fontWeight: "bold",
+    fontSize: 17
+  },
+
   sytext: {
     color: "white",
     fontSize: 14,

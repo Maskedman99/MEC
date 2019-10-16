@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, View, Text, StyleSheet } from "react-native";
+import { ScrollView, View, StyleSheet } from "react-native";
 import TXT from "../Assets/Syllabus/CS.json";
 
 import SyllabusList from "../Components/SyllabusList";
@@ -8,32 +8,21 @@ export class Syllabus extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.head}>SYSTEM SOFTWARE</Text>
-        <SyllabusList data={TXT.S5.SS} />
-        <Text style={styles.head}>GRAPH THEORY</Text>
-        <SyllabusList data={TXT.S5.GT} />
-        <Text style={styles.head}>DATA COMMUNICATION</Text>
-        <SyllabusList data={TXT.S5.DC} />
-        <Text style={styles.head}>MICROPROCESSORS AND MICROCONTROLLERS</Text>
-        <SyllabusList data={TXT.S5.MM} />
-        <Text style={styles.head}>THEORY OF COMPUTATION</Text>
-        <SyllabusList data={TXT.S5.TOC} />
-        <Text style={styles.head}>SOFT COMPUTING</Text>
-        <SyllabusList data={TXT.S5.SC} />
+        <SyllabusList data={TXT.S5.SS} title="SYSTEM SOFTWARE" />
+        <SyllabusList data={TXT.S5.GT} title="GRAPH THEORY" />
+        <SyllabusList data={TXT.S5.DC} title="DATA COMMUNICATION" />
+        <SyllabusList data={TXT.S5.TOC} title="THEORY OF COMPUTATION" />
+        <SyllabusList data={TXT.S5.SC} title="SOFT COMPUTING" />
+        <SyllabusList
+          data={TXT.S5.MM}
+          title="MICROPROCESSORS AND MICROCONTROLLERS"
+        />
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  head: {
-    textAlign: "center",
-    marginTop: 10,
-    color: "#8bc34a",
-    fontWeight: "bold",
-    fontSize: 17
-  },
-
   container: {
     backgroundColor: "#000000",
     flex: 1,
