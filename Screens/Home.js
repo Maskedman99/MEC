@@ -45,7 +45,7 @@ export class Home extends Component {
                 img={require("../Assets/Evaluation.png")}
               />
               <HomeButton
-                navscreen="Attendance1Screen"
+                navscreen="AttendanceMenuScreen"
                 nav={this.props.navigation}
                 title="ATTENDANCE"
                 img={require("../Assets/Attendance.png")}

@@ -7,7 +7,7 @@ import Attendance from "./Screens/Attendance";
 import Evaluation from "./Screens/Evaluation";
 import Announcements from "./Screens/KTUAnnouncements";
 import Credits from "./Screens/Credits";
-import Attendance1 from "./Screens/Attendance1";
+import AttendanceMenu from "./Screens/AttendanceMenu";
 import SyllabusMenu from "./Screens/SyllabusMenu";
 import Syllabus from "./Screens/Syllabus";
 
@@ -69,8 +69,8 @@ const AppNavigator = createStackNavigator({
     }
   },
 
-  Attendance1Screen: {
-    screen: Attendance1,
+  AttendanceMenuScreen: {
+    screen: AttendanceMenu,
     navigationOptions: {
       title: "Attendance",
       headerStyle: {

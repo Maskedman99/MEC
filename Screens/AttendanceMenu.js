@@ -10,7 +10,7 @@ import {
 
 import ClassButton from "../Components/ClassButton";
 
-export class Attendance1 extends Component {
+export class AttendanceMenu extends Component {
   constructor(props) {
     super(props);
     this.branchhandler = this.branchhandler.bind(this);
@@ -234,4 +234,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Attendance1;
+export default AttendanceMenu;
