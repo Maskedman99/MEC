@@ -19,11 +19,12 @@ export class Attendance1 extends Component {
       data: ["CSA", "CSB", "EEE", "ECA", "ECB", "EB"],
       ind: 0,
       sem: 1,
-      roll: 0
+      roll: 1
     };
     this.getMyValue();
   }
 
+  // Function is necessary for the child component to change the state value of parent (Refer Components/ClassButton)
   branchhandler = value => {
     console.log();
     this.setState({
@@ -38,6 +39,7 @@ export class Attendance1 extends Component {
     });
   };
 
+  // Function to get the class and roll.no stored locally using the async-storage package
   getMyValue = async () => {
     try {
       this.setState({ ind: JSON.parse(await AsyncStorage.getItem("@branch")) });
@@ -47,7 +49,7 @@ export class Attendance1 extends Component {
       //  console.log(e);
     }
   };
-
+  //Function to store the submitted values locally so user doesn't have to re-enter (async-storage)
   setValue = async () => {
     try {
       await AsyncStorage.setItem("@branch", JSON.stringify(this.state.ind));
@@ -59,7 +61,7 @@ export class Attendance1 extends Component {
     this.props.navigation.navigate("AttendanceScreen", {
       branch: this.state.ind,
       sem: this.state.sem,
-      roll: this.state.roll
+      rollno: this.state.roll
     });
   };
 
