@@ -69,7 +69,7 @@ export class Home extends Component {
 
             <View style={styles.buttonContainer}>
               <HomeButton
-                navscreen="KTUAnnouncementsScreen"
+                navscreen="TimetableMenuScreen"
                 nav={this.props.navigation}
                 title="TIME-TABLE"
                 img={require("../Assets/Timetable.png")}

@@ -10,6 +10,8 @@ import Credits from "./Screens/Credits";
 import AttendanceMenu from "./Screens/AttendanceMenu";
 import SyllabusMenu from "./Screens/SyllabusMenu";
 import Syllabus from "./Screens/Syllabus";
+import TimetableMenu from "./Screens/Timetablemenu";
+import Timetable from "./Screens/Timetable";
 
 const AppNavigator = createStackNavigator({
   HomeScreen: { screen: Home, navigationOptions: { header: null } },
@@ -95,6 +97,28 @@ const AppNavigator = createStackNavigator({
     screen: Syllabus,
     navigationOptions: {
       title: "Syllabus",
+      headerStyle: {
+        backgroundColor: "#000000"
+      },
+      headerTintColor: "#fff"
+    }
+  },
+
+  TimetableMenuScreen: {
+    screen: TimetableMenu,
+    navigationOptions: {
+      title: "Time-table",
+      headerStyle: {
+        backgroundColor: "#000000"
+      },
+      headerTintColor: "#fff"
+    }
+  },
+
+  TimetableScreen: {
+    screen: Timetable,
+    navigationOptions: {
+      title: "Time-table",
       headerStyle: {
         backgroundColor: "#000000"
       },
