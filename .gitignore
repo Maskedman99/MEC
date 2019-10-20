@@ -57,3 +57,6 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+#Gradle.properties, since it contains the Upload_key_password
+/android/gradle.properties
