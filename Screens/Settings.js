@@ -46,6 +46,18 @@ export class Settings extends Component {
             <Text style={styles.menutext}>{"\t\t"}Check for Updates</Text>
           </TouchableHighlight>
 
+          <TouchableHighlight
+            activeOpacity={0.5}
+            onPress={() => {
+              Alert.alert(
+                "Create an Issue at",
+                "https://github.com/Maskedman99/MEC/issues"
+              );
+            }}
+          >
+            <Text style={styles.menutext}>{"\t\t"}Report Bugs</Text>
+          </TouchableHighlight>
+
           <TouchableHighlight activeOpacity={0.5} onPress={this.onShare}>
             <Text style={styles.menutext}>{"\t\t"}Share</Text>
           </TouchableHighlight>

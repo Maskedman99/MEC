@@ -17,7 +17,7 @@
     "react-native-image-slider": "^2.0.3",
     "react-native-splash-screen": "^3.2.0",
     "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^1.9.4",
+    "react-navigation-stack": "^1.10.2",
     "util": "^0.12.1"
   },
   "devDependencies": {
