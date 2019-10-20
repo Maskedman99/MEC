@@ -1,4 +1,4 @@
-package com.mec;
+package com.maskedmanmec;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
