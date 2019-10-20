@@ -36,7 +36,12 @@ export class SyllabusMenu extends Component {
 
         <TouchableHighlight
           style={styles.submitcontainer}
-          onPress={() => this.props.navigation.navigate("SyllabusScreen")}
+          onPress={() =>
+            this.props.navigation.navigate("SyllabusScreen", {
+              branch: this.state.ind,
+              sem: this.state.sem
+            })
+          }
         >
           <Text style={styles.submittext}>SUBMIT</Text>
         </TouchableHighlight>

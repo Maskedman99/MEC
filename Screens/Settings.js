@@ -4,6 +4,7 @@ import {
   Text,
   TouchableHighlight,
   Alert,
+  Linking,
   StyleSheet,
   ScrollView,
   Share
@@ -50,7 +51,7 @@ export class Settings extends Component {
             activeOpacity={0.5}
             onPress={() => {
               Alert.alert(
-                "Create an Issue at",
+                "Create an Issue at:",
                 "https://github.com/Maskedman99/MEC/issues"
               );
             }}
