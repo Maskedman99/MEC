@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import TXT from "../Assets/Syllabus/CS.json";
 
 import SyllabusList from "../Components/SyllabusList";
@@ -23,17 +23,9 @@ export class Syllabus extends Component {
 
   render() {
     return this.state.branch === 0 && this.state.sem === 5 ? (
-      <ScrollView style={styles.container}>
-        <SyllabusList data={TXT.S5.SS} title="SYSTEM SOFTWARE" />
-        <SyllabusList data={TXT.S5.GT} title="GRAPH THEORY" />
-        <SyllabusList data={TXT.S5.DC} title="DATA COMMUNICATION" />
-        <SyllabusList data={TXT.S5.TOC} title="THEORY OF COMPUTATION" />
-        <SyllabusList data={TXT.S5.SC} title="SOFT COMPUTING" />
-        <SyllabusList
-          data={TXT.S5.MM}
-          title="MICROPROCESSORS AND MICROCONTROLLERS"
-        />
-      </ScrollView>
+      <View style={styles.container}>
+        <SyllabusList data={TXT.S5} />
+      </View>
     ) : (
       <View style={styles.container}>
         <Text style={styles.textnorm}>Comming Soon!</Text>
