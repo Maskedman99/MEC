@@ -75,9 +75,12 @@ export class AttendanceMenu extends Component {
           <Text style={styles.livetext}>{this.state.roll}</Text>
         </View>
         {// eslint-disable-next-line eqeqeq
-        this.state.roll == 0 ? ( //above comment disables eslint warning to strict compare
+        this.state.roll == 0 ||
+        this.state.roll == null ||
+        this.state.sem == null ||
+        this.state.ind == null ? (
           <View style={styles.warningcontainer}>
-            <Text style={styles.warningtext}> Enter a Roll number </Text>
+            <Text style={styles.warningtext}> Enter Data </Text>
           </View>
         ) : (
           <TouchableHighlight

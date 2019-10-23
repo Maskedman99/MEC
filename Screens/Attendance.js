@@ -105,7 +105,7 @@ export class Attendance extends Component {
         <ActivityIndicator color="white" size="large" />
       </View>
     ) : (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.headcontainer}>
           <Text style={styles.textnorm}>Name: </Text>
           <Text style={styles.textbig}>{x2[2]}</Text>
@@ -146,7 +146,7 @@ export class Attendance extends Component {
             ))}
           </View>
         </ScrollView>
-      </ScrollView>
+      </View>
     );
   }
 }
