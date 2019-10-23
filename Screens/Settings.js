@@ -15,8 +15,9 @@ export class Settings extends Component {
     try {
       await Share.share(
         {
-          message: "http://gen.lib.rus.ec/  ",
-          url: "http://gen.lib.rus.ec/", //Only IOS
+          message:
+            "https://play.google.com/store/apps/details?id=com.maskedmanmec",
+          url: "https://play.google.com/store/apps/details?id=com.maskedmanmec", //Only IOS
           title: "Hey there, checkout this app!"
         },
         {
@@ -38,10 +39,7 @@ export class Settings extends Component {
           <TouchableHighlight
             activeOpacity={0.5}
             onPress={() => {
-              Alert.alert(
-                "Updates",
-                "Looks like no updates are currently available, check again later"
-              );
+              Linking.openURL("market://details?id=com.maskedmanmec");
             }}
           >
             <Text style={styles.menutext}>{"\t\t"}Check for Updates</Text>
@@ -73,7 +71,7 @@ export class Settings extends Component {
           <TouchableHighlight
             activeOpacity={0.5}
             onPress={() => {
-              Alert.alert("About", "Version 0.6");
+              Alert.alert("About", "Version 1.1");
             }}
           >
             <Text style={styles.menutext}>{"\t\t"}About</Text>
