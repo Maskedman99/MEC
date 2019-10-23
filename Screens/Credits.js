@@ -18,22 +18,24 @@ const styles = StyleSheet.create({
     marginTop: 30,
     color: "#8bc34a",
     fontWeight: "bold",
-    fontSize: 17
+    fontSize: 17,
+    textAlign: "center"
   },
 
   container: {
     backgroundColor: "#000000",
     flex: 1,
     borderTopWidth: 1,
-    borderColor: "white",
-    alignItems: "center"
+    borderColor: "white"
+    //  alignItems: "center"
   },
 
   specialthankstext: {
     color: "white",
     marginTop: 30,
     marginBottom: -15,
-    fontSize: 15
+    fontSize: 15,
+    textAlign: "center"
   }
 });
 
