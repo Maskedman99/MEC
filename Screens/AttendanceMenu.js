@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AsyncStorage from "@react-native-community/async-storage";
 import {
   View,
+  ScrollView,
   Text,
   TouchableHighlight,
   StyleSheet,
@@ -67,7 +68,7 @@ export class AttendanceMenu extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.livetextcontainer}>
           <Text style={styles.livetext}>{this.state.data[this.state.ind]}</Text>
           <Text style={styles.livetext}>{this.state.sem}</Text>
@@ -134,7 +135,7 @@ export class AttendanceMenu extends Component {
           keyboardAppearance={"dark"}
           onChangeText={roll => this.setState({ roll })}
         />
-      </View>
+      </ScrollView>
     );
   }
 }

@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { ScrollView, Text, StyleSheet } from "react-native";
 
 export class Credits extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text style={styles.text}>maskedman</Text>
         <Text style={styles.specialthankstext}>Special thanks to: </Text>
         <Text style={styles.text}>r/heo5981</Text>
-      </View>
+      </ScrollView>
     );
   }
 }

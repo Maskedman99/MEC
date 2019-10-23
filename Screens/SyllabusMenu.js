@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+  ScrollView
+} from "react-native";
 
 import ClassButton from "../Components/ClassButton";
 
@@ -28,7 +34,7 @@ export class SyllabusMenu extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.livetextcontainer}>
           <Text style={styles.livetext}>{this.state.data[this.state.ind]}</Text>
           <Text style={styles.livetext}>{this.state.sem}</Text>
@@ -70,7 +76,7 @@ export class SyllabusMenu extends Component {
           <ClassButton title="7" value={7} action={this.semhandler} />
           <ClassButton title="8" value={8} action={this.semhandler} />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
