@@ -73,6 +73,9 @@ export class TimetableMenu extends Component {
           <ClassButton title="7" value={7} action={this.semhandler} />
           <ClassButton title="8" value={8} action={this.semhandler} />
         </View>
+
+        {/* This text is not displayed and is only used to show space under the menu after scrolling in small size mobile*/}
+        <Text>maskedman_</Text>
       </ScrollView>
     );
   }

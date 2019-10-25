@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontStyle: "italic",
     textDecorationLine: "underline",
-    alignSelf: "center"
+    textAlign: "center"
   },
   container: {
     backgroundColor: "#000000",
