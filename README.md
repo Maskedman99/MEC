@@ -4,9 +4,13 @@
 
 # MEC
 
+## Download from
+
+- https://play.google.com/store/apps/details?id=com.maskedmanmec
+
 ## Framework
 
-- react-native 0.60
+- react-native 0.61
 
 ## Packages
 
