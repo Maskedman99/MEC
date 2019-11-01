@@ -1,9 +1,33 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet } from "react-native";
 
+import TXT from "../Assets/TimeTable/TTCS.json";
+
+import TimetableList from "../Components/TimetableList";
+
 export class Timetable extends Component {
+  state = {
+    branch: 0,
+    sem: 0
+  };
+
+  componentDidMount() {
+    const { navigation } = this.props;
+    const branch = navigation.getParam("branch", "0");
+    const sem = navigation.getParam("sem", "1");
+
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({ branch: branch });
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({ sem: sem });
+  }
+
   render() {
-    return (
+    return this.state.branch === 1 && this.state.sem === 5 ? (
+      <View style={styles.container}>
+        <TimetableList data={TXT.S5} />
+      </View>
+    ) : (
       <View style={styles.container}>
         <Text style={styles.textnorm}>Comming Soon!</Text>
       </View>

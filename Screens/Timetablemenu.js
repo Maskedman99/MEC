@@ -42,7 +42,12 @@ export class TimetableMenu extends Component {
 
         <TouchableHighlight
           style={styles.submitcontainer}
-          onPress={() => this.props.navigation.navigate("TimetableScreen")}
+          onPress={() =>
+            this.props.navigation.navigate("TimetableScreen", {
+              branch: this.state.ind,
+              sem: this.state.sem
+            })
+          }
         >
           <Text style={styles.submittext}>SUBMIT</Text>
         </TouchableHighlight>
