@@ -71,7 +71,7 @@ export class Settings extends Component {
           <TouchableHighlight
             activeOpacity={0.5}
             onPress={() => {
-              Alert.alert("About", "Version 1.1");
+              Alert.alert("About", "Version 1.2");
             }}
           >
             <Text style={styles.menutext}>{"\t\t"}About</Text>
