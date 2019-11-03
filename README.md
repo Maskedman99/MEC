@@ -1,5 +1,5 @@
 <p align = "center">
-  <img alt="MEC" src="Assets/MecIcon.svg?sanitize=true" width="300">
+  <img alt="MEC" src="src/Assets/MecIcon.svg?sanitize=true" width="300">
 </p>
 
 # MEC
