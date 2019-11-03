@@ -1,17 +1,17 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
-import Settings from "./Screens/Settings";
-import Home from "./Screens/Home";
-import Attendance from "./Screens/Attendance";
-import Evaluation from "./Screens/Evaluation";
-import Announcements from "./Screens/KTUAnnouncements";
-import Credits from "./Screens/Credits";
-import AttendanceMenu from "./Screens/AttendanceMenu";
-import SyllabusMenu from "./Screens/SyllabusMenu";
-import Syllabus from "./Screens/Syllabus";
-import TimetableMenu from "./Screens/Timetablemenu";
-import Timetable from "./Screens/Timetable";
+import Settings from "./src/Screens/Settings";
+import Home from "./src/Screens/Home";
+import Attendance from "./src/Screens/Attendance";
+import Evaluation from "./src/Screens/Evaluation";
+import Announcements from "./src/Screens/KTUAnnouncements";
+import Credits from "./src/Screens/Credits";
+import AttendanceMenu from "./src/Screens/AttendanceMenu";
+import SyllabusMenu from "./src/Screens/SyllabusMenu";
+import Syllabus from "./src/Screens/Syllabus";
+import TimetableMenu from "./src/Screens/Timetablemenu";
+import Timetable from "./src/Screens/Timetable";
 
 const AppNavigator = createStackNavigator({
   HomeScreen: { screen: Home, navigationOptions: { header: null } },
