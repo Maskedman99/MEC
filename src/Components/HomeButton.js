@@ -27,7 +27,7 @@ class HomeButton extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    width: 170,
+    width: 175,
     height: 110,
     alignItems: "center",
     justifyContent: "center",

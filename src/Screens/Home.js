@@ -28,7 +28,7 @@ export class Home extends Component {
         <View style={styles.imgcontainer}>
           <ImageSlider
             autoPlayWithInterval={4000}
-            images={images} //required for some reason
+            images={images}
             customSlide={({ index, item, style, width }) => (
               <View key={index} style={[style, styles.customSlide]}>
                 <Image source={{ uri: item }} style={styles.bigimg} />
@@ -92,8 +92,6 @@ export class Home extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: "100%",
     alignItems: "center",
     justifyContent: "flex-end",
     backgroundColor: "#000000",
@@ -110,7 +108,7 @@ const styles = StyleSheet.create({
 
   bigimg: {
     height: "100%",
-    width: "95%",
+    width: "100%",
     resizeMode: "stretch"
   },
 
@@ -122,8 +120,8 @@ const styles = StyleSheet.create({
   },
 
   inner: {
-    height: "57%",
-    marginTop: 15,
+    height: "56%",
+    marginTop: 5,
     marginRight: -5
   },
 
