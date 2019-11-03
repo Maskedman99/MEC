@@ -15,9 +15,11 @@ export class Home extends Component {
 
   render() {
     const images = [
-      "https://www.excelmec.org/static/media/excel.c7c894bc.png",
-      "https://pbs.twimg.com/media/EBg4aeQUIAAhUvU.jpg",
-      "https://pbs.twimg.com/media/EBSh5kgVAAI4Y-0.jpg"
+      "https://github.com/Maskedman99/MEC/raw/master/.images/1.png",
+      "https://github.com/Maskedman99/MEC/raw/master/.images/2.jpg",
+      "https://github.com/Maskedman99/MEC/raw/master/.images/3.jpg",
+      "https://github.com/Maskedman99/MEC/raw/master/.images/4.jpg",
+      "https://github.com/Maskedman99/MEC/raw/master/.images/5.jpg"
     ];
     return (
       <View style={styles.container}>
