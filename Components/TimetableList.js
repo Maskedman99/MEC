@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 17,
     borderTopWidth: 3,
-    borderTopColor: "#8bc34a"
+    borderTopColor: "#8bc34a",
+    textAlignVertical: "bottom"
   },
 
   sytext: {
