@@ -11,7 +11,7 @@ class HomeButton extends React.Component {
   render() {
     //  console.log(this.props);
     return (
-      <View>
+      <View style={styles.container}>
         <TouchableHighlight
           onPress={() => this.props.nav.navigate(this.props.navscreen)}
         >
@@ -26,16 +26,17 @@ class HomeButton extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+
   button: {
-    width: 175,
-    height: 110,
+    height: 120,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#388e3c",
     borderRadius: 2,
-    borderWidth: 0.2,
-    marginRight: 5,
-    marginBottom: 5,
+    margin: "1%",
     borderColor: "#76ff03"
   },
 
@@ -45,9 +46,9 @@ const styles = StyleSheet.create({
   },
 
   img: {
-    height: 45,
-    width: 45,
-    marginBottom: 5
+    height: "45%",
+    width: "30%",
+    marginBottom: "1.5%"
   }
 });
 

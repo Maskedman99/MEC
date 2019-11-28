@@ -93,7 +93,6 @@ export class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    justifyContent: "flex-end",
     backgroundColor: "#000000",
     flex: 1
   },
@@ -102,8 +101,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#8bc34a",
     borderRadius: 2.5,
-    flex: 1,
-    marginTop: 5
+    height: "45%"
   },
 
   bigimg: {
@@ -115,19 +113,18 @@ const styles = StyleSheet.create({
   customSlide: {
     backgroundColor: "#000000",
     alignItems: "center",
-    justifyContent: "center",
-    flex: 1
+    justifyContent: "center"
   },
 
   inner: {
-    height: "56%",
-    marginTop: 5,
-    marginRight: -5
+    marginTop: "1%",
+    flex: 1,
+    alignSelf: "stretch"
   },
 
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "center"
+    flex: 1
   }
 });
 
