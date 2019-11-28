@@ -1,8 +1,8 @@
 This directory is not for development purposes and is not required while bulding the App.
 Hence this directory is hidden.
 This directory stores the images that is to be slide-showed in the Home Screen of the App.
-App fetches images from this directory of the repositery that is hosted on GitHub.
+App fetches images from this directory of the repositery that is on GitHub.
 
 Guidelines
-Images should be named as '1.png', '2.png', '3.png', '4.png' and '5.png'
-Images will be played in the ascending order of their name (i.e '1.png'->'2.png'->....)
+- Images should be uploaded as 1,2,3,4,5 and will be displayed in the same order
+- Images should be uploaded without their extensions

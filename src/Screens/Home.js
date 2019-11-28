@@ -17,9 +17,9 @@ export class Home extends Component {
     const images = [
       "https://github.com/Maskedman99/MEC/raw/master/.images/1",
       "https://github.com/Maskedman99/MEC/raw/master/.images/2",
-      "https://github.com/Maskedman99/MEC/raw/master/.images/3.jpg",
-      "https://github.com/Maskedman99/MEC/raw/master/.images/4.jpg",
-      "https://github.com/Maskedman99/MEC/raw/master/.images/5.jpg"
+      "https://github.com/Maskedman99/MEC/raw/master/.images/3",
+      "https://github.com/Maskedman99/MEC/raw/master/.images/4",
+      "https://github.com/Maskedman99/MEC/raw/master/.images/5"
     ];
     return (
       <View style={styles.container}>
