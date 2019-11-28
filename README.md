@@ -14,11 +14,15 @@
 
 ## Packages
 
+- util
 - axios
 - fast-html-parser
 - react-navigation
-- react-native-gesture-handler
-- util
-- react-native-image-slider
 - react-navigation-stack
+- react-native-image-slider
+- react-native-gesture-handler
 - @react-native-community/async-storage
+
+## License
+
+- MIT License
