@@ -49,6 +49,7 @@ export class KTUAnnouncements extends Component {
           i = -1; //Every time splice is used a new array is copied into the old one, if 0 used 1st null don't
         } // get deleted. If the statement not used then then index of the old array is used.
     }
+
     return this.state.loading ? (
       <View style={styles.activitycontainer}>
         <ActivityIndicator color="white" size="large" />
@@ -58,15 +59,17 @@ export class KTUAnnouncements extends Component {
         <ScrollView style={styles.scroll}>
           {rows.map((item, keys) =>
             keys % 2 ? (
-              <Text style={styles.announcements}>
-                {"\n"}
-                {rows[keys]}
-              </Text>
+              <View />
             ) : (
-              <Text style={styles.date}>{rows[keys - 2]}</Text>
+              <View>
+                <Text style={styles.announcements}>
+                  {"\n"}
+                  {rows[keys + 1]}
+                </Text>
+                <Text style={styles.date}>{rows[keys]}</Text>
+              </View>
             )
           )}
-          <Text style={styles.date}>{rows[rows.length - 2]}</Text>
 
           <TouchableHighlight
             activeOpacity={0.5}
@@ -117,8 +120,7 @@ const styles = StyleSheet.create({
   },
   scroll: {
     color: "white",
-    marginHorizontal: 3,
-    marginTop: -15
+    marginHorizontal: 3
   }
 });
 

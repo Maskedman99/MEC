@@ -127,8 +127,8 @@ export class AttendanceMenu extends Component {
         </View>
         <TextInput
           style={styles.textinput}
-          placeholder="Enter Roll no. here "
-          placeholderTextColor="white"
+          placeholder="Enter roll no. here "
+          placeholderTextColor="gray"
           keyboardType="numeric"
           maxLength={2}
           returnKeyType={"go"}
@@ -190,18 +190,17 @@ const styles = StyleSheet.create({
     marginTop: 20,
     color: "white",
     fontSize: 15,
-    textAlign: "center",
-    borderRadius: 3,
-    backgroundColor: "#4caf50"
+    textAlign: "center"
   },
 
   textinput: {
     marginHorizontal: 3,
     textAlign: "center",
+    color: "white",
     paddingBottom: 5,
-    backgroundColor: "#4caf50",
+    borderBottomWidth: 1,
+    borderBottomColor: "#4caf50",
     marginBottom: 5,
-    borderRadius: 3,
     marginTop: -2
   },
 
