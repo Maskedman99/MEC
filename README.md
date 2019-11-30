@@ -26,8 +26,10 @@
 - react-navigation
 - react-navigation-stack
 - react-native-image-slider
+- react-native-splash-screen
 - react-native-gesture-handler
 - @react-native-community/async-storage
 
 ## License
+
 This project is licensed under the terms of the [MIT license](/LICENSE).
