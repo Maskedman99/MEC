@@ -47,8 +47,9 @@ const styles = StyleSheet.create({
 
   img: {
     height: "45%",
-    width: "30%",
-    marginBottom: "1.5%"
+    width: "35%",
+    marginBottom: "1.5%",
+    resizeMode: "stretch"
   }
 });
 
