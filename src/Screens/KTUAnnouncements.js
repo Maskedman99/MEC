@@ -16,7 +16,8 @@ var HTMLParser = require("fast-html-parser");
 export class KTUAnnouncements extends Component {
   state = {
     loading: true,
-    root: {}
+    root: {},
+    rows: []
   };
 
   componentDidMount() {
@@ -31,25 +32,27 @@ export class KTUAnnouncements extends Component {
       .catch(err => Alert.alert(err.message));
   }
 
-  render() {
-    var rows = this.state.loading
-      ? []
-      : this.state.root.querySelectorAll(".annuncement");
-    if (!this.state.loading) {
+  componentDidUpdate() {
+    if (!this.state.loading && !this.state.rows.length) {
+      var x = this.state.root.querySelectorAll(".annuncement");
+      console.log(x);
       var str = "";
-      str = JSON.stringify(rows[0].rawText);
+      str = JSON.stringify(x[0].rawText);
       str = str.replace(/\\t/g, "");
       str = str.replace(/"/g, "");
       str = str.replace(/ {2}/g, ""); //means 2 spaces {2} is eslint requirement
-      rows = str.split("\\n");
-
-      for (var i = 0; i < rows.length; i++)
-        if (rows[i].length < 2) {
-          rows.splice(i, 1);
+      x = str.split("\\n");
+      for (var i = 0; i < x.length; i++)
+        if (x[i].length < 2) {
+          x.splice(i, 1);
           i = -1; //Every time splice is used a new array is copied into the old one, if 0 used 1st null don't
         } // get deleted. If the statement not used then then index of the old array is used.
-    }
 
+      this.setState({ rows: x });
+    }
+  }
+
+  render() {
     return this.state.loading ? (
       <View style={styles.activitycontainer}>
         <ActivityIndicator color="white" size="large" />
@@ -57,16 +60,16 @@ export class KTUAnnouncements extends Component {
     ) : (
       <View style={styles.container}>
         <ScrollView style={styles.scroll}>
-          {rows.map((item, keys) =>
+          {this.state.rows.map((item, keys) =>
             keys % 2 ? (
               <View />
             ) : (
               <View>
                 <Text style={styles.announcements}>
                   {"\n"}
-                  {rows[keys + 1]}
+                  {this.state.rows[keys + 1]}
                 </Text>
-                <Text style={styles.date}>{rows[keys]}</Text>
+                <Text style={styles.date}>{this.state.rows[keys]}</Text>
               </View>
             )
           )}

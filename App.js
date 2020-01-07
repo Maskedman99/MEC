@@ -14,7 +14,7 @@ import TimetableMenu from "./src/Screens/Timetablemenu";
 import Timetable from "./src/Screens/Timetable";
 
 const AppNavigator = createStackNavigator({
-  HomeScreen: { screen: Home, navigationOptions: { header: null } },
+  HomeScreen: { screen: Home, navigationOptions: { headerShown: false } },
 
   SettingScreen: {
     screen: Settings,
