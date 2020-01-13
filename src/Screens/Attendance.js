@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, { Component } from "react";
 import {
   ScrollView,
@@ -13,20 +12,22 @@ import axios from "axios";
 var HTMLParser = require("fast-html-parser");
 
 export class Attendance extends Component {
-  state = {
-    loading: true,
-    root: {},
-    Rollno: null,
-    data: null
-  };
+  constructor(props){
+    super(props);
+    const { navigation } = this.props;
+    var rollno = navigation.getParam("rollno", "1");
+    this.state = {
+      loading: true,
+      root: {},
+      Rollno: rollno,
+      data: null
+    };
+  }  
 
   componentDidMount() {
     const { navigation } = this.props;
     const clas = navigation.getParam("branch", "0");
     const sem = navigation.getParam("sem", "1");
-    var rollno = navigation.getParam("rollno", "1");
-    // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({ Rollno: rollno });
 
     var url2 = sem;
     if (clas === 0) url2 = "C" + url2 + "A";
