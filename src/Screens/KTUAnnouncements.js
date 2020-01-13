@@ -48,6 +48,7 @@ export class KTUAnnouncements extends Component {
           i = -1; //Every time splice is used a new array is copied into the old one, if 0 used 1st null don't
         } // get deleted. If the statement not used then then index of the old array is used.
 
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ rows: x });
     }
   }
