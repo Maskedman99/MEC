@@ -18,10 +18,13 @@ export class Attendance extends Component {
     var rollno = navigation.getParam("rollno", "1");
     this.state = {
       loading: true,
-      root: {},
       Rollno: rollno,
-      data: null
+      data: null,
+      x: [],
+      et: [],
+      a: []
     };
+      // x => Name, roll.no and percentages, et => Subject names and entries till
   }  
 
   componentDidMount() {
@@ -42,65 +45,56 @@ export class Attendance extends Component {
       url2 +
       "&submit=view";
 
+    var self = this;    //another variable is used because 'this' behaves differently inside functions
     axios
       .get(url)
-      .then(data =>
-        this.setState({
-          root: HTMLParser.parse(data.data),
-          loading: false
-        })
-      )
+      .then(function(data) {
+
+        var root =  HTMLParser.parse(data.data);
+        var rows = root.querySelectorAll("td");
+        var ttnos = root.querySelectorAll("table");
+    
+        for (var i = 0; i < rows.length; i++)
+          rows[i] = JSON.stringify(rows[i].rawText).replace(/["\\]/g, "");
+
+        var ns = ttnos[0].childNodes[1].childNodes.length - 7; //Total no.of subjects
+          ns = (ns + 2) / 2;
+    
+        var x1 = "";
+        for (i = 0; i < ns * 2; i++)
+          x1 = x1 + "+" + rows[self.state.Rollno * ns * 2 + i];
+    
+        //x1 = x1.replace(/[rnt]/g,'') // Can't do, letters r,n,t in name gets replaced
+    
+        x1 = x1.replace("rn", "");
+        x1 = x1.split("rnt").join("");
+        x1 = x1.split("t ").join("");
+        x1 = x1.split("n ").join("");
+        x1 = x1.split("nt").join("");
+        x1 = x1.split("+");
+    
+        var t1 = "";
+        for (i = rows.length - 41 - (ns * 2 - 2) * 2; i < rows.length - 41; i++)
+          t1 = t1 + "+" + rows[i];
+        const t2 = t1.split("+n");
+    
+        var a1 = "";
+        var et1 = "";
+        for (i = 0; i < t2.length; i++) {
+          if (i % 2 !== 0) a1 = a1 + "+" + t2[i];
+          else et1 = et1 + "+" + t2[i];
+        }
+    
+        a1 = a1.split("+");
+        et1 = et1.split("+");
+        a1.shift();
+  
+        self.setState({x: x1, et: et1, a: a1, loading: false});
+      })
       .catch(err => Alert.alert(err.message));
   }
 
   render() {
-    var rows = this.state.loading ? [] : this.state.root.querySelectorAll("td");
-    var ttnos = this.state.loading
-      ? []
-      : this.state.root.querySelectorAll("table");
-
-    for (var i = 0; i < rows.length; i++)
-      rows[i] = JSON.stringify(rows[i].rawText).replace(/["\\]/g, "");
-
-    var ns = 0;
-    if (this.state.loading === false) {
-      ns = ttnos[0].childNodes[1].childNodes.length - 7; //Total no.of subjects
-      ns = (ns + 2) / 2;
-    }
-
-    var x1 = "";
-    for (i = 0; i < ns * 2; i++)
-      x1 = x1 + "+" + rows[this.state.Rollno * ns * 2 + i];
-
-    //x1 = x1.replace(/[rnt]/g,'') // Can't do, letters r,n,t in name gets replaced
-
-    x1 = x1.replace("rn", "");
-    x1 = x1.split("rnt").join("");
-    x1 = x1.split("t ").join("");
-    x1 = x1.split("n ").join("");
-    x1 = x1.split("nt").join("");
-    const x2 = x1.split("+");
-
-    var t1 = "";
-    for (i = rows.length - 41 - (ns * 2 - 2) * 2; i < rows.length - 41; i++)
-      t1 = t1 + "+" + rows[i];
-    const t2 = t1.split("+n");
-
-    var a1 = "";
-    var et = "";
-    for (i = 0; i < t2.length; i++) {
-      if (i % 2 !== 0) a1 = a1 + "+" + t2[i];
-      else et = et + "+" + t2[i];
-    }
-
-    const a2 = a1.split("+");
-    const et2 = et.split("+");
-    a2.shift();
-
-    //    console.log(x1);
-
-    // x2 => Name, roll.no and percentages, e2 => Subject names and entries till
-
     return this.state.loading ? (
       <View style={styles.container}>
         <ActivityIndicator color="white" size="large" />
@@ -109,22 +103,22 @@ export class Attendance extends Component {
       <View style={styles.container}>
         <View style={styles.headcontainer}>
           <Text style={styles.textnorm}>Name: </Text>
-          <Text style={styles.textbig}>{x2[2]}</Text>
+          <Text style={styles.textbig}>{this.state.x[2]}</Text>
         </View>
 
         <View style={styles.headcontainer}>
           <Text style={styles.textnorm}>Roll no: </Text>
-          <Text style={styles.textbig}>{x2[1]}</Text>
+          <Text style={styles.textbig}>{this.state.x[1]}</Text>
         </View>
 
         <ScrollView style={styles.scroll}>
           <View style={styles.rowcontainer}>
-            {a2.map((item, key) => (
+            {this.state.a.map((item, key) => (
               <Text
                 key={key}
                 style={[
                   styles.rows,
-                  x2[key + 3] > 75
+                  this.state.x[key + 3] > 75
                     ? { borderColor: "#8bc34a" }
                     : { borderColor: "#ef5350" }
                 ]}
@@ -134,15 +128,15 @@ export class Attendance extends Component {
                 Percentage:{" "}
                 <Text
                   style={
-                    x2[key + 3] > 75
+                    this.state.x[key + 3] > 75
                       ? { color: "#8bc34a" }
                       : { color: "#ef5350" }
                   }
                 >
-                  {x2[key + 3]}
+                  {this.state.x[key + 3]}
                   {"\t\t\t\t\t\t\t\t"}
                 </Text>
-                Entries till: {et2[key + 2]}
+                Entries till: {this.state.et[key + 2]}
               </Text>
             ))}
           </View>
