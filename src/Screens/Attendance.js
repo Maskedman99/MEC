@@ -19,7 +19,6 @@ export class Attendance extends Component {
     this.state = {
       loading: true,
       Rollno: rollno,
-      data: null,
       x: [],
       et: [],
       a: []
