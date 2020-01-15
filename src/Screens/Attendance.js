@@ -9,10 +9,12 @@ import {
 } from "react-native";
 import axios from "axios";
 
+import AttendanceDisplay from "../Components/AttendanceDisplay";
+
 var HTMLParser = require("fast-html-parser");
 
 export class Attendance extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     const { navigation } = this.props;
     var rollno = navigation.getParam("rollno", "1");
@@ -23,8 +25,8 @@ export class Attendance extends Component {
       et: [],
       a: []
     };
-      // x => Name, roll.no and percentages, et => Subject names and entries till
-  }  
+    // x => Name, roll.no and percentages, et => Subject names and entries till
+  }
 
   componentDidMount() {
     const { navigation } = this.props;
@@ -44,51 +46,51 @@ export class Attendance extends Component {
       url2 +
       "&submit=view";
 
-    var self = this;    //another variable is used because 'this' behaves differently inside functions
+    // eslint-disable-next-line consistent-this
+    var self = this; //another variable is used because 'this' behaves differently inside functions
     axios
       .get(url)
       .then(function(data) {
-
-        var root =  HTMLParser.parse(data.data);
+        var root = HTMLParser.parse(data.data);
         var rows = root.querySelectorAll("td");
         var ttnos = root.querySelectorAll("table");
-    
+
         for (var i = 0; i < rows.length; i++)
           rows[i] = JSON.stringify(rows[i].rawText).replace(/["\\]/g, "");
 
         var ns = ttnos[0].childNodes[1].childNodes.length - 7; //Total no.of subjects
-          ns = (ns + 2) / 2;
-    
+        ns = (ns + 2) / 2;
+
         var x1 = "";
         for (i = 0; i < ns * 2; i++)
           x1 = x1 + "+" + rows[self.state.Rollno * ns * 2 + i];
-    
+
         //x1 = x1.replace(/[rnt]/g,'') // Can't do, letters r,n,t in name gets replaced
-    
+
         x1 = x1.replace("rn", "");
         x1 = x1.split("rnt").join("");
         x1 = x1.split("t ").join("");
         x1 = x1.split("n ").join("");
         x1 = x1.split("nt").join("");
         x1 = x1.split("+");
-    
+
         var t1 = "";
         for (i = rows.length - 41 - (ns * 2 - 2) * 2; i < rows.length - 41; i++)
           t1 = t1 + "+" + rows[i];
         const t2 = t1.split("+n");
-    
+
         var a1 = "";
         var et1 = "";
         for (i = 0; i < t2.length; i++) {
           if (i % 2 !== 0) a1 = a1 + "+" + t2[i];
           else et1 = et1 + "+" + t2[i];
         }
-    
+
         a1 = a1.split("+");
         et1 = et1.split("+");
         a1.shift();
-  
-        self.setState({x: x1, et: et1, a: a1, loading: false});
+
+        self.setState({ x: x1, et: et1, a: a1, loading: false });
       })
       .catch(err => Alert.alert(err.message));
   }
@@ -113,30 +115,11 @@ export class Attendance extends Component {
         <ScrollView style={styles.scroll}>
           <View style={styles.rowcontainer}>
             {this.state.a.map((item, key) => (
-              <Text
-                key={key}
-                style={[
-                  styles.rows,
-                  this.state.x[key + 3] > 75
-                    ? { borderColor: "#8bc34a" }
-                    : { borderColor: "#ef5350" }
-                ]}
-              >
-                {item}
-                {"\n"}
-                Percentage:{" "}
-                <Text
-                  style={
-                    this.state.x[key + 3] > 75
-                      ? { color: "#8bc34a" }
-                      : { color: "#ef5350" }
-                  }
-                >
-                  {this.state.x[key + 3]}
-                  {"\t\t\t\t\t\t\t\t"}
-                </Text>
-                Entries till: {this.state.et[key + 2]}
-              </Text>
+              <AttendanceDisplay
+                subject={item}
+                percentage={this.state.x[key + 3]}
+                entriestill={this.state.et[key + 2]}
+              />
             ))}
           </View>
         </ScrollView>
@@ -177,14 +160,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderTopColor: "#8bc34a",
     borderTopWidth: 2
-  },
-
-  rows: {
-    color: "white",
-    marginBottom: 15,
-    borderBottomWidth: 1,
-    //  alignSelf:'center',
-    fontSize: 14.7
   },
 
   rowcontainer: {
