@@ -18,17 +18,9 @@
 
 - react-native 0.61
 
-## Packages
+## Contributing
 
-- util
-- axios
-- fast-html-parser
-- react-navigation
-- react-navigation-stack
-- react-native-image-slider
-- react-native-splash-screen
-- react-native-gesture-handler
-- @react-native-community/async-storage
+Read [CONTRIBUTING.md](/CONTRIBUTING.md)
 
 ## License
 
