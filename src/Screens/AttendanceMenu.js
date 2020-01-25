@@ -31,6 +31,7 @@ export class AttendanceMenu extends Component {
   };
 
   semhandler = value => {
+    console.log("yay");
     this.setState({ sem: value });
   };
 
