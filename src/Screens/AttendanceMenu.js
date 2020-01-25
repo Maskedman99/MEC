@@ -27,17 +27,11 @@ export class AttendanceMenu extends Component {
 
   // Function is necessary for the child component to change the state value of parent (Refer Components/ClassButton)
   branchhandler = value => {
-    console.log();
-    this.setState({
-      ind: value
-    });
+    this.setState({ ind: value });
   };
 
   semhandler = value => {
-    console.log();
-    this.setState({
-      sem: value
-    });
+    this.setState({ sem: value });
   };
 
   // Function to get the class and roll.no stored locally using the async-storage package

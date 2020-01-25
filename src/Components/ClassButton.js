@@ -3,7 +3,6 @@ import { View, Text, TouchableHighlight, StyleSheet } from "react-native";
 
 class ClassButton extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <View style={styles.container}>
         <TouchableHighlight

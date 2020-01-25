@@ -17,9 +17,7 @@ export class Timetable extends Component {
     const sem = navigation.getParam("sem", "1");
 
     // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({ branch: branch });
-    // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({ sem: sem });
+    this.setState({ branch: branch, sem: sem });
   }
 
   render() {
