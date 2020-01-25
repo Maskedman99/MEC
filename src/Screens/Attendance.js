@@ -17,7 +17,7 @@ export class Attendance extends Component {
   constructor(props) {
     super(props);
     const { navigation } = this.props;
-    var rollno = navigation.getParam("rollno", "1");
+    let rollno = navigation.getParam("rollno", "1");
     this.state = {
       loading: true,
       Rollno: rollno,

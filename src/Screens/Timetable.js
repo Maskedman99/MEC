@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from "react-native";
 
 import TXT from "../Assets/TimeTable/TTCS.json";
 
+import TimeTableFetch from "../Components/TimetableFetch";
 import TimetableList from "../Components/TimetableList";
 
 export class Timetable extends Component {
@@ -27,7 +28,7 @@ export class Timetable extends Component {
       </View>
     ) : (
       <View style={styles.container}>
-        <Text style={styles.textnorm}>Comming Soon!</Text>
+        <TimeTableFetch />
       </View>
     );
   }

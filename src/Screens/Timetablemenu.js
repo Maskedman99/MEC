@@ -21,15 +21,11 @@ export class TimetableMenu extends Component {
 
   // Function is necessary for the child component to change the state value of parent (Refer Components/ClassButton)
   branchhandler = value => {
-    this.setState({
-      ind: value
-    });
+    this.setState({ ind: value });
   };
 
   semhandler = value => {
-    this.setState({
-      sem: value
-    });
+    this.setState({ sem: value });
   };
 
   render() {
