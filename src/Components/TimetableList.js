@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-
+import { StyleSheet, ScrollView } from "react-native";
 import axios from "axios";
 var HTMLParser = require("fast-html-parser");
+
+import TimetableElement from "./TimetableElement";
 
 class TimetableList extends Component {
   state = {
@@ -18,7 +19,7 @@ class TimetableList extends Component {
     const clas = this.props.branch;
     const sem = this.props.sem;
 
-    var url2 = sem;
+    let url2 = sem;
     if (clas === 0) url2 = "C" + url2 + "A";
     else if (clas === 1) url2 = "C" + url2 + "B";
     else if (clas === 2) url2 = "EE" + url2;
@@ -77,59 +78,19 @@ class TimetableList extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.head}>MONDAY</Text>
-        {this.state.mon.map((item, key) => (
-          <View>
-            <Text style={styles.sytext}>{item}</Text>
-          </View>
-        ))}
-        <Text style={styles.head}>TUESDAY</Text>
-        {this.state.tue.map((item, key) => (
-          <View>
-            <Text style={styles.sytext}>{item}</Text>
-          </View>
-        ))}
-        <Text style={styles.head}>WEDNESDAY</Text>
-        {this.state.wed.map((item, key) => (
-          <View>
-            <Text style={styles.sytext}>{item}</Text>
-          </View>
-        ))}
-        <Text style={styles.head}>THURSDAY</Text>
-        {this.state.thu.map((item, key) => (
-          <View>
-            <Text style={styles.sytext}>{item}</Text>
-          </View>
-        ))}
-        <Text style={styles.head}>FRIDAY</Text>
-        {this.state.fri.map((item, key) => (
-          <View>
-            <Text style={styles.sytext}>{item}</Text>
-          </View>
-        ))}
+        <TimetableElement head="MONDAY" data={this.state.mon} />
+        <TimetableElement head="TUESDAY" data={this.state.tue} />
+        <TimetableElement head="WEDNESDAY" data={this.state.wed} />
+        <TimetableElement head="THURSDAY" data={this.state.thu} />
+        <TimetableElement head="FRIDAY" data={this.state.fri} />
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  head: {
-    textAlign: "center",
-    color: "#8bc34a",
-    fontWeight: "bold",
-    fontSize: 17,
-    borderTopWidth: 3,
-    borderTopColor: "#8bc34a",
-    textAlignVertical: "bottom"
-  },
   container: {
     flex: 1
-  },
-  sytext: {
-    color: "white",
-    fontSize: 16,
-    marginVertical: 10,
-    textAlign: "center"
   }
 });
 export default TimetableList;
