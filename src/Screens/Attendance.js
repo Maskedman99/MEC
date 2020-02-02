@@ -14,26 +14,20 @@ import AttendanceDisplay from "../Components/AttendanceDisplay";
 var HTMLParser = require("fast-html-parser");
 
 export class Attendance extends Component {
-  constructor(props) {
-    super(props);
-    const { navigation } = this.props;
-    let rollno = navigation.getParam("rollno", "1");
-    this.state = {
-      loading: true,
-      Rollno: rollno,
-      x: [],
-      et: [],
-      a: []
-    };
+  state = {
     // x => Name, roll.no and percentages, et => Subject names and entries till
-  }
+    loading: true,
+    Rollno: this.props.navigation.getParam("rollno", "1"),
+    x: [],
+    et: [],
+    a: []
+  };
 
   componentDidMount() {
-    const { navigation } = this.props;
-    const clas = navigation.getParam("branch", "0");
-    const sem = navigation.getParam("sem", "1");
+    let clas = this.props.navigation.getParam("branch", "0");
+    let sem = this.props.navigation.getParam("sem", "1");
 
-    var url2 = sem;
+    let url2 = sem;
     if (clas === 0) url2 = "C" + url2 + "A";
     else if (clas === 1) url2 = "C" + url2 + "B";
     else if (clas === 2) url2 = "EE" + url2;
@@ -51,22 +45,21 @@ export class Attendance extends Component {
     axios
       .get(url)
       .then(function(data) {
-        var root = HTMLParser.parse(data.data);
-        var rows = root.querySelectorAll("td");
-        var ttnos = root.querySelectorAll("table");
+        let root = HTMLParser.parse(data.data);
+        let rows = root.querySelectorAll("td");
+        let ttnos = root.querySelectorAll("table");
 
-        for (var i = 0; i < rows.length; i++)
+        for (let i = 0; i < rows.length; i++)
           rows[i] = JSON.stringify(rows[i].rawText).replace(/["\\]/g, "");
 
-        var ns = ttnos[0].childNodes[1].childNodes.length - 7; //Total no.of subjects
+        let ns = ttnos[0].childNodes[1].childNodes.length - 7; //Total no.of subjects
         ns = (ns + 2) / 2;
 
-        var x1 = "";
-        for (i = 0; i < ns * 2; i++)
+        let x1 = "";
+        for (let i = 0; i < ns * 2; i++)
           x1 = x1 + "+" + rows[self.state.Rollno * ns * 2 + i];
 
         //x1 = x1.replace(/[rnt]/g,'') // Can't do, letters r,n,t in name gets replaced
-
         x1 = x1.replace("rn", "");
         x1 = x1.split("rnt").join("");
         x1 = x1.split("t ").join("");
@@ -74,14 +67,19 @@ export class Attendance extends Component {
         x1 = x1.split("nt").join("");
         x1 = x1.split("+");
 
-        var t1 = "";
-        for (i = rows.length - 41 - (ns * 2 - 2) * 2; i < rows.length - 41; i++)
+        let t1 = "";
+        //rows[rows.length -42] is the last entry
+        for (
+          let i = rows.length - 41 - (ns * 2 - 2) * 2;
+          i < rows.length - 41;
+          i++
+        )
           t1 = t1 + "+" + rows[i];
         const t2 = t1.split("+n");
 
-        var a1 = "";
-        var et1 = "";
-        for (i = 0; i < t2.length; i++) {
+        let a1 = "";
+        let et1 = "";
+        for (let i = 0; i < t2.length; i++) {
           if (i % 2 !== 0) a1 = a1 + "+" + t2[i];
           else et1 = et1 + "+" + t2[i];
         }
@@ -170,5 +168,3 @@ const styles = StyleSheet.create({
 });
 
 export default Attendance;
-
-//rows[rows.length -42] is the last entry
