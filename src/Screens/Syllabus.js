@@ -1,37 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import TXT from "../Assets/Syllabus/CS.json";
 
 import SyllabusList from "../Components/SyllabusList";
 
-export class Syllabus extends Component {
-  state = {
-    branch: 0,
-    sem: 0
-  };
-
-  componentDidMount() {
-    const { navigation } = this.props;
-    const branch = navigation.getParam("branch", "0");
-    const sem = navigation.getParam("sem", "1");
-
-    // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({ branch: branch });
-    // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({ sem: sem });
-  }
-
-  render() {
-    return this.state.branch === 0 && this.state.sem === 5 ? (
-      <View style={styles.container}>
-        <SyllabusList data={TXT.S5} />
-      </View>
-    ) : (
-      <View style={styles.container}>
-        <Text style={styles.textnorm}>Comming Soon!</Text>
-      </View>
-    );
-  }
+function Syllabus(props) {
+  return props.navigation.getParam("branch", "0") === 0 &&
+    props.navigation.getParam("sem", "1") === 5 ? (
+    <View style={styles.container}>
+      <SyllabusList data={TXT.S5} />
+    </View>
+  ) : (
+    <View style={styles.container}>
+      <Text style={styles.textnorm}>Comming Soon!</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

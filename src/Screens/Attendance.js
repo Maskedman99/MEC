@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ScrollView,
   ActivityIndicator,
@@ -8,24 +8,23 @@ import {
   StyleSheet
 } from "react-native";
 import axios from "axios";
+var HTMLParser = require("fast-html-parser");
 
 import AttendanceDisplay from "../Components/AttendanceDisplay";
 
-var HTMLParser = require("fast-html-parser");
-
-export class Attendance extends Component {
-  state = {
-    // x => Name, roll.no and percentages, et => Subject names and entries till
+function Attendance(props) {
+  // x => Name, roll.no and percentages, et => Subject names and entries till
+  const [state, setState] = useState({
     loading: true,
-    Rollno: this.props.navigation.getParam("rollno", "1"),
+    Rollno: props.navigation.getParam("rollno", "1"),
     x: [],
     et: [],
     a: []
-  };
+  });
 
-  componentDidMount() {
-    let clas = this.props.navigation.getParam("branch", "0");
-    let sem = this.props.navigation.getParam("sem", "1");
+  useEffect(() => {
+    let clas = props.navigation.getParam("branch", "0");
+    let sem = props.navigation.getParam("sem", "1");
 
     let url2 = sem;
     if (clas === 0) url2 = "C" + url2 + "A";
@@ -40,8 +39,6 @@ export class Attendance extends Component {
       url2 +
       "&submit=view";
 
-    // eslint-disable-next-line consistent-this
-    var self = this; //another variable is used because 'this' behaves differently inside functions
     axios
       .get(url)
       .then(function(data) {
@@ -57,7 +54,7 @@ export class Attendance extends Component {
 
         let x1 = "";
         for (let i = 0; i < ns * 2; i++)
-          x1 = x1 + "+" + rows[self.state.Rollno * ns * 2 + i];
+          x1 = x1 + "+" + rows[state.Rollno * ns * 2 + i];
 
         //x1 = x1.replace(/[rnt]/g,'') // Can't do, letters r,n,t in name gets replaced
         x1 = x1.replace("rn", "");
@@ -88,42 +85,41 @@ export class Attendance extends Component {
         et1 = et1.split("+");
         a1.shift();
 
-        self.setState({ x: x1, et: et1, a: a1, loading: false });
+        setState({ x: x1, et: et1, a: a1, loading: false });
       })
       .catch(err => Alert.alert(err.message));
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  render() {
-    return this.state.loading ? (
-      <View style={styles.container}>
-        <ActivityIndicator color="white" size="large" />
+  return state.loading ? (
+    <View style={styles.container}>
+      <ActivityIndicator color="white" size="large" />
+    </View>
+  ) : (
+    <View style={styles.container}>
+      <View style={styles.headcontainer}>
+        <Text style={styles.textnorm}>Name: </Text>
+        <Text style={styles.textbig}>{state.x[2]}</Text>
       </View>
-    ) : (
-      <View style={styles.container}>
-        <View style={styles.headcontainer}>
-          <Text style={styles.textnorm}>Name: </Text>
-          <Text style={styles.textbig}>{this.state.x[2]}</Text>
-        </View>
 
-        <View style={styles.headcontainer}>
-          <Text style={styles.textnorm}>Roll no: </Text>
-          <Text style={styles.textbig}>{this.state.x[1]}</Text>
-        </View>
-
-        <ScrollView style={styles.scroll}>
-          <View style={styles.rowcontainer}>
-            {this.state.a.map((item, key) => (
-              <AttendanceDisplay
-                subject={item}
-                percentage={this.state.x[key + 3]}
-                entriestill={this.state.et[key + 2]}
-              />
-            ))}
-          </View>
-        </ScrollView>
+      <View style={styles.headcontainer}>
+        <Text style={styles.textnorm}>Roll no: </Text>
+        <Text style={styles.textbig}>{state.x[1]}</Text>
       </View>
-    );
-  }
+
+      <ScrollView style={styles.scroll}>
+        <View style={styles.rowcontainer}>
+          {state.a.map((item, key) => (
+            <AttendanceDisplay
+              subject={item}
+              percentage={state.x[key + 3]}
+              entriestill={state.et[key + 2]}
+            />
+          ))}
+        </View>
+      </ScrollView>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -134,32 +130,27 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: "white"
   },
-
   textnorm: {
     color: "white",
     fontSize: 16
   },
-
   textbig: {
     color: "#8bc34a",
     fontWeight: "bold",
     fontSize: 16
   },
-
   headcontainer: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     marginTop: 10
   },
-
   scroll: {
     color: "white",
     marginTop: 10,
     borderTopColor: "#8bc34a",
     borderTopWidth: 2
   },
-
   rowcontainer: {
     marginLeft: 5,
     marginTop: 15,
