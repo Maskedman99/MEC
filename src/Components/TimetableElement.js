@@ -1,19 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-class TimetableElement extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text style={styles.head}>{this.props.head}</Text>
-        {this.props.data.map((item, key) => (
-          <View>
-            <Text style={styles.sytext}>{item}</Text>
-          </View>
-        ))}
-      </View>
-    );
-  }
+function TimetableElement(props) {
+  return (
+    <View>
+      <Text style={styles.head}>{props.head}</Text>
+      {props.data.map((item, key) => (
+        <View>
+          <Text style={styles.sytext}>{item}</Text>
+        </View>
+      ))}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

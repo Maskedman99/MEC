@@ -7,22 +7,17 @@ import {
   StyleSheet
 } from "react-native";
 
-class HomeButton extends React.Component {
-  render() {
-    //  console.log(this.props);
-    return (
-      <View style={styles.container}>
-        <TouchableHighlight
-          onPress={() => this.props.nav.navigate(this.props.navscreen)}
-        >
-          <View style={styles.button}>
-            <Image style={styles.img} source={this.props.img} />
-            <Text style={styles.textstyle}>{this.props.title}</Text>
-          </View>
-        </TouchableHighlight>
-      </View>
-    );
-  }
+function HomeButton(props) {
+  return (
+    <View style={styles.container}>
+      <TouchableHighlight onPress={() => props.nav.navigate(props.navscreen)}>
+        <View style={styles.button}>
+          <Image style={styles.img} source={props.img} />
+          <Text style={styles.textstyle}>{props.title}</Text>
+        </View>
+      </TouchableHighlight>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

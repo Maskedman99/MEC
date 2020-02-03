@@ -1,26 +1,21 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
 
-class AttendanceDisplay extends React.Component {
-  render() {
-    return (
-      <Text
-        style={[
-          styles.rows,
-          this.props.percentage >= 75 ? styles.bhigh : styles.blow
-        ]}
-      >
-        {this.props.subject}
-        {"\n"}
-        Percentage:{" "}
-        <Text style={this.props.percentage >= 75 ? styles.high : styles.low}>
-          {this.props.percentage}
-          {"\t\t\t\t\t\t\t\t"}
-        </Text>
-        Entries till: {this.props.entriestill}
+function AttendanceDisplay(props) {
+  return (
+    <Text
+      style={[styles.rows, props.percentage >= 75 ? styles.bhigh : styles.blow]}
+    >
+      {props.subject}
+      {"\n"}
+      Percentage:{" "}
+      <Text style={props.percentage >= 75 ? styles.high : styles.low}>
+        {props.percentage}
+        {"\t\t\t\t\t\t\t\t"}
       </Text>
-    );
-  }
+      Entries till: {props.entriestill}
+    </Text>
+  );
 }
 
 const styles = StyleSheet.create({
