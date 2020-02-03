@@ -1,23 +1,23 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, ScrollView } from "react-native";
 import axios from "axios";
 var HTMLParser = require("fast-html-parser");
 
 import TimetableElement from "./TimetableElement";
 
-class TimetableList extends Component {
-  state = {
+function TimetableList(props) {
+  const [state, setState] = useState({
     isloading: true,
     mon: [],
     tue: [],
     wed: [],
     thu: [],
     fri: []
-  };
+  });
 
-  componentDidMount() {
-    const clas = this.props.branch;
-    const sem = this.props.sem;
+  useEffect(() => {
+    const clas = props.branch;
+    const sem = props.sem;
 
     let url2 = sem;
     if (clas === 0) url2 = "C" + url2 + "A";
@@ -32,8 +32,6 @@ class TimetableList extends Component {
       url2 +
       "&submit=view";
 
-    // eslint-disable-next-line consistent-this
-    const self = this;
     axios
       .get(url)
       .then(function(response) {
@@ -71,21 +69,20 @@ class TimetableList extends Component {
         for (let i = 0; i < 6; i++) wed.unshift(rows.pop());
         for (let i = 0; i < 6; i++) tue.unshift(rows.pop());
         for (let i = 0; i < 6; i++) mon.unshift(rows.pop());
-        self.setState({ fri: fri, thu: thu, wed: wed, tue: tue, mon: mon });
+        setState({ fri: fri, thu: thu, wed: wed, tue: tue, mon: mon });
       })
       .catch(e => console.log(e));
-  }
-  render() {
-    return (
-      <ScrollView style={styles.container}>
-        <TimetableElement head="MONDAY" data={this.state.mon} />
-        <TimetableElement head="TUESDAY" data={this.state.tue} />
-        <TimetableElement head="WEDNESDAY" data={this.state.wed} />
-        <TimetableElement head="THURSDAY" data={this.state.thu} />
-        <TimetableElement head="FRIDAY" data={this.state.fri} />
-      </ScrollView>
-    );
-  }
+  }, [props.branch, props.sem]);
+
+  return (
+    <ScrollView style={styles.container}>
+      <TimetableElement head="MONDAY" data={state.mon} />
+      <TimetableElement head="TUESDAY" data={state.tue} />
+      <TimetableElement head="WEDNESDAY" data={state.wed} />
+      <TimetableElement head="THURSDAY" data={state.thu} />
+      <TimetableElement head="FRIDAY" data={state.fri} />
+    </ScrollView>
+  );
 }
 
 const styles = StyleSheet.create({
