@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -10,8 +10,8 @@ import {
   Share
 } from "react-native";
 
-export class Settings extends Component {
-  onShare = async () => {
+export function Settings() {
+  async function onShare() {
     try {
       await Share.share(
         {
@@ -30,56 +30,54 @@ export class Settings extends Component {
     } catch (error) {
       Alert.alert(error.message);
     }
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <ScrollView style={styles.scroll}>
-          <TouchableHighlight
-            activeOpacity={0.5}
-            onPress={() => {
-              Linking.openURL("market://details?id=com.maskedmanmec");
-            }}
-          >
-            <Text style={styles.menutext}>{"\t\t"}Check for Updates</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight
-            activeOpacity={0.5}
-            onPress={() => {
-              Alert.alert(
-                "Create an Issue at:",
-                "https://github.com/Maskedman99/MEC/issues"
-              );
-            }}
-          >
-            <Text style={styles.menutext}>{"\t\t"}Report Bugs</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight activeOpacity={0.5} onPress={this.onShare}>
-            <Text style={styles.menutext}>{"\t\t"}Share</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight
-            activeOpacity={0.5}
-            onPress={() => this.props.navigation.navigate("CreditsScreen")}
-          >
-            <Text style={styles.menutext}>{"\t\t"}Credits</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight
-            activeOpacity={0.5}
-            onPress={() => {
-              Alert.alert("About", "Version 1.2");
-            }}
-          >
-            <Text style={styles.menutext}>{"\t\t"}About</Text>
-          </TouchableHighlight>
-        </ScrollView>
-      </View>
-    );
   }
+
+  return (
+    <View style={styles.container}>
+      <ScrollView style={styles.scroll}>
+        <TouchableHighlight
+          activeOpacity={0.5}
+          onPress={() => {
+            Linking.openURL("market://details?id=com.maskedmanmec");
+          }}
+        >
+          <Text style={styles.menutext}>{"\t\t"}Check for Updates</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          activeOpacity={0.5}
+          onPress={() => {
+            Alert.alert(
+              "Create an Issue at:",
+              "https://github.com/Maskedman99/MEC/issues"
+            );
+          }}
+        >
+          <Text style={styles.menutext}>{"\t\t"}Report Bugs</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight activeOpacity={0.5} onPress={() => onShare()}>
+          <Text style={styles.menutext}>{"\t\t"}Share</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          activeOpacity={0.5}
+          onPress={() => this.props.navigation.navigate("CreditsScreen")}
+        >
+          <Text style={styles.menutext}>{"\t\t"}Credits</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          activeOpacity={0.5}
+          onPress={() => {
+            Alert.alert("About", "Version 1.2");
+          }}
+        >
+          <Text style={styles.menutext}>{"\t\t"}About</Text>
+        </TouchableHighlight>
+      </ScrollView>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
