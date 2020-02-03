@@ -1,14 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-export class Evaluation extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.textnorm}>Comming Soon!</Text>
-      </View>
-    );
-  }
+function Evaluation() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.textnorm}>Comming Soon!</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

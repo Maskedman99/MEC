@@ -10,7 +10,7 @@ import {
   Share
 } from "react-native";
 
-export function Settings() {
+function Settings() {
   async function onShare() {
     try {
       await Share.share(
