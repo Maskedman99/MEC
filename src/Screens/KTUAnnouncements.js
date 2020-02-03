@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -13,14 +13,10 @@ import axios from "axios";
 
 var HTMLParser = require("fast-html-parser");
 
-export class KTUAnnouncements extends Component {
-  state = {
-    loading: true,
-    rows: []
-  };
+function KTUAnnouncements() {
+  const [state, setState] = useState({ loading: true, rows: [] });
 
-  componentDidMount() {
-    var self = this;
+  useEffect(() => {
     axios
       .get("https://ktu.edu.in/home.htm")
       .then(function(data) {
@@ -36,47 +32,45 @@ export class KTUAnnouncements extends Component {
             i = -1; //Every time splice is used a new array is copied into the old one, if 0 used 1st null don't
           } // get deleted. If the statement not used then then index of the old array is used.
 
-        self.setState({ rows: x, loading: false });
+        setState({ rows: x, loading: false });
       })
       .catch(err => Alert.alert(err.message));
-  }
+  }, []);
 
-  render() {
-    return this.state.loading ? (
-      <View style={styles.activitycontainer}>
-        <ActivityIndicator color="white" size="large" />
-      </View>
-    ) : (
-      <View style={styles.container}>
-        <ScrollView style={styles.scroll}>
-          {this.state.rows.map((item, keys) =>
-            keys % 2 ? (
-              <View />
-            ) : (
-              <View>
-                <Text style={styles.announcements}>
-                  {"\n"}
-                  {this.state.rows[keys + 1]}
-                </Text>
-                <Text style={styles.date}>{this.state.rows[keys]}</Text>
-              </View>
-            )
-          )}
+  return state.loading ? (
+    <View style={styles.activitycontainer}>
+      <ActivityIndicator color="white" size="large" />
+    </View>
+  ) : (
+    <View style={styles.container}>
+      <ScrollView style={styles.scroll}>
+        {state.rows.map((item, keys) =>
+          keys % 2 ? (
+            <View />
+          ) : (
+            <View>
+              <Text style={styles.announcements}>
+                {"\n"}
+                {state.rows[keys + 1]}
+              </Text>
+              <Text style={styles.date}>{state.rows[keys]}</Text>
+            </View>
+          )
+        )}
 
-          <TouchableHighlight
-            activeOpacity={0.5}
-            onPress={() => {
-              Linking.openURL("https://ktu.edu.in/eu/core/announcements.htm");
-            }}
-          >
-            <Text style={styles.viewmore}>
-              {"\n"}https://ktu.edu.in/eu/core/announcements.htm{"\n"}
-            </Text>
-          </TouchableHighlight>
-        </ScrollView>
-      </View>
-    );
-  }
+        <TouchableHighlight
+          activeOpacity={0.5}
+          onPress={() => {
+            Linking.openURL("https://ktu.edu.in/eu/core/announcements.htm");
+          }}
+        >
+          <Text style={styles.viewmore}>
+            {"\n"}https://ktu.edu.in/eu/core/announcements.htm{"\n"}
+          </Text>
+        </TouchableHighlight>
+      </ScrollView>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
