@@ -10,7 +10,7 @@ import {
   Share
 } from "react-native";
 
-function Settings() {
+function Settings(props) {
   async function onShare() {
     try {
       await Share.share(
@@ -62,7 +62,7 @@ function Settings() {
 
         <TouchableHighlight
           activeOpacity={0.5}
-          onPress={() => this.props.navigation.navigate("CreditsScreen")}
+          onPress={() => props.navigation.navigate("CreditsScreen")}
         >
           <Text style={styles.menutext}>{"\t\t"}Credits</Text>
         </TouchableHighlight>
