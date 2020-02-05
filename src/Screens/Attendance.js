@@ -19,7 +19,8 @@ function Attendance(props) {
     Rollno: props.navigation.getParam("rollno", "1"),
     x: [],
     et: [],
-    a: []
+    a: [],
+    tc: []
   });
 
   useEffect(() => {
@@ -34,10 +35,7 @@ function Attendance(props) {
     else if (clas === 4) url2 = "E" + url2 + "B";
     else url2 = "B" + url2;
 
-    const url =
-      "http://attendance.mec.ac.in/view4stud.php?class=" +
-      url2 +
-      "&submit=view";
+    const url = "http://attendance.mec.ac.in/view4stud.php?class=" + url2;
 
     axios
       .get(url)
@@ -53,8 +51,11 @@ function Attendance(props) {
         ns = (ns + 2) / 2;
 
         let x1 = "";
-        for (let i = 0; i < ns * 2; i++)
+        let totalClasses = "";
+        for (let i = 0; i < ns * 2; i++) {
           x1 = x1 + "+" + rows[state.Rollno * ns * 2 + i];
+          totalClasses = totalClasses + rows[i];
+        }
 
         //x1 = x1.replace(/[rnt]/g,'') // Can't do, letters r,n,t in name gets replaced
         x1 = x1.replace("rn", "");
@@ -85,7 +86,12 @@ function Attendance(props) {
         et1 = et1.split("+");
         a1.shift();
 
-        setState({ x: x1, et: et1, a: a1, loading: false });
+        var regExp = /\(([^)]+)\)/g;
+        var totalClasses1 = totalClasses.match(regExp);
+        for (let i = 0; i < totalClasses1.length; i++)
+          totalClasses1[i] = totalClasses1[i].replace(/[()]/g, "");
+
+        setState({ x: x1, et: et1, a: a1, tc: totalClasses1, loading: false });
       })
       .catch(err => Alert.alert(err.message));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -99,7 +105,7 @@ function Attendance(props) {
     <View style={styles.container}>
       <View style={styles.headcontainer}>
         <Text style={styles.textnorm}>Name: </Text>
-        <Text style={styles.textbig}>{state.x[2]}</Text>
+        <Text style={styles.textbig}>{state.x[2].trim()}</Text>
       </View>
 
       <View style={styles.headcontainer}>
@@ -114,6 +120,7 @@ function Attendance(props) {
               subject={item}
               percentage={state.x[key + 3]}
               entriestill={state.et[key + 2]}
+              totalClasses={state.tc[key]}
             />
           ))}
         </View>
