@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, ActivityIndicator, View } from "react-native";
 import axios from "axios";
 var HTMLParser = require("fast-html-parser");
 
 import TimetableElement from "./TimetableElement";
 
-function TimetableList(props) {
+const TimetableList = ({ sem = sem, branch = branch }) => {
   const [state, setState] = useState({
-    isloading: true,
     mon: [],
     tue: [],
     wed: [],
     thu: [],
     fri: []
   });
+  const [isloading, setisloading] = useState(true);
 
   useEffect(() => {
-    const clas = props.branch;
-    const sem = props.sem;
+    let clas = branch;
+    let s = sem;
 
-    let url2 = sem;
+    let url2 = s;
     if (clas === 0) url2 = "C" + url2 + "A";
     else if (clas === 1) url2 = "C" + url2 + "B";
     else if (clas === 2) url2 = "EE" + url2;
@@ -70,11 +70,16 @@ function TimetableList(props) {
         for (let i = 0; i < 6; i++) tue.unshift(rows.pop());
         for (let i = 0; i < 6; i++) mon.unshift(rows.pop());
         setState({ fri: fri, thu: thu, wed: wed, tue: tue, mon: mon });
+        setisloading(false);
       })
       .catch(e => console.log(e));
-  }, [props.branch, props.sem]);
+  }, [branch, sem]);
 
-  return (
+  return isloading ? (
+    <View style={styles.container}>
+      <ActivityIndicator color="white" size="large" />
+    </View>
+  ) : (
     <ScrollView style={styles.container}>
       <TimetableElement head="MONDAY" data={state.mon} />
       <TimetableElement head="TUESDAY" data={state.tue} />
@@ -83,11 +88,12 @@ function TimetableList(props) {
       <TimetableElement head="FRIDAY" data={state.fri} />
     </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
   }
 });
+
 export default TimetableList;
