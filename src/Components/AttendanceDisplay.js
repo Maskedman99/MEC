@@ -1,27 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-function AttendanceDisplay(props) {
-  var attented = (props.percentage * props.totalClasses) / 100;
-  var canCut =
-    props.percentage >= 75
-      ? Math.floor((4 * attented - 3 * props.totalClasses) / 3)
-      : Math.round(3 * props.totalClasses - 4 * attented);
+const AttendanceDisplay = ({
+  subject = subject,
+  percentage = percentage,
+  totalClasses = totalClasses,
+  entriestill = entriestill
+}) => {
+  const [attented, setattented] = useState("-");
+  const [canCut, setcanCut] = useState("-");
+
+  useEffect(() => {
+    let y = (percentage * totalClasses) / 100;
+    let x =
+      percentage >= 75
+        ? Math.floor((4 * y - 3 * totalClasses) / 3)
+        : Math.round(3 * totalClasses - 4 * y);
+
+    setattented(y);
+    setcanCut(x);
+  }, [percentage, totalClasses]);
 
   return (
-    <View style={props.percentage >= 75 ? styles.bhigh : styles.blow}>
+    <View style={percentage >= 75 ? styles.bhigh : styles.blow}>
       <View>
-        <Text style={styles.rows}>{props.subject}</Text>
+        <Text style={styles.rows}>{subject}</Text>
       </View>
       <View style={styles.details}>
         <View>
           <Text style={styles.rows}>
-            Percentage:{" "}
-            <Text style={props.percentage >= 75 ? styles.high : styles.low}>
-              {props.percentage}
+            {"Percentage: "}
+            <Text style={percentage >= 75 ? styles.high : styles.low}>
+              {percentage}
             </Text>
           </Text>
-          {props.percentage >= 75 ? (
+          {percentage >= 75 ? (
             <Text style={styles.high}>Can cut {canCut} classes</Text>
           ) : (
             <Text style={styles.low}>Have to Attend {canCut} classes</Text>
@@ -29,13 +42,13 @@ function AttendanceDisplay(props) {
         </View>
         <View>
           <Text style={styles.et}>Attended: {Math.floor(attented)}</Text>
-          <Text style={styles.et}>Total Classes: {props.totalClasses}</Text>
-          <Text style={styles.et}>Entries till: {props.entriestill}</Text>
+          <Text style={styles.et}>Total Classes: {totalClasses}</Text>
+          <Text style={styles.et}>Entries till: {entriestill}</Text>
         </View>
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   rows: {

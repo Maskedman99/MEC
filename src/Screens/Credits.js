@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView, Text, StyleSheet } from "react-native";
 
-function Credits() {
+const Credits = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.text}>maskedman</Text>
@@ -9,7 +9,7 @@ function Credits() {
       <Text style={styles.text}>r/heo5981</Text>
     </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   text: {
@@ -19,15 +19,12 @@ const styles = StyleSheet.create({
     fontSize: 17,
     textAlign: "center"
   },
-
   container: {
     backgroundColor: "#000000",
     flex: 1,
     borderTopWidth: 1,
     borderColor: "white"
-    //  alignItems: "center"
   },
-
   specialthankstext: {
     color: "white",
     marginTop: 30,

@@ -144,20 +144,17 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: "white"
   },
-
   livetextcontainer: {
     marginTop: 30,
     marginVertical: 10,
     flexDirection: "row",
     justifyContent: "space-around"
   },
-
   livetext: {
     fontSize: 25,
     fontWeight: "bold",
     color: "#4caf50"
   },
-
   headtext: {
     margin: 5,
     marginTop: 25,
@@ -165,28 +162,23 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: "center"
   },
-
   class: {
     marginHorizontal: 3
   },
-
   classinner: {
     flexDirection: "row",
     justifyContent: "space-around"
   },
-
   rollview: {
     alignSelf: "center",
     borderRadius: 3
   },
-
   rolltext: {
     marginTop: 20,
     color: "white",
     fontSize: 15,
     textAlign: "center"
   },
-
   textinput: {
     marginHorizontal: 3,
     textAlign: "center",
@@ -197,7 +189,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginTop: -2
   },
-
   warningcontainer: {
     alignItems: "center",
     borderColor: "red",
@@ -206,14 +197,12 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     margin: 10
   },
-
   warningtext: {
     color: "#ed1c22",
     fontSize: 25,
     fontWeight: "bold",
     margin: 5
   },
-
   submitcontainer: {
     alignItems: "center",
     borderColor: "green",
@@ -222,7 +211,6 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     margin: 10
   },
-
   submittext: {
     color: "#8bc34a",
     fontWeight: "bold",

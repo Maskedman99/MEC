@@ -7,7 +7,7 @@ import {
   StyleSheet
 } from "react-native";
 
-function HomeButton(props) {
+const HomeButton = props => {
   return (
     <View style={styles.container}>
       <TouchableHighlight onPress={() => props.nav.navigate(props.navscreen)}>
@@ -18,13 +18,12 @@ function HomeButton(props) {
       </TouchableHighlight>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-
   button: {
     height: 120,
     alignItems: "center",
@@ -34,12 +33,10 @@ const styles = StyleSheet.create({
     margin: "1%",
     borderColor: "#76ff03"
   },
-
   textstyle: {
     color: "white",
     fontWeight: "bold"
   },
-
   img: {
     height: "45%",
     width: "35%",
