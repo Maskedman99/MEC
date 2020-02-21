@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from "react";
-import {
-  ScrollView,
-  ActivityIndicator,
-  Text,
-  View,
-  Alert,
-  StyleSheet
-} from "react-native";
+import { ScrollView, Text, View, Alert, StyleSheet } from "react-native";
 import axios from "axios";
 var HTMLParser = require("fast-html-parser");
 
 import AttendanceDisplay from "../Components/AttendanceDisplay";
+import Spinner from "../Components/Spinner";
 
-function Attendance(props) {
+const Attendance = ({ navigation = navigation }) => {
   // x => Name, roll.no and percentages, et => Subject names and entries till
   const [state, setState] = useState({
     loading: true,
-    Rollno: props.navigation.getParam("rollno", "1"),
+    Rollno: navigation.getParam("rollno", "1"),
     x: [],
     et: [],
     a: [],
@@ -24,8 +18,8 @@ function Attendance(props) {
   });
 
   useEffect(() => {
-    let clas = props.navigation.getParam("branch", "0");
-    let sem = props.navigation.getParam("sem", "1");
+    let clas = navigation.getParam("branch", "0");
+    let sem = navigation.getParam("sem", "1");
 
     let url2 = sem;
     if (clas === 0) url2 = "C" + url2 + "A";
@@ -98,9 +92,7 @@ function Attendance(props) {
   }, []);
 
   return state.loading ? (
-    <View style={styles.container}>
-      <ActivityIndicator color="white" size="large" />
-    </View>
+    <Spinner />
   ) : (
     <View style={styles.container}>
       <View style={styles.headcontainer}>
@@ -127,7 +119,7 @@ function Attendance(props) {
       </ScrollView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

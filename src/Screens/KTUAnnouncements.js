@@ -4,14 +4,14 @@ import {
   Text,
   ScrollView,
   TouchableHighlight,
-  ActivityIndicator,
   Linking,
   StyleSheet,
   Alert
 } from "react-native";
 import axios from "axios";
-
 var HTMLParser = require("fast-html-parser");
+
+import Spinner from "../Components/Spinner";
 
 const KTUAnnouncements = () => {
   const [state, setState] = useState({ loading: true, rows: [] });
@@ -38,9 +38,7 @@ const KTUAnnouncements = () => {
   }, []);
 
   return state.loading ? (
-    <View style={styles.activitycontainer}>
-      <ActivityIndicator color="white" size="large" />
-    </View>
+    <Spinner />
   ) : (
     <View style={styles.container}>
       <ScrollView style={styles.scroll}>
@@ -98,12 +96,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "#8bc34a",
     color: "white",
     textAlign: "right"
-  },
-  activitycontainer: {
-    flex: 1,
-    backgroundColor: "#000000",
-    justifyContent: "center",
-    alignItems: "center"
   },
   scroll: {
     color: "white",

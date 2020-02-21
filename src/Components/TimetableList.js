@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, ScrollView, ActivityIndicator, View } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import axios from "axios";
 var HTMLParser = require("fast-html-parser");
 
 import TimetableElement from "./TimetableElement";
+import Spinner from "./Spinner";
 
 const TimetableList = ({ sem = sem, branch = branch }) => {
   const [state, setState] = useState({
@@ -76,9 +77,7 @@ const TimetableList = ({ sem = sem, branch = branch }) => {
   }, [branch, sem]);
 
   return isloading ? (
-    <View style={styles.container}>
-      <ActivityIndicator color="white" size="large" />
-    </View>
+    <Spinner />
   ) : (
     <ScrollView style={styles.container}>
       <TimetableElement head="MONDAY" data={state.mon} />
