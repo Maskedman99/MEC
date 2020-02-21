@@ -13,7 +13,7 @@ import axios from "axios";
 
 var HTMLParser = require("fast-html-parser");
 
-function KTUAnnouncements() {
+const KTUAnnouncements = () => {
   const [state, setState] = useState({ loading: true, rows: [] });
 
   useEffect(() => {
@@ -65,17 +65,18 @@ function KTUAnnouncements() {
           }}
         >
           <Text style={styles.viewmore}>
-            {"\n"}https://ktu.edu.in/eu/core/announcements.htm{"\n"}
+            https://ktu.edu.in/eu/core/announcements.htm
           </Text>
         </TouchableHighlight>
       </ScrollView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   viewmore: {
     color: "#00cdcd",
+    marginVertical: 20,
     fontSize: 16,
     fontStyle: "italic",
     textDecorationLine: "underline",

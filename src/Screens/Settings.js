@@ -10,8 +10,8 @@ import {
   Share
 } from "react-native";
 
-function Settings(props) {
-  async function onShare() {
+const Settings = props => {
+  const onShare = async () => {
     try {
       await Share.share(
         {
@@ -21,16 +21,14 @@ function Settings(props) {
           title: "Hey there, checkout this app!"
         },
         {
-          // Android only:
-          dialogTitle: "Share MEC with your freinds!",
-          // iOS only:
-          excludedActivityTypes: ["com.apple.UIKit.activity.PostToTwitter"]
+          dialogTitle: "Share this app with your freinds!", // Android only
+          excludedActivityTypes: ["com.apple.UIKit.activity.PostToTwitter"] // iOS only
         }
       );
     } catch (error) {
       Alert.alert(error.message);
     }
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -41,7 +39,7 @@ function Settings(props) {
             Linking.openURL("market://details?id=com.maskedmanmec");
           }}
         >
-          <Text style={styles.menutext}>{"\t\t"}Check for Updates</Text>
+          <Text style={styles.menutext}>Check for Updates</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -53,32 +51,32 @@ function Settings(props) {
             );
           }}
         >
-          <Text style={styles.menutext}>{"\t\t"}Report Bugs</Text>
+          <Text style={styles.menutext}>Report Bugs</Text>
         </TouchableHighlight>
 
         <TouchableHighlight activeOpacity={0.5} onPress={() => onShare()}>
-          <Text style={styles.menutext}>{"\t\t"}Share</Text>
+          <Text style={styles.menutext}>Share</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
           activeOpacity={0.5}
           onPress={() => props.navigation.navigate("CreditsScreen")}
         >
-          <Text style={styles.menutext}>{"\t\t"}Credits</Text>
+          <Text style={styles.menutext}>Credits</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
           activeOpacity={0.5}
           onPress={() => {
-            Alert.alert("About", "Version 1.2");
+            Alert.alert("About", "Version 1.3");
           }}
         >
-          <Text style={styles.menutext}>{"\t\t"}About</Text>
+          <Text style={styles.menutext}>About</Text>
         </TouchableHighlight>
       </ScrollView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -87,19 +85,19 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: "white"
   },
-
   menutext: {
     color: "white",
     fontWeight: "bold",
     fontSize: 18,
+    paddingLeft: 10,
     marginVertical: 15,
-    marginHorizontal: 10,
+    marginHorizontal: 5,
     borderBottomWidth: 0.5,
     borderBottomColor: "#8bc34a"
   },
-
   scroll: {
     marginTop: 20
   }
 });
+
 export default Settings;
