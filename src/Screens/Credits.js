@@ -6,7 +6,7 @@ const Credits = () => {
     <ScrollView style={styles.container}>
       <Text style={styles.text}>maskedman</Text>
       <Text style={styles.specialthankstext}>Special thanks to: </Text>
-      <Text style={styles.text}>r/heo5981</Text>
+      <Text style={styles.text}>u/heo5981</Text>
     </ScrollView>
   );
 };
