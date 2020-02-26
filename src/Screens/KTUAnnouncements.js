@@ -34,11 +34,8 @@ const KTUAnnouncements = () => {
             <View />
           ) : (
             <View>
-              <Text style={styles.announcements}>
-                {"\n"}
-                {rows[keys + 1]}
-              </Text>
-              <Text style={styles.date}>{rows[keys]}</Text>
+              <Text style={styles.announcements}>{rows[keys + 1]}</Text>
+              <Text style={styles.date}>{item}</Text>
             </View>
           )
         )}
@@ -74,6 +71,7 @@ const styles = StyleSheet.create({
     borderColor: "white"
   },
   announcements: {
+    paddingVertical: 10,
     color: "white",
     fontSize: 15,
     fontFamily: "sans-serif"
