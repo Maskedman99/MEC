@@ -95,15 +95,12 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   scroll: {
-    color: "white",
     marginTop: 10,
     borderTopColor: "#8bc34a",
     borderTopWidth: 2
   },
   rowcontainer: {
-    marginLeft: 5,
-    marginTop: 15,
-    marginRight: 5
+    marginTop: 15
   }
 });
 

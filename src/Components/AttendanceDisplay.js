@@ -64,12 +64,14 @@ const styles = StyleSheet.create({
   bhigh: {
     borderColor: "#8bc34a",
     borderBottomWidth: 1,
-    marginBottom: 5
+    marginBottom: 5,
+    paddingHorizontal: 5
   },
   blow: {
     borderColor: "#ef5350",
     borderBottomWidth: 1,
-    marginBottom: 5
+    marginBottom: 5,
+    paddingHorizontal: 5
   },
   et: {
     textAlign: "right",
