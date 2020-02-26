@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView, Text, View, Alert, StyleSheet } from "react-native";
 import axios from "axios";
-var HTMLParser = require("fast-html-parser");
 
 import AttendanceDisplay from "../Components/AttendanceDisplay";
 import Spinner from "../Components/Spinner";
+import AttendanceParser from "../Components/AttendanceParser";
 
 const Attendance = ({ navigation = navigation }) => {
   // x => Name, roll.no and percentages, et => Subject names and entries till
@@ -33,59 +33,9 @@ const Attendance = ({ navigation = navigation }) => {
 
     axios
       .get(url)
-      .then(function(data) {
-        let root = HTMLParser.parse(data.data);
-        let rows = root.querySelectorAll("td");
-        let ttnos = root.querySelectorAll("table");
-
-        for (let i = 0; i < rows.length; i++)
-          rows[i] = JSON.stringify(rows[i].rawText).replace(/["\\]/g, "");
-
-        let ns = ttnos[0].childNodes[1].childNodes.length - 7; //Total no.of subjects
-        ns = (ns + 2) / 2;
-
-        let x1 = "";
-        let totalClasses = "";
-        for (let i = 0; i < ns * 2; i++) {
-          x1 = x1 + "+" + rows[state.Rollno * ns * 2 + i];
-          totalClasses = totalClasses + rows[i];
-        }
-
-        //x1 = x1.replace(/[rnt]/g,'') // Can't do, letters r,n,t in name gets replaced
-        x1 = x1.replace("rn", "");
-        x1 = x1.split("rnt").join("");
-        x1 = x1.split("t ").join("");
-        x1 = x1.split("n ").join("");
-        x1 = x1.split("nt").join("");
-        x1 = x1.split("+");
-
-        let t1 = "";
-        //rows[rows.length -42] is the last entry
-        for (
-          let i = rows.length - 41 - (ns * 2 - 2) * 2;
-          i < rows.length - 41;
-          i++
-        )
-          t1 = t1 + "+" + rows[i];
-        const t2 = t1.split("+n");
-
-        let a1 = "";
-        let et1 = "";
-        for (let i = 0; i < t2.length; i++) {
-          if (i % 2 !== 0) a1 = a1 + "+" + t2[i];
-          else et1 = et1 + "+" + t2[i];
-        }
-
-        a1 = a1.split("+");
-        et1 = et1.split("+");
-        a1.shift();
-
-        var regExp = /\(([^)]+)\)/g;
-        var totalClasses1 = totalClasses.match(regExp);
-        for (let i = 0; i < totalClasses1.length; i++)
-          totalClasses1[i] = totalClasses1[i].replace(/[()]/g, "");
-
-        setState({ x: x1, et: et1, a: a1, tc: totalClasses1, loading: false });
+      .then(function(response) {
+        let A = AttendanceParser(response.data, state.Rollno);
+        setState({ x: A.x, et: A.et, a: A.a, tc: A.tc, loading: false });
       })
       .catch(err => Alert.alert(err.message));
     // eslint-disable-next-line react-hooks/exhaustive-deps
