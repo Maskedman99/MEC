@@ -1,57 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
   ScrollView,
   TouchableHighlight,
   Linking,
-  StyleSheet,
-  Alert
+  StyleSheet
 } from "react-native";
-import axios from "axios";
-var HTMLParser = require("fast-html-parser");
 
 import Spinner from "../Components/Spinner";
+import useAxios from "../Components/useAxios";
+import KTUParser from "../Components/KTUParser";
 
 const KTUAnnouncements = () => {
-  const [state, setState] = useState({ loading: true, rows: [] });
+  const [loading, setLoading] = useState(true);
+  const [rows, setRows] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("https://ktu.edu.in/home.htm")
-      .then(function(data) {
-        var x = HTMLParser.parse(data.data).querySelectorAll(".annuncement");
-        var str = JSON.stringify(x[0].rawText);
-        str = str.replace(/\\t/g, "");
-        str = str.replace(/"/g, "");
-        str = str.replace(/ {2}/g, ""); //means 2 spaces {2} is eslint requirement
-        x = str.split("\\n");
-        for (var i = 0; i < x.length; i++)
-          if (x[i].length < 2) {
-            x.splice(i, 1);
-            i = -1; //Every time splice is used a new array is copied into the old one, if 0 used 1st null don't
-          } // get deleted. If the statement not used then then index of the old array is used.
+  let data = [];
+  data = useAxios("https://ktu.edu.in/home.htm");
+  if (data.length !== 0 && loading === true) {
+    let x = KTUParser(data);
+    setRows(x);
+    setLoading(false);
+  }
 
-        setState({ rows: x, loading: false });
-      })
-      .catch(err => Alert.alert(err.message));
-  }, []);
-
-  return state.loading ? (
+  return loading ? (
     <Spinner />
   ) : (
     <View style={styles.container}>
       <ScrollView style={styles.scroll}>
-        {state.rows.map((item, keys) =>
+        {rows.map((item, keys) =>
           keys % 2 ? (
             <View />
           ) : (
             <View>
               <Text style={styles.announcements}>
                 {"\n"}
-                {state.rows[keys + 1]}
+                {rows[keys + 1]}
               </Text>
-              <Text style={styles.date}>{state.rows[keys]}</Text>
+              <Text style={styles.date}>{rows[keys]}</Text>
             </View>
           )
         )}
