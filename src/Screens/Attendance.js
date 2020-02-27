@@ -1,47 +1,36 @@
-import React, { useEffect, useState } from "react";
-import { ScrollView, Text, View, Alert, StyleSheet } from "react-native";
-import axios from "axios";
+import React, { useState } from "react";
+import { ScrollView, Text, View, StyleSheet } from "react-native";
 
 import AttendanceDisplay from "../Components/AttendanceDisplay";
 import Spinner from "../Components/Spinner";
+import useAxios from "../Components/useAxios";
 import AttendanceParser from "../Components/AttendanceParser";
 
 const Attendance = ({ navigation = navigation }) => {
   // x => Name, roll.no and percentages, et => Subject names and entries till
-  const [state, setState] = useState({
-    loading: true,
-    Rollno: navigation.getParam("rollno", "1"),
-    x: [],
-    et: [],
-    a: [],
-    tc: []
-  });
+  const [state, setState] = useState({ x: [], et: [], a: [], tc: [] });
+  const [loading, setLoading] = useState(true);
+  const Rollno = navigation.getParam("rollno", "1");
+  let clas = navigation.getParam("branch", "0");
+  let sem = navigation.getParam("sem", "1");
 
-  useEffect(() => {
-    let clas = navigation.getParam("branch", "0");
-    let sem = navigation.getParam("sem", "1");
+  let url = sem;
+  if (clas === 0) url = "C" + url + "A";
+  else if (clas === 1) url = "C" + url + "B";
+  else if (clas === 2) url = "EE" + url;
+  else if (clas === 3) url = "E" + url + "A";
+  else if (clas === 4) url = "E" + url + "B";
+  else url = "B" + url;
 
-    let url2 = sem;
-    if (clas === 0) url2 = "C" + url2 + "A";
-    else if (clas === 1) url2 = "C" + url2 + "B";
-    else if (clas === 2) url2 = "EE" + url2;
-    else if (clas === 3) url2 = "E" + url2 + "A";
-    else if (clas === 4) url2 = "E" + url2 + "B";
-    else url2 = "B" + url2;
+  let data = [];
+  data = useAxios(`http://attendance.mec.ac.in/view4stud.php?class=${url}`);
+  if (data.length !== 0 && loading === true) {
+    let A = AttendanceParser(data, Rollno);
+    setState({ x: A.x, et: A.et, a: A.a, tc: A.tc });
+    setLoading(false);
+  }
 
-    const url = "http://attendance.mec.ac.in/view4stud.php?class=" + url2;
-
-    axios
-      .get(url)
-      .then(function(response) {
-        let A = AttendanceParser(response.data, state.Rollno);
-        setState({ x: A.x, et: A.et, a: A.a, tc: A.tc, loading: false });
-      })
-      .catch(err => Alert.alert(err.message));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return state.loading ? (
+  return loading ? (
     <Spinner />
   ) : (
     <View style={styles.container}>
