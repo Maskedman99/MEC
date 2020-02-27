@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AsyncStorage from "@react-native-community/async-storage";
 import {
   View,
   ScrollView,
@@ -8,6 +7,7 @@ import {
   StyleSheet,
   TextInput
 } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import ClassButton from "../Components/ClassButton";
 
@@ -114,11 +114,7 @@ export class AttendanceMenu extends Component {
           </View>
         </View>
 
-        <View style={styles.rollview}>
-          <Text style={styles.rolltext}>
-            {"\t\t"}Roll no.{"\t\t"}
-          </Text>
-        </View>
+        <Text style={styles.rolltext}>Roll no.</Text>
         <TextInput
           style={styles.textinput}
           placeholder="Enter roll no. here "
@@ -168,10 +164,6 @@ const styles = StyleSheet.create({
   classinner: {
     flexDirection: "row",
     justifyContent: "space-around"
-  },
-  rollview: {
-    alignSelf: "center",
-    borderRadius: 3
   },
   rolltext: {
     marginTop: 20,
