@@ -9,8 +9,8 @@ import {
 } from "react-native";
 
 import Spinner from "../Components/Spinner";
-import useAxios from "../Components/useAxios";
-import KTUParser from "../Components/KTUParser";
+import useAxios from "../Components/Logic/useAxios";
+import KTUParser from "../Components/Logic/KTUParser";
 
 const KTUAnnouncements = () => {
   const [loading, setLoading] = useState(true);

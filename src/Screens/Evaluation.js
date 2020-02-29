@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-import useEvaluationAxios from "../Components/useEvaluationAxios";
+import useEvaluationAxios from "../Components/Logic/useEvaluationAxios";
 
 const Evaluation = () => {
   let Clas = "C5B";

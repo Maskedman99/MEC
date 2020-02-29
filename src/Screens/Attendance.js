@@ -3,8 +3,8 @@ import { ScrollView, Text, View, StyleSheet } from "react-native";
 
 import AttendanceDisplay from "../Components/AttendanceDisplay";
 import Spinner from "../Components/Spinner";
-import useAxios from "../Components/useAxios";
-import AttendanceParser from "../Components/AttendanceParser";
+import useAxios from "../Components/Logic/useAxios";
+import AttendanceParser from "../Components/Logic/AttendanceParser";
 
 const Attendance = ({ navigation = navigation }) => {
   // x => Name, roll.no and percentages, et => Subject names and entries till
