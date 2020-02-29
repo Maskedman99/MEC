@@ -1,30 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-import axios from "axios";
-import queryString from "query-string";
+import useEvaluationAxios from "../Components/useEvaluationAxios";
 
 const Evaluation = () => {
-  useEffect(() => {
-    var Data = queryString.stringify({
-      class: "C5B",
-      rollno: "44",
-      Button1: "Submit"
-    });
-
-    axios({
-      method: "post",
-      url: "http://evaluation.mec.ac.in/",
-      data: Data,
-      headers: { "Content-type": "application/x-www-form-urlencoded" }
-    })
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }, []);
+  let Clas = "C5B";
+  let rollNo = "44";
+  let response = useEvaluationAxios({ Clas, rollNo });
+  console.log(response);
 
   return (
     <View style={styles.container}>
