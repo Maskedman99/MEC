@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     fontSize: 14.7
   },
   low: {
-    color: "#ef5350"
+    color: "#ef6769"
   },
   high: {
     color: "#8bc34a"
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5
   },
   blow: {
-    borderColor: "#ef5350",
+    borderColor: "#ef6769",
     borderBottomWidth: 1,
     marginBottom: 5,
     paddingHorizontal: 5
