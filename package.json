@@ -13,6 +13,7 @@
     "@react-native-community/masked-view": "^0.1.6",
     "axios": "^0.19.2",
     "fast-html-parser": "^1.0.1",
+    "query-string": "^6.11.0",
     "react": "16.13.0",
     "react-native": "0.61.5",
     "react-native-gesture-handler": "^1.6.0",

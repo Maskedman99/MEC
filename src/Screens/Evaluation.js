@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-function Evaluation() {
+import axios from "axios";
+import queryString from "query-string";
+
+const Evaluation = () => {
+  useEffect(() => {
+    var Data = queryString.stringify({
+      class: "C5B",
+      rollno: "44",
+      Button1: "Submit"
+    });
+
+    axios({
+      method: "post",
+      url: "http://evaluation.mec.ac.in/",
+      data: Data,
+      headers: { "Content-type": "application/x-www-form-urlencoded" }
+    })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.textnorm}>Comming Soon!</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
