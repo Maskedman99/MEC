@@ -38,10 +38,11 @@ const TimetableList = ({ sem = sem, branch = branch }) => {
       .then(function(response) {
         let root = HTMLParser.parse(response.data);
         let rows = root.querySelectorAll(".attn");
-        for (let i = 0; i < rows.length; i++)
-          rows[i] = JSON.stringify(rows[i].rawText);
+
+        rows = rows.map(item => JSON.stringify(item.rawText));
         rows = rows[0].split("Time Table");
         rows.shift();
+
         let x = JSON.stringify(rows[0].replace(/\s\s+/g, ""));
         x = x.replace(/\\\\n/g, "");
         rows = x.split("\\\\t");

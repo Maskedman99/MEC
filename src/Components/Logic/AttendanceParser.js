@@ -5,8 +5,7 @@ const AttendanceParser = (data, Rollno) => {
   let rows = root.querySelectorAll("td");
   let ttnos = root.querySelectorAll("table");
 
-  for (let i = 0; i < rows.length; i++)
-    rows[i] = JSON.stringify(rows[i].rawText).replace(/["\\]/g, "");
+  rows = rows.map(item => JSON.stringify(item.rawText).replace(/["\\]/g, ""));
 
   let ns = ttnos[0].childNodes[1].childNodes.length - 7; //Total no.of subjects
   ns = (ns + 2) / 2;
@@ -43,10 +42,8 @@ const AttendanceParser = (data, Rollno) => {
   et1 = et1.split("+");
   a1.shift();
 
-  let regExp = /\(([^)]+)\)/g;
-  let totalClasses1 = totalClasses.match(regExp);
-  for (let i = 0; i < totalClasses1.length; i++)
-    totalClasses1[i] = totalClasses1[i].replace(/[()]/g, "");
+  let totalClasses1 = totalClasses.match(/\(([^)]+)\)/g);
+  totalClasses1 = totalClasses1.map(item => item.replace(/[()]/g, ""));
 
   return { x: x1, et: et1, a: a1, tc: totalClasses1 };
 };
