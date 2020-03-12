@@ -8,9 +8,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.8.0",
+    "@react-native-community/async-storage": "^1.8.1",
     "@react-native-community/eslint-plugin": "^1.0.0",
-    "@react-native-community/masked-view": "^0.1.6",
+    "@react-native-community/masked-view": "^0.1.7",
     "axios": "^0.19.2",
     "fast-html-parser": "^1.0.1",
     "react": "16.13.0",
@@ -21,12 +21,12 @@
     "react-native-screens": "2.0.0-beta.4",
     "react-native-splash-screen": "^3.2.0",
     "react-navigation": "^4.2.2",
-    "react-navigation-stack": "^2.2.2",
+    "react-navigation-stack": "^2.2.3",
     "util": "^0.12.2"
   },
   "devDependencies": {
-    "@babel/core": "7.8.6",
-    "@babel/runtime": "7.8.4",
+    "@babel/core": "7.8.7",
+    "@babel/runtime": "7.8.7",
     "@react-native-community/eslint-config": "0.0.7",
     "babel-jest": "25.1.0",
     "eslint": "6.8.0",
