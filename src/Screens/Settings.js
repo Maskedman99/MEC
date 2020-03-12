@@ -47,7 +47,18 @@ const Settings = props => {
           onPress={() => {
             Alert.alert(
               "Create an Issue at:",
-              "https://github.com/Maskedman99/MEC/issues"
+              "https://github.com/Maskedman99/MEC/issues",
+              [
+                { text: "Cancel" },
+                {
+                  text: "Create Issue!",
+                  onPress: () => {
+                    Linking.openURL(
+                      "https://github.com/Maskedman99/MEC/issues"
+                    );
+                  }
+                }
+              ]
             );
           }}
         >
