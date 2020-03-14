@@ -1,5 +1,5 @@
-import { useState, useEffect, Alert } from "react";
-import axios from "axios";
+import {useState, useEffect, Alert} from 'react';
+import axios from 'axios';
 
 const useAxios = url => {
   const [data, setData] = useState([]);

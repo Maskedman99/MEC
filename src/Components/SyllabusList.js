@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { View, Text, StyleSheet, SectionList } from "react-native";
+import React, {Component} from 'react';
+import {View, Text, StyleSheet, SectionList} from 'react-native';
 
 class SyllabusList extends Component {
   renderRow(item, index) {
@@ -19,8 +19,8 @@ class SyllabusList extends Component {
     return (
       <View>
         <SectionList
-          renderItem={({ item, index, section }) => this.renderRow(item, index)}
-          renderSectionHeader={({ section: { title } }) =>
+          renderItem={({item, index, section}) => this.renderRow(item, index)}
+          renderSectionHeader={({section: {title}}) =>
             this.renderSectionHeader(title)
           }
           sections={this.props.data}
@@ -33,25 +33,25 @@ class SyllabusList extends Component {
 
 const styles = StyleSheet.create({
   head: {
-    textAlign: "center",
-    color: "#8bc34a",
-    fontWeight: "bold",
+    textAlign: 'center',
+    color: '#8bc34a',
+    fontWeight: 'bold',
     fontSize: 17,
     borderTopWidth: 3,
-    borderTopColor: "#8bc34a"
+    borderTopColor: '#8bc34a',
   },
 
   sytext: {
-    color: "white",
+    color: 'white',
     fontSize: 14,
     marginVertical: 10,
-    fontWeight: "normal"
+    fontWeight: 'normal',
   },
 
   modtext: {
-    color: "white",
+    color: 'white',
     fontSize: 15,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 export default SyllabusList;

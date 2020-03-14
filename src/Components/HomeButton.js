@@ -1,11 +1,5 @@
-import React from "react";
-import {
-  View,
-  Text,
-  TouchableHighlight,
-  Image,
-  StyleSheet
-} from "react-native";
+import React from 'react';
+import {View, Text, TouchableHighlight, Image, StyleSheet} from 'react-native';
 
 const HomeButton = props => {
   return (
@@ -22,27 +16,27 @@ const HomeButton = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   button: {
     height: 120,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#388e3c",
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#388e3c',
     borderRadius: 2,
-    margin: "1%",
-    borderColor: "#76ff03"
+    margin: '1%',
+    borderColor: '#76ff03',
   },
   textstyle: {
-    color: "white",
-    fontWeight: "bold"
+    color: 'white',
+    fontWeight: 'bold',
   },
   img: {
-    height: "45%",
-    width: "35%",
-    marginBottom: "1.5%",
-    resizeMode: "stretch"
-  }
+    height: '45%',
+    width: '35%',
+    marginBottom: '1.5%',
+    resizeMode: 'stretch',
+  },
 });
 
 export default HomeButton;

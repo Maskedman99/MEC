@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, {useEffect, useState} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
 const AttendanceDisplay = ({
   subject = subject,
   percentage = percentage,
   totalClasses = totalClasses,
-  entriestill = entriestill
+  entriestill = entriestill,
 }) => {
-  const [attented, setattented] = useState("-");
-  const [canCut, setcanCut] = useState("-");
+  const [attented, setattented] = useState('-');
+  const [canCut, setcanCut] = useState('-');
 
   useEffect(() => {
     let y = (percentage * totalClasses) / 100;
@@ -29,7 +29,7 @@ const AttendanceDisplay = ({
       <View style={styles.details}>
         <View>
           <Text style={styles.rows}>
-            {"Percentage: "}
+            {'Percentage: '}
             <Text style={percentage >= 75 ? styles.high : styles.low}>
               {percentage}
             </Text>
@@ -52,36 +52,36 @@ const AttendanceDisplay = ({
 
 const styles = StyleSheet.create({
   rows: {
-    color: "white",
-    fontSize: 14.7
+    color: 'white',
+    fontSize: 14.7,
   },
   low: {
-    color: "#ef6769"
+    color: '#ef6769',
   },
   high: {
-    color: "#8bc34a"
+    color: '#8bc34a',
   },
   bhigh: {
-    borderColor: "#8bc34a",
+    borderColor: '#8bc34a',
     borderBottomWidth: 1,
     marginBottom: 5,
-    paddingHorizontal: 5
+    paddingHorizontal: 5,
   },
   blow: {
-    borderColor: "#ef6769",
+    borderColor: '#ef6769',
     borderBottomWidth: 1,
     marginBottom: 5,
-    paddingHorizontal: 5
+    paddingHorizontal: 5,
   },
   et: {
-    textAlign: "right",
-    color: "white",
-    fontSize: 12
+    textAlign: 'right',
+    color: 'white',
+    fontSize: 12,
   },
   details: {
-    flexDirection: "row",
-    justifyContent: "space-between"
-  }
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
 });
 
 export default AttendanceDisplay;
