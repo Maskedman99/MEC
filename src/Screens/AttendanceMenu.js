@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import {
   View,
   ScrollView,
   Text,
   TouchableHighlight,
   StyleSheet,
-  TextInput
-} from "react-native";
-import AsyncStorage from "@react-native-community/async-storage";
+  TextInput,
+} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
-import ClassButton from "../Components/ClassButton";
+import ClassButton from '../Components/ClassButton';
 
 export class AttendanceMenu extends Component {
   constructor(props) {
@@ -17,29 +17,29 @@ export class AttendanceMenu extends Component {
     this.branchhandler = this.branchhandler.bind(this);
     this.semhandler = this.semhandler.bind(this);
     this.state = {
-      data: ["CSA", "CSB", "EEE", "ECA", "ECB", "EB"],
+      data: ['CSA', 'CSB', 'EEE', 'ECA', 'ECB', 'EB'],
       ind: 0,
       sem: 1,
-      roll: 1
+      roll: 1,
     };
     this.getMyValue();
   }
 
   // Function is necessary for the child component to change the state value of parent (Refer Components/ClassButton)
   branchhandler = value => {
-    this.setState({ ind: value });
+    this.setState({ind: value});
   };
 
   semhandler = value => {
-    this.setState({ sem: value });
+    this.setState({sem: value});
   };
 
   // Function to get the class and roll.no stored locally using the async-storage package
   getMyValue = async () => {
     try {
-      this.setState({ ind: JSON.parse(await AsyncStorage.getItem("@branch")) });
-      this.setState({ sem: JSON.parse(await AsyncStorage.getItem("@sem")) });
-      this.setState({ roll: JSON.parse(await AsyncStorage.getItem("@roll")) });
+      this.setState({ind: JSON.parse(await AsyncStorage.getItem('@branch'))});
+      this.setState({sem: JSON.parse(await AsyncStorage.getItem('@sem'))});
+      this.setState({roll: JSON.parse(await AsyncStorage.getItem('@roll'))});
     } catch (e) {
       //  console.log(e);
     }
@@ -47,16 +47,16 @@ export class AttendanceMenu extends Component {
   //Function to store the submitted values locally so user doesn't have to re-enter (async-storage)
   setValue = async () => {
     try {
-      await AsyncStorage.setItem("@branch", JSON.stringify(this.state.ind));
-      await AsyncStorage.setItem("@sem", JSON.stringify(this.state.sem));
-      await AsyncStorage.setItem("@roll", JSON.stringify(this.state.roll));
+      await AsyncStorage.setItem('@branch', JSON.stringify(this.state.ind));
+      await AsyncStorage.setItem('@sem', JSON.stringify(this.state.sem));
+      await AsyncStorage.setItem('@roll', JSON.stringify(this.state.roll));
     } catch (e) {
       //  console.log(e);
     }
-    this.props.navigation.navigate("AttendanceScreen", {
+    this.props.navigation.navigate('AttendanceScreen', {
       branch: this.state.ind,
       sem: this.state.sem,
-      rollno: this.state.roll
+      rollno: this.state.roll,
     });
   };
 
@@ -79,8 +79,7 @@ export class AttendanceMenu extends Component {
         ) : (
           <TouchableHighlight
             style={styles.submitcontainer}
-            onPress={this.setValue}
-          >
+            onPress={this.setValue}>
             <Text style={styles.submittext}>SUBMIT</Text>
           </TouchableHighlight>
         )}
@@ -121,12 +120,12 @@ export class AttendanceMenu extends Component {
           placeholderTextColor="gray"
           keyboardType="numeric"
           maxLength={2}
-          returnKeyType={"go"}
+          returnKeyType={'go'}
           selectionColor="white"
           enablesReturnKeyAutomatically={true}
           onSubmitEditing={this.setValue}
-          keyboardAppearance={"dark"}
-          onChangeText={roll => this.setState({ roll })}
+          keyboardAppearance={'dark'}
+          onChangeText={roll => this.setState({roll})}
         />
       </ScrollView>
     );
@@ -135,80 +134,80 @@ export class AttendanceMenu extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#000000",
+    backgroundColor: '#000000',
     flex: 1,
     borderTopWidth: 1,
-    borderColor: "white"
+    borderColor: 'white',
   },
   livetextcontainer: {
     marginTop: 30,
     marginVertical: 10,
-    flexDirection: "row",
-    justifyContent: "space-around"
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   livetext: {
     fontSize: 25,
-    fontWeight: "bold",
-    color: "#4caf50"
+    fontWeight: 'bold',
+    color: '#4caf50',
   },
   headtext: {
     margin: 5,
     marginTop: 25,
-    color: "white",
+    color: 'white',
     fontSize: 15,
-    textAlign: "center"
+    textAlign: 'center',
   },
   class: {
-    marginHorizontal: 3
+    marginHorizontal: 3,
   },
   classinner: {
-    flexDirection: "row",
-    justifyContent: "space-around"
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   rolltext: {
     marginTop: 20,
-    color: "white",
+    color: 'white',
     fontSize: 15,
-    textAlign: "center"
+    textAlign: 'center',
   },
   textinput: {
     marginHorizontal: 3,
-    textAlign: "center",
-    color: "white",
+    textAlign: 'center',
+    color: 'white',
     paddingBottom: 5,
     borderBottomWidth: 1,
-    borderBottomColor: "#4caf50",
+    borderBottomColor: '#4caf50',
     marginBottom: 5,
-    marginTop: -2
+    marginTop: -2,
   },
   warningcontainer: {
-    alignItems: "center",
-    borderColor: "red",
+    alignItems: 'center',
+    borderColor: 'red',
     borderWidth: 2,
     marginTop: 15,
     borderRadius: 3,
-    margin: 10
+    margin: 10,
   },
   warningtext: {
-    color: "#ed1c22",
+    color: '#ed1c22',
     fontSize: 25,
-    fontWeight: "bold",
-    margin: 5
+    fontWeight: 'bold',
+    margin: 5,
   },
   submitcontainer: {
-    alignItems: "center",
-    borderColor: "green",
+    alignItems: 'center',
+    borderColor: 'green',
     borderWidth: 3,
     marginTop: 15,
     borderRadius: 2,
-    margin: 10
+    margin: 10,
   },
   submittext: {
-    color: "#8bc34a",
-    fontWeight: "bold",
+    color: '#8bc34a',
+    fontWeight: 'bold',
     fontSize: 25,
-    margin: 5
-  }
+    margin: 5,
+  },
 });
 
 export default AttendanceMenu;

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { View, StyleSheet, ScrollView, StatusBar, Image } from "react-native";
+import React, {useEffect} from 'react';
+import {View, StyleSheet, ScrollView, StatusBar, Image} from 'react-native';
 
-import HomeButton from "../Components/HomeButton";
+import HomeButton from '../Components/HomeButton';
 
-import ImageSlider from "react-native-image-slider";
-import SplashScreen from "react-native-splash-screen";
+import ImageSlider from 'react-native-image-slider';
+import SplashScreen from 'react-native-splash-screen';
 
 function Home(props) {
   useEffect(() => {
@@ -14,11 +14,11 @@ function Home(props) {
   }, []);
 
   const images = [
-    "https://github.com/Maskedman99/MEC/raw/master/.images/1",
-    "https://github.com/Maskedman99/MEC/raw/master/.images/2",
-    "https://github.com/Maskedman99/MEC/raw/master/.images/3",
-    "https://github.com/Maskedman99/MEC/raw/master/.images/4",
-    "https://github.com/Maskedman99/MEC/raw/master/.images/5"
+    'https://github.com/Maskedman99/MEC/raw/master/.images/1',
+    'https://github.com/Maskedman99/MEC/raw/master/.images/2',
+    'https://github.com/Maskedman99/MEC/raw/master/.images/3',
+    'https://github.com/Maskedman99/MEC/raw/master/.images/4',
+    'https://github.com/Maskedman99/MEC/raw/master/.images/5',
   ];
   return (
     <View style={styles.container}>
@@ -28,9 +28,9 @@ function Home(props) {
         <ImageSlider
           autoPlayWithInterval={4000}
           images={images}
-          customSlide={({ index, item, style, width }) => (
+          customSlide={({index, item, style, width}) => (
             <View key={index} style={[style, styles.customSlide]}>
-              <Image source={{ uri: item }} style={styles.bigimg} />
+              <Image source={{uri: item}} style={styles.bigimg} />
             </View>
           )}
         />
@@ -43,13 +43,13 @@ function Home(props) {
               navscreen="EvaluationScreen"
               nav={props.navigation}
               title="EVALUATION"
-              img={require("../Assets/Evaluation.png")}
+              img={require('../Assets/Evaluation.png')}
             />
             <HomeButton
               navscreen="AttendanceMenuScreen"
               nav={props.navigation}
               title="ATTENDANCE"
-              img={require("../Assets/Attendance.png")}
+              img={require('../Assets/Attendance.png')}
             />
           </View>
 
@@ -58,13 +58,13 @@ function Home(props) {
               navscreen="KTUAnnouncementsScreen"
               nav={props.navigation}
               title="ANNOUNCEMENTS"
-              img={require("../Assets/Announcements.png")}
+              img={require('../Assets/Announcements.png')}
             />
             <HomeButton
               navscreen="SyllabusMenuScreen"
               nav={props.navigation}
               title="SYLLABUS"
-              img={require("../Assets/Syllabus.png")}
+              img={require('../Assets/Syllabus.png')}
             />
           </View>
 
@@ -73,13 +73,13 @@ function Home(props) {
               navscreen="TimetableMenuScreen"
               nav={props.navigation}
               title="TIME-TABLE"
-              img={require("../Assets/Timetable.png")}
+              img={require('../Assets/Timetable.png')}
             />
             <HomeButton
               navscreen="SettingScreen"
               nav={props.navigation}
               title="SETTINGS"
-              img={require("../Assets/Settings.png")}
+              img={require('../Assets/Settings.png')}
             />
           </View>
         </ScrollView>
@@ -90,35 +90,35 @@ function Home(props) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
-    backgroundColor: "#000000",
-    flex: 1
+    alignItems: 'center',
+    backgroundColor: '#000000',
+    flex: 1,
   },
   imgcontainer: {
     borderWidth: 1,
-    borderColor: "#8bc34a",
+    borderColor: '#8bc34a',
     borderRadius: 2.5,
-    height: "45%"
+    height: '45%',
   },
   bigimg: {
-    height: "100%",
-    width: "100%",
-    resizeMode: "stretch"
+    height: '100%',
+    width: '100%',
+    resizeMode: 'stretch',
   },
   customSlide: {
-    backgroundColor: "#000000",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: '#000000',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   inner: {
-    marginTop: "1%",
+    marginTop: '1%',
     flex: 1,
-    alignSelf: "stretch"
+    alignSelf: 'stretch',
   },
   buttonContainer: {
-    flexDirection: "row",
-    flex: 1
-  }
+    flexDirection: 'row',
+    flex: 1,
+  },
 });
 
 export default Home;

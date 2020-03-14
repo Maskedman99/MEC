@@ -1,5 +1,5 @@
-import React from "react";
-import { ScrollView, Text, StyleSheet } from "react-native";
+import React from 'react';
+import {ScrollView, Text, StyleSheet} from 'react-native';
 
 const Credits = () => {
   return (
@@ -14,24 +14,24 @@ const Credits = () => {
 const styles = StyleSheet.create({
   text: {
     marginTop: 30,
-    color: "#8bc34a",
-    fontWeight: "bold",
+    color: '#8bc34a',
+    fontWeight: 'bold',
     fontSize: 17,
-    textAlign: "center"
+    textAlign: 'center',
   },
   container: {
-    backgroundColor: "#000000",
+    backgroundColor: '#000000',
     flex: 1,
     borderTopWidth: 1,
-    borderColor: "white"
+    borderColor: 'white',
   },
   specialthankstext: {
-    color: "white",
+    color: 'white',
     marginTop: 30,
     marginBottom: -15,
     fontSize: 15,
-    textAlign: "center"
-  }
+    textAlign: 'center',
+  },
 });
 
 export default Credits;

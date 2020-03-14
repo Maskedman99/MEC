@@ -1,31 +1,31 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import {
   View,
   ScrollView,
   Text,
   StyleSheet,
-  TouchableHighlight
-} from "react-native";
+  TouchableHighlight,
+} from 'react-native';
 
-import ClassButton from "../Components/ClassButton";
+import ClassButton from '../Components/ClassButton';
 
 export class TimetableMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: ["CSA", "CSB", "EEE", "ECA", "ECB", "EB"],
+      data: ['CSA', 'CSB', 'EEE', 'ECA', 'ECB', 'EB'],
       ind: 0,
-      sem: 1
+      sem: 1,
     };
   }
 
   // Function is necessary for the child component to change the state value of parent (Refer Components/ClassButton)
   branchhandler = value => {
-    this.setState({ ind: value });
+    this.setState({ind: value});
   };
 
   semhandler = value => {
-    this.setState({ sem: value });
+    this.setState({sem: value});
   };
 
   render() {
@@ -39,12 +39,11 @@ export class TimetableMenu extends Component {
         <TouchableHighlight
           style={styles.submitcontainer}
           onPress={() =>
-            this.props.navigation.navigate("TimetableScreen", {
+            this.props.navigation.navigate('TimetableScreen', {
               branch: this.state.ind,
-              sem: this.state.sem
+              sem: this.state.sem,
             })
-          }
-        >
+          }>
           <Text style={styles.submittext}>SUBMIT</Text>
         </TouchableHighlight>
 
@@ -84,52 +83,52 @@ export class TimetableMenu extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#000000",
+    backgroundColor: '#000000',
     flex: 1,
     borderTopWidth: 1,
-    borderColor: "white"
+    borderColor: 'white',
   },
   headtext: {
     margin: 5,
     marginTop: 25,
-    color: "white",
+    color: 'white',
     fontSize: 15,
-    textAlign: "center"
+    textAlign: 'center',
   },
 
   classinner: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginHorizontal: 5
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginHorizontal: 5,
   },
   livetextcontainer: {
     marginTop: 30,
     marginVertical: 10,
-    flexDirection: "row",
-    justifyContent: "space-around"
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
 
   livetext: {
     fontSize: 25,
-    fontWeight: "bold",
-    color: "#4caf50"
+    fontWeight: 'bold',
+    color: '#4caf50',
   },
 
   submitcontainer: {
-    alignItems: "center",
-    borderColor: "green",
+    alignItems: 'center',
+    borderColor: 'green',
     borderWidth: 3,
     marginTop: 15,
     borderRadius: 2,
-    margin: 10
+    margin: 10,
   },
 
   submittext: {
-    color: "#8bc34a",
-    fontWeight: "bold",
+    color: '#8bc34a',
+    fontWeight: 'bold',
     fontSize: 25,
-    margin: 5
-  }
+    margin: 5,
+  },
 });
 
 export default TimetableMenu;
