@@ -16,7 +16,7 @@
 
 ## Framework
 
-- react-native 0.61
+- react-native 0.61.5
 
 ## Contributing
 
