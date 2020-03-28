@@ -4,6 +4,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import Settings from './src/Screens/Settings';
 import Home from './src/Screens/Home';
 import Attendance from './src/Screens/Attendance';
+import EvaluationMenu from './src/Screens/EvaluationMenu';
 import Evaluation from './src/Screens/Evaluation';
 import Announcements from './src/Screens/KTUAnnouncements';
 import Credits from './src/Screens/Credits';
@@ -40,6 +41,17 @@ const AppNavigator = createStackNavigator({
 
   EvaluationScreen: {
     screen: Evaluation,
+    navigationOptions: {
+      title: 'Evaluation',
+      headerStyle: {
+        backgroundColor: '#000000'
+      },
+      headerTintColor: '#fff'
+    }
+  },
+
+  EvaluationMenuScreen: {
+    screen: EvaluationMenu,
     navigationOptions: {
       title: 'Evaluation',
       headerStyle: {

@@ -40,7 +40,7 @@ function Home(props) {
         <ScrollView>
           <View style={styles.buttonContainer}>
             <HomeButton
-              navscreen="EvaluationScreen"
+              navscreen="EvaluationMenuScreen"
               nav={props.navigation}
               title="EVALUATION"
               img={require('../Assets/Evaluation.png')}
@@ -61,19 +61,19 @@ function Home(props) {
               img={require('../Assets/Announcements.png')}
             />
             <HomeButton
-              navscreen="SyllabusMenuScreen"
+              navscreen="TimetableMenuScreen"
               nav={props.navigation}
-              title="SYLLABUS"
-              img={require('../Assets/Syllabus.png')}
+              title="TIME-TABLE"
+              img={require('../Assets/Timetable.png')}
             />
           </View>
 
           <View style={styles.buttonContainer}>
             <HomeButton
-              navscreen="TimetableMenuScreen"
+              navscreen="SyllabusMenuScreen"
               nav={props.navigation}
-              title="TIME-TABLE"
-              img={require('../Assets/Timetable.png')}
+              title="SYLLABUS"
+              img={require('../Assets/Syllabus.png')}
             />
             <HomeButton
               navscreen="SettingScreen"
