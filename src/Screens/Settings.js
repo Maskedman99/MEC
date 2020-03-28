@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   menutext: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 17,
     paddingLeft: 10,
     marginVertical: 15,
     marginHorizontal: 5,

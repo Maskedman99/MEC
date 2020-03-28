@@ -37,9 +37,11 @@ export class AttendanceMenu extends Component {
   // Function to get the class and roll.no stored locally using the async-storage package
   getMyValue = async () => {
     try {
-      this.setState({ind: JSON.parse(await AsyncStorage.getItem('@branch'))});
-      this.setState({sem: JSON.parse(await AsyncStorage.getItem('@sem'))});
-      this.setState({roll: JSON.parse(await AsyncStorage.getItem('@roll'))});
+      this.setState({
+        ind: JSON.parse(await AsyncStorage.getItem('@branch')),
+        sem: JSON.parse(await AsyncStorage.getItem('@sem')),
+        roll: JSON.parse(await AsyncStorage.getItem('@roll')),
+      });
     } catch (e) {
       //  console.log(e);
     }
@@ -74,7 +76,7 @@ export class AttendanceMenu extends Component {
         this.state.sem == null ||
         this.state.ind == null ? (
           <View style={styles.warningcontainer}>
-            <Text style={styles.warningtext}> Enter Data </Text>
+            <Text style={styles.warningtext}> Enter Valid Data </Text>
           </View>
         ) : (
           <TouchableHighlight
@@ -83,6 +85,21 @@ export class AttendanceMenu extends Component {
             <Text style={styles.submittext}>SUBMIT</Text>
           </TouchableHighlight>
         )}
+
+        <Text style={styles.rolltext}>Roll no.</Text>
+        <TextInput
+          style={styles.textinput}
+          placeholder="Enter roll no. here "
+          placeholderTextColor="gray"
+          keyboardType="numeric"
+          maxLength={2}
+          returnKeyType={'go'}
+          selectionColor="white"
+          enablesReturnKeyAutomatically={true}
+          onSubmitEditing={this.setValue}
+          keyboardAppearance={'dark'}
+          onChangeText={roll => this.setState({roll})}
+        />
 
         <Text style={styles.headtext}>Class</Text>
         <View style={styles.class}>
@@ -112,21 +129,6 @@ export class AttendanceMenu extends Component {
             <ClassButton title="8" value={8} action={this.semhandler} />
           </View>
         </View>
-
-        <Text style={styles.rolltext}>Roll no.</Text>
-        <TextInput
-          style={styles.textinput}
-          placeholder="Enter roll no. here "
-          placeholderTextColor="gray"
-          keyboardType="numeric"
-          maxLength={2}
-          returnKeyType={'go'}
-          selectionColor="white"
-          enablesReturnKeyAutomatically={true}
-          onSubmitEditing={this.setValue}
-          keyboardAppearance={'dark'}
-          onChangeText={roll => this.setState({roll})}
-        />
       </ScrollView>
     );
   }
@@ -183,9 +185,9 @@ const styles = StyleSheet.create({
   warningcontainer: {
     alignItems: 'center',
     borderColor: 'red',
-    borderWidth: 2,
+    borderWidth: 3,
     marginTop: 15,
-    borderRadius: 3,
+    borderRadius: 2,
     margin: 10,
   },
   warningtext: {
