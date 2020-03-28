@@ -4,7 +4,7 @@ import {
   ScrollView,
   Text,
   StyleSheet,
-  TouchableHighlight,
+  TouchableHighlight
 } from 'react-native';
 
 import ClassButton from '../Components/ClassButton';
@@ -15,7 +15,7 @@ export class TimetableMenu extends Component {
     this.state = {
       data: ['CSA', 'CSB', 'EEE', 'ECA', 'ECB', 'EB'],
       ind: 0,
-      sem: 1,
+      sem: 1
     };
   }
 
@@ -41,7 +41,7 @@ export class TimetableMenu extends Component {
           onPress={() =>
             this.props.navigation.navigate('TimetableScreen', {
               branch: this.state.ind,
-              sem: this.state.sem,
+              sem: this.state.sem
             })
           }>
           <Text style={styles.submittext}>SUBMIT</Text>
@@ -86,32 +86,32 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     flex: 1,
     borderTopWidth: 1,
-    borderColor: 'white',
+    borderColor: 'white'
   },
   headtext: {
     margin: 5,
     marginTop: 25,
     color: 'white',
     fontSize: 15,
-    textAlign: 'center',
+    textAlign: 'center'
   },
 
   classinner: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginHorizontal: 5,
+    marginHorizontal: 5
   },
   livetextcontainer: {
     marginTop: 30,
     marginVertical: 10,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-around'
   },
 
   livetext: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: '#4caf50',
+    color: '#4caf50'
   },
 
   submitcontainer: {
@@ -120,15 +120,15 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     marginTop: 15,
     borderRadius: 2,
-    margin: 10,
+    margin: 10
   },
 
   submittext: {
     color: '#8bc34a',
     fontWeight: 'bold',
     fontSize: 25,
-    margin: 5,
-  },
+    margin: 5
+  }
 });
 
 export default TimetableMenu;

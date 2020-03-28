@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     borderTopWidth: 1,
-    borderTopColor: 'white',
-  },
+    borderTopColor: 'white'
+  }
 });
 
 export default Timetable;

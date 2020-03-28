@@ -22,14 +22,14 @@ const styles = StyleSheet.create({
     fontSize: 17,
     borderTopWidth: 3,
     borderTopColor: '#8bc34a',
-    textAlignVertical: 'bottom',
+    textAlignVertical: 'bottom'
   },
   sytext: {
     color: 'white',
     fontSize: 16,
     marginVertical: 10,
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });
 
 export default TimetableElement;

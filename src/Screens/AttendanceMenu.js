@@ -5,7 +5,7 @@ import {
   Text,
   TouchableHighlight,
   StyleSheet,
-  TextInput,
+  TextInput
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -20,7 +20,7 @@ export class AttendanceMenu extends Component {
       data: ['CSA', 'CSB', 'EEE', 'ECA', 'ECB', 'EB'],
       ind: 0,
       sem: 1,
-      roll: 1,
+      roll: 1
     };
     this.getMyValue();
   }
@@ -40,7 +40,7 @@ export class AttendanceMenu extends Component {
       this.setState({
         ind: JSON.parse(await AsyncStorage.getItem('@branch')),
         sem: JSON.parse(await AsyncStorage.getItem('@sem')),
-        roll: JSON.parse(await AsyncStorage.getItem('@roll')),
+        roll: JSON.parse(await AsyncStorage.getItem('@roll'))
       });
     } catch (e) {
       //  console.log(e);
@@ -58,7 +58,7 @@ export class AttendanceMenu extends Component {
     this.props.navigation.navigate('AttendanceScreen', {
       branch: this.state.ind,
       sem: this.state.sem,
-      rollno: this.state.roll,
+      rollno: this.state.roll
     });
   };
 
@@ -139,38 +139,38 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     flex: 1,
     borderTopWidth: 1,
-    borderColor: 'white',
+    borderColor: 'white'
   },
   livetextcontainer: {
     marginTop: 30,
     marginVertical: 10,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-around'
   },
   livetext: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: '#4caf50',
+    color: '#4caf50'
   },
   headtext: {
     margin: 5,
     marginTop: 25,
     color: 'white',
     fontSize: 15,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   class: {
-    marginHorizontal: 3,
+    marginHorizontal: 3
   },
   classinner: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-around'
   },
   rolltext: {
     marginTop: 20,
     color: 'white',
     fontSize: 15,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   textinput: {
     marginHorizontal: 3,
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#4caf50',
     marginBottom: 5,
-    marginTop: -2,
+    marginTop: -2
   },
   warningcontainer: {
     alignItems: 'center',
@@ -188,13 +188,13 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     marginTop: 15,
     borderRadius: 2,
-    margin: 10,
+    margin: 10
   },
   warningtext: {
     color: '#ed1c22',
     fontSize: 25,
     fontWeight: 'bold',
-    margin: 5,
+    margin: 5
   },
   submitcontainer: {
     alignItems: 'center',
@@ -202,14 +202,14 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     marginTop: 15,
     borderRadius: 2,
-    margin: 10,
+    margin: 10
   },
   submittext: {
     color: '#8bc34a',
     fontWeight: 'bold',
     fontSize: 25,
-    margin: 5,
-  },
+    margin: 5
+  }
 });
 
 export default AttendanceMenu;

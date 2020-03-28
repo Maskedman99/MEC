@@ -7,7 +7,7 @@ import {
   Linking,
   StyleSheet,
   ScrollView,
-  Share,
+  Share
 } from 'react-native';
 
 const Settings = props => {
@@ -18,12 +18,12 @@ const Settings = props => {
           message:
             'https://play.google.com/store/apps/details?id=com.maskedmanmec',
           url: 'https://play.google.com/store/apps/details?id=com.maskedmanmec', //Only IOS
-          title: 'Hey there, checkout this app!',
+          title: 'Hey there, checkout this app!'
         },
         {
           dialogTitle: 'Share this app with your freinds!', // Android only
-          excludedActivityTypes: ['com.apple.UIKit.activity.PostToTwitter'], // iOS only
-        },
+          excludedActivityTypes: ['com.apple.UIKit.activity.PostToTwitter'] // iOS only
+        }
       );
     } catch (error) {
       Alert.alert(error.message);
@@ -53,11 +53,11 @@ const Settings = props => {
                   text: 'Create Issue!',
                   onPress: () => {
                     Linking.openURL(
-                      'https://github.com/Maskedman99/MEC/issues',
+                      'https://github.com/Maskedman99/MEC/issues'
                     );
-                  },
-                },
-              ],
+                  }
+                }
+              ]
             );
           }}>
           <Text style={styles.menutext}>Report Bugs</Text>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     flex: 1,
     borderTopWidth: 1,
-    borderColor: 'white',
+    borderColor: 'white'
   },
   menutext: {
     color: 'white',
@@ -100,11 +100,11 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     marginHorizontal: 5,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#8bc34a',
+    borderBottomColor: '#8bc34a'
   },
   scroll: {
-    marginTop: 20,
-  },
+    marginTop: 20
+  }
 });
 
 export default Settings;

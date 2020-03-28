@@ -11,7 +11,7 @@ const useEvaluationAxios = ({Clas = Clas, rollNo = rollNo}) => {
       method: 'post',
       url: 'http://evaluation.mec.ac.in/',
       data: Params,
-      headers: {'Content-type': 'application/x-www-form-urlencoded'},
+      headers: {'Content-type': 'application/x-www-form-urlencoded'}
     })
       .then(response => setData(response))
       .catch(error => console.log(error));

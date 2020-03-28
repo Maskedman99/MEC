@@ -66,31 +66,31 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     justifyContent: 'center',
     borderTopWidth: 1,
-    borderTopColor: 'white',
+    borderTopColor: 'white'
   },
   textnorm: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 16
   },
   textbig: {
     color: '#8bc34a',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 16
   },
   headcontainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 10
   },
   scroll: {
     marginTop: 10,
     borderTopColor: '#8bc34a',
-    borderTopWidth: 2,
+    borderTopWidth: 2
   },
   rowcontainer: {
-    marginTop: 15,
-  },
+    marginTop: 15
+  }
 });
 
 export default Attendance;

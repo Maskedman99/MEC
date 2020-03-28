@@ -15,20 +15,20 @@ function ClassButton(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   classbutton: {
     borderWidth: 1,
     borderColor: '#4caf50',
-    borderRadius: 3,
+    borderRadius: 3
   },
   buttontext: {
     margin: 15,
     color: 'white',
     fontSize: 15,
     textAlign: 'center',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 });
 
 export default ClassButton;

@@ -5,7 +5,7 @@ const AttendanceDisplay = ({
   subject = subject,
   percentage = percentage,
   totalClasses = totalClasses,
-  entriestill = entriestill,
+  entriestill = entriestill
 }) => {
   const [attented, setattented] = useState('-');
   const [canCut, setcanCut] = useState('-');
@@ -53,35 +53,35 @@ const AttendanceDisplay = ({
 const styles = StyleSheet.create({
   rows: {
     color: 'white',
-    fontSize: 14.7,
+    fontSize: 14.7
   },
   low: {
-    color: '#ef6769',
+    color: '#ef6769'
   },
   high: {
-    color: '#8bc34a',
+    color: '#8bc34a'
   },
   bhigh: {
     borderColor: '#8bc34a',
     borderBottomWidth: 1,
     marginBottom: 5,
-    paddingHorizontal: 5,
+    paddingHorizontal: 5
   },
   blow: {
     borderColor: '#ef6769',
     borderBottomWidth: 1,
     marginBottom: 5,
-    paddingHorizontal: 5,
+    paddingHorizontal: 5
   },
   et: {
     textAlign: 'right',
     color: 'white',
-    fontSize: 12,
+    fontSize: 12
   },
   details: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
+    justifyContent: 'space-between'
+  }
 });
 
 export default AttendanceDisplay;

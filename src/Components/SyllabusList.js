@@ -38,20 +38,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
     borderTopWidth: 3,
-    borderTopColor: '#8bc34a',
+    borderTopColor: '#8bc34a'
   },
 
   sytext: {
     color: 'white',
     fontSize: 14,
     marginVertical: 10,
-    fontWeight: 'normal',
+    fontWeight: 'normal'
   },
 
   modtext: {
     color: 'white',
     fontSize: 15,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 });
 export default SyllabusList;

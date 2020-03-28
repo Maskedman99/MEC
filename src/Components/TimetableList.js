@@ -12,7 +12,7 @@ const TimetableList = ({sem = sem, branch = branch}) => {
     tue: [],
     wed: [],
     thu: [],
-    fri: [],
+    fri: []
   });
   const [isloading, setisloading] = useState(true);
 
@@ -58,8 +58,8 @@ const TimetableList = ({sem = sem, branch = branch}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
+    flex: 1
+  }
 });
 
 export default TimetableList;

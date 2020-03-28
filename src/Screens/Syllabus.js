@@ -22,13 +22,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     flex: 1,
     borderTopWidth: 1,
-    borderColor: 'white',
+    borderColor: 'white'
   },
   textnorm: {
     color: 'white',
     fontSize: 19,
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });
 
 export default Syllabus;

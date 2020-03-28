@@ -16,7 +16,7 @@ const HomeButton = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   button: {
     height: 120,
@@ -25,18 +25,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#388e3c',
     borderRadius: 2,
     margin: '1%',
-    borderColor: '#76ff03',
+    borderColor: '#76ff03'
   },
   textstyle: {
     color: 'white',
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   img: {
     height: '45%',
     width: '35%',
     marginBottom: '1.5%',
-    resizeMode: 'stretch',
-  },
+    resizeMode: 'stretch'
+  }
 });
 
 export default HomeButton;

@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableHighlight,
-  ScrollView,
+  ScrollView
 } from 'react-native';
 
 import ClassButton from '../Components/ClassButton';
@@ -15,20 +15,20 @@ export class SyllabusMenu extends Component {
     this.state = {
       data: ['CS', 'EEE', 'EC', 'EB'],
       ind: 0,
-      sem: 1,
+      sem: 1
     };
   }
 
   // Function is necessary for the child component to change the state value of parent (Refer Components/ClassButton)
   branchhandler = value => {
     this.setState({
-      ind: value,
+      ind: value
     });
   };
 
   semhandler = value => {
     this.setState({
-      sem: value,
+      sem: value
     });
   };
 
@@ -45,7 +45,7 @@ export class SyllabusMenu extends Component {
           onPress={() =>
             this.props.navigation.navigate('SyllabusScreen', {
               branch: this.state.ind,
-              sem: this.state.sem,
+              sem: this.state.sem
             })
           }>
           <Text style={styles.submittext}>SUBMIT</Text>
@@ -89,32 +89,32 @@ const styles = StyleSheet.create({
     flex: 1,
     borderTopWidth: 1,
     borderColor: 'white',
-    marginBottom: -10,
+    marginBottom: -10
   },
   headtext: {
     margin: 5,
     marginTop: 25,
     color: 'white',
     fontSize: 15,
-    textAlign: 'center',
+    textAlign: 'center'
   },
 
   classinner: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginHorizontal: 5,
+    marginHorizontal: 5
   },
   livetextcontainer: {
     marginTop: 30,
     marginVertical: 10,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-around'
   },
 
   livetext: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: '#4caf50',
+    color: '#4caf50'
   },
 
   submitcontainer: {
@@ -123,15 +123,15 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     marginTop: 15,
     borderRadius: 2,
-    margin: 10,
+    margin: 10
   },
 
   submittext: {
     color: '#8bc34a',
     fontWeight: 'bold',
     fontSize: 25,
-    margin: 5,
-  },
+    margin: 5
+  }
 });
 
 export default SyllabusMenu;

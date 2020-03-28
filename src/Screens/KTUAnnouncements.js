@@ -5,7 +5,7 @@ import {
   ScrollView,
   TouchableHighlight,
   Linking,
-  StyleSheet,
+  StyleSheet
 } from 'react-native';
 
 import Spinner from '../Components/Spinner';
@@ -37,7 +37,7 @@ const KTUAnnouncements = () => {
               <Text style={styles.announcements}>{rows[keys + 1]}</Text>
               <Text style={styles.date}>{item}</Text>
             </View>
-          ),
+          )
         )}
 
         <TouchableHighlight
@@ -61,30 +61,30 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontStyle: 'italic',
     textDecorationLine: 'underline',
-    textAlign: 'center',
+    textAlign: 'center'
   },
   container: {
     backgroundColor: '#000000',
     flex: 1,
     borderTopWidth: 1,
-    borderColor: 'white',
+    borderColor: 'white'
   },
   announcements: {
     paddingVertical: 10,
     color: 'white',
     fontSize: 15,
-    fontFamily: 'sans-serif',
+    fontFamily: 'sans-serif'
   },
   date: {
     borderBottomWidth: 1,
     borderBottomColor: '#8bc34a',
     color: 'white',
-    textAlign: 'right',
+    textAlign: 'right'
   },
   scroll: {
     color: 'white',
-    marginHorizontal: 3,
-  },
+    marginHorizontal: 3
+  }
 });
 
 export default KTUAnnouncements;

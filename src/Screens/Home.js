@@ -18,7 +18,7 @@ function Home(props) {
     'https://github.com/Maskedman99/MEC/raw/master/.images/2',
     'https://github.com/Maskedman99/MEC/raw/master/.images/3',
     'https://github.com/Maskedman99/MEC/raw/master/.images/4',
-    'https://github.com/Maskedman99/MEC/raw/master/.images/5',
+    'https://github.com/Maskedman99/MEC/raw/master/.images/5'
   ];
   return (
     <View style={styles.container}>
@@ -92,33 +92,33 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     backgroundColor: '#000000',
-    flex: 1,
+    flex: 1
   },
   imgcontainer: {
     borderWidth: 1,
     borderColor: '#8bc34a',
     borderRadius: 2.5,
-    height: '45%',
+    height: '45%'
   },
   bigimg: {
     height: '100%',
     width: '100%',
-    resizeMode: 'stretch',
+    resizeMode: 'stretch'
   },
   customSlide: {
     backgroundColor: '#000000',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   inner: {
     marginTop: '1%',
     flex: 1,
-    alignSelf: 'stretch',
+    alignSelf: 'stretch'
   },
   buttonContainer: {
     flexDirection: 'row',
-    flex: 1,
-  },
+    flex: 1
+  }
 });
 
 export default Home;
