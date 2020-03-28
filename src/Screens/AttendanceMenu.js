@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import ClassButton from '../Components/ClassButton';
+import ClassMenu from '../Components/ClassMenu';
+import SemesterMenu from '../Components/SemesterMenu';
 
 const AttendanceMenu = ({navigation}) => {
   const data = ['CSA', 'CSB', 'EEE', 'ECA', 'ECB', 'EB'];
@@ -87,35 +88,8 @@ const AttendanceMenu = ({navigation}) => {
         keyboardAppearance={'dark'}
         onChangeText={i => setRollNo(i)}
       />
-
-      <Text style={styles.headtext}>Class</Text>
-      <View style={styles.class}>
-        <View style={styles.classinner}>
-          <ClassButton title="CSA" value={0} action={branchhandler} />
-          <ClassButton title="CSB" value={1} action={branchhandler} />
-          <ClassButton title="EEE" value={2} action={branchhandler} />
-        </View>
-        <View style={styles.classinner}>
-          <ClassButton title="ECA" value={3} action={branchhandler} />
-          <ClassButton title="ECB" value={4} action={branchhandler} />
-          <ClassButton title="EB" value={5} action={branchhandler} />
-        </View>
-      </View>
-      <Text style={styles.headtext}>Semester</Text>
-      <View style={styles.class}>
-        <View style={styles.classinner}>
-          <ClassButton title="1" value={1} action={semhandler} />
-          <ClassButton title="2" value={2} action={semhandler} />
-          <ClassButton title="3" value={3} action={semhandler} />
-          <ClassButton title="4" value={4} action={semhandler} />
-        </View>
-        <View style={styles.classinner}>
-          <ClassButton title="5" value={5} action={semhandler} />
-          <ClassButton title="6" value={6} action={semhandler} />
-          <ClassButton title="7" value={7} action={semhandler} />
-          <ClassButton title="8" value={8} action={semhandler} />
-        </View>
-      </View>
+      <ClassMenu action={branchhandler} />
+      <SemesterMenu action={semhandler} />
     </ScrollView>
   );
 };
@@ -137,20 +111,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     color: '#4caf50'
-  },
-  headtext: {
-    margin: 5,
-    marginTop: 25,
-    color: 'white',
-    fontSize: 15,
-    textAlign: 'center'
-  },
-  class: {
-    marginHorizontal: 3
-  },
-  classinner: {
-    flexDirection: 'row',
-    justifyContent: 'space-around'
   },
   rolltext: {
     marginTop: 20,
