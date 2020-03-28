@@ -35,7 +35,7 @@ const TimetableList = ({sem = sem, branch = branch}) => {
 
     axios
       .get(url)
-      .then(function(response) {
+      .then(function (response) {
         let A = TimetableParser(response.data);
         setState({fri: A.fri, thu: A.thu, wed: A.wed, tue: A.tue, mon: A.mon});
         setisloading(false);

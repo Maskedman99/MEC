@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   ScrollView,
@@ -6,80 +6,59 @@ import {
   StyleSheet,
   TouchableHighlight
 } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
-import ClassButton from '../Components/ClassButton';
+import ClassMenu from '../Components/ClassMenu';
+import SemesterMenu from '../Components/SemesterMenu';
 
-export class TimetableMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: ['CSA', 'CSB', 'EEE', 'ECA', 'ECB', 'EB'],
-      ind: 0,
-      sem: 1
-    };
-  }
+const TimetableMenu = ({navigation}) => {
+  const data = ['CSA', 'CSB', 'EEE', 'ECA', 'ECB', 'EB'];
+  const [index, setIndex] = useState(0);
+  const [sem, setSemester] = useState(1);
 
-  // Function is necessary for the child component to change the state value of parent (Refer Components/ClassButton)
-  branchhandler = value => {
-    this.setState({ind: value});
+  useEffect(() => {
+    getMyValue();
+  }, []);
+
+  const branchhandler = value => {
+    setIndex(value);
+  };
+  const semhandler = value => {
+    setSemester(value);
   };
 
-  semhandler = value => {
-    this.setState({sem: value});
+  const getMyValue = async () => {
+    try {
+      setIndex(JSON.parse(await AsyncStorage.getItem('@branch')) || 0);
+      setSemester(JSON.parse(await AsyncStorage.getItem('@sem')) || 1);
+    } catch (e) {
+      //  console.log(e);
+    }
   };
 
-  render() {
-    return (
-      <ScrollView style={styles.container}>
-        <View style={styles.livetextcontainer}>
-          <Text style={styles.livetext}>{this.state.data[this.state.ind]}</Text>
-          <Text style={styles.livetext}>{this.state.sem}</Text>
-        </View>
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.livetextcontainer}>
+        <Text style={styles.livetext}>{data[index]}</Text>
+        <Text style={styles.livetext}>{sem}</Text>
+      </View>
 
-        <TouchableHighlight
-          style={styles.submitcontainer}
-          onPress={() =>
-            this.props.navigation.navigate('TimetableScreen', {
-              branch: this.state.ind,
-              sem: this.state.sem
-            })
-          }>
-          <Text style={styles.submittext}>SUBMIT</Text>
-        </TouchableHighlight>
+      <TouchableHighlight
+        style={styles.submitcontainer}
+        onPress={() =>
+          navigation.navigate('TimetableScreen', {
+            branch: index,
+            sem: sem
+          })
+        }>
+        <Text style={styles.submittext}>SUBMIT</Text>
+      </TouchableHighlight>
 
-        <Text style={styles.headtext}>Class</Text>
-
-        <View style={styles.classinner}>
-          <ClassButton title="CSA" value={0} action={this.branchhandler} />
-          <ClassButton title="CSB" value={1} action={this.branchhandler} />
-          <ClassButton title="EEE" value={2} action={this.branchhandler} />
-        </View>
-        <View style={styles.classinner}>
-          <ClassButton title="ECA" value={3} action={this.branchhandler} />
-          <ClassButton title="ECB" value={4} action={this.branchhandler} />
-          <ClassButton title="EB" value={5} action={this.branchhandler} />
-        </View>
-
-        <Text style={styles.headtext}>Semester</Text>
-        <View style={styles.classinner}>
-          <ClassButton title="1" value={1} action={this.semhandler} />
-          <ClassButton title="2" value={2} action={this.semhandler} />
-          <ClassButton title="3" value={3} action={this.semhandler} />
-          <ClassButton title="4" value={4} action={this.semhandler} />
-        </View>
-        <View style={styles.classinner}>
-          <ClassButton title="5" value={5} action={this.semhandler} />
-          <ClassButton title="6" value={6} action={this.semhandler} />
-          <ClassButton title="7" value={7} action={this.semhandler} />
-          <ClassButton title="8" value={8} action={this.semhandler} />
-        </View>
-
-        {/* This text is not displayed and is only used to show space under the menu after scrolling in small size mobile*/}
-        <Text>maskedman_</Text>
-      </ScrollView>
-    );
-  }
-}
+      <ClassMenu action={branchhandler} />
+      <SemesterMenu action={semhandler} />
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -88,32 +67,17 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: 'white'
   },
-  headtext: {
-    margin: 5,
-    marginTop: 25,
-    color: 'white',
-    fontSize: 15,
-    textAlign: 'center'
-  },
-
-  classinner: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginHorizontal: 5
-  },
   livetextcontainer: {
     marginTop: 30,
     marginVertical: 10,
     flexDirection: 'row',
     justifyContent: 'space-around'
   },
-
   livetext: {
     fontSize: 25,
     fontWeight: 'bold',
     color: '#4caf50'
   },
-
   submitcontainer: {
     alignItems: 'center',
     borderColor: 'green',
@@ -122,7 +86,6 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     margin: 10
   },
-
   submittext: {
     color: '#8bc34a',
     fontWeight: 'bold',

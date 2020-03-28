@@ -29,18 +29,16 @@ const AttendanceMenu = ({navigation}) => {
     setSemester(value);
   };
 
-  // Function to get the class and roll.no stored locally using the async-storage package
   const getMyValue = async () => {
     try {
-      setIndex(JSON.parse(await AsyncStorage.getItem('@branch')));
-      setSemester(JSON.parse(await AsyncStorage.getItem('@sem')));
-      setRollNo(JSON.parse(await AsyncStorage.getItem('@roll')));
+      setIndex(JSON.parse(await AsyncStorage.getItem('@branch')) || 0);
+      setSemester(JSON.parse(await AsyncStorage.getItem('@sem')) || 1);
+      setRollNo(JSON.parse(await AsyncStorage.getItem('@roll')) || 1);
     } catch (e) {
       //  console.log(e);
     }
   };
 
-  //Function to store the submitted values locally so user doesn't have to re-enter (async-storage)
   const setValue = async () => {
     try {
       await AsyncStorage.setItem('@branch', JSON.stringify(index));
@@ -64,7 +62,7 @@ const AttendanceMenu = ({navigation}) => {
         <Text style={styles.livetext}>{roll}</Text>
       </View>
       {// eslint-disable-next-line eqeqeq
-      roll == 0 || roll == null || sem == null || index == null ? (
+      roll == 0 || roll == null ? (
         <View style={styles.warningcontainer}>
           <Text style={styles.warningtext}> Enter Data </Text>
         </View>
