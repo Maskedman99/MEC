@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableHighlight,
-  Linking,
-  StyleSheet
-} from 'react-native';
+import {View, Text, ScrollView, TouchableHighlight, Linking, StyleSheet} from 'react-native';
 
 import Spinner from '../Components/Spinner';
 import useAxios from '../Components/Logic/useAxios';
@@ -45,9 +38,7 @@ const KTUAnnouncements = () => {
           onPress={() => {
             Linking.openURL('https://ktu.edu.in/eu/core/announcements.htm');
           }}>
-          <Text style={styles.viewmore}>
-            https://ktu.edu.in/eu/core/announcements.htm
-          </Text>
+          <Text style={styles.viewmore}>https://ktu.edu.in/eu/core/announcements.htm</Text>
         </TouchableHighlight>
       </ScrollView>
     </View>

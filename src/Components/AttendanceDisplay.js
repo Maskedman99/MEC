@@ -30,9 +30,7 @@ const AttendanceDisplay = ({
         <View>
           <Text style={styles.rows}>
             {'Percentage: '}
-            <Text style={percentage >= 75 ? styles.high : styles.low}>
-              {percentage}
-            </Text>
+            <Text style={percentage >= 75 ? styles.high : styles.low}>{percentage}</Text>
           </Text>
           {percentage >= 75 ? (
             <Text style={styles.high}>Can cut {canCut} classes</Text>

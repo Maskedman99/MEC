@@ -20,9 +20,7 @@ class SyllabusList extends Component {
       <View>
         <SectionList
           renderItem={({item, index, section}) => this.renderRow(item, index)}
-          renderSectionHeader={({section: {title}}) =>
-            this.renderSectionHeader(title)
-          }
+          renderSectionHeader={({section: {title}}) => this.renderSectionHeader(title)}
           sections={this.props.data}
           keyExtractor={(item, index) => item + index}
         />

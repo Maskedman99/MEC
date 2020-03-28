@@ -15,8 +15,7 @@ const Settings = props => {
     try {
       await Share.share(
         {
-          message:
-            'https://play.google.com/store/apps/details?id=com.maskedmanmec',
+          message: 'https://play.google.com/store/apps/details?id=com.maskedmanmec',
           url: 'https://play.google.com/store/apps/details?id=com.maskedmanmec', //Only IOS
           title: 'Hey there, checkout this app!'
         },
@@ -44,21 +43,15 @@ const Settings = props => {
         <TouchableHighlight
           activeOpacity={0.5}
           onPress={() => {
-            Alert.alert(
-              'Create an Issue at:',
-              'https://github.com/Maskedman99/MEC/issues',
-              [
-                {text: 'Cancel'},
-                {
-                  text: 'Create Issue!',
-                  onPress: () => {
-                    Linking.openURL(
-                      'https://github.com/Maskedman99/MEC/issues'
-                    );
-                  }
+            Alert.alert('Create an Issue at:', 'https://github.com/Maskedman99/MEC/issues', [
+              {text: 'Cancel'},
+              {
+                text: 'Create Issue!',
+                onPress: () => {
+                  Linking.openURL('https://github.com/Maskedman99/MEC/issues');
                 }
-              ]
-            );
+              }
+            ]);
           }}>
           <Text style={styles.menutext}>Report Bugs</Text>
         </TouchableHighlight>

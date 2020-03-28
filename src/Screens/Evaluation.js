@@ -9,10 +9,7 @@ import Spinner from '../Components/Spinner';
 
 const Evaluation = ({navigation}) => {
   const [loading, setLoading] = useState(true);
-  let Clas = classToUrlForm(
-    navigation.getParam('branch', '0'),
-    navigation.getParam('sem', '1')
-  );
+  let Clas = classToUrlForm(navigation.getParam('branch', '0'), navigation.getParam('sem', '1'));
   let rollNo = '44';
   let response = [];
 

@@ -13,10 +13,7 @@ const Attendance = ({navigation}) => {
   const [loading, setLoading] = useState(true);
   const Rollno = navigation.getParam('rollno', '1');
 
-  let url = classToUrlForm(
-    navigation.getParam('branch', '0'),
-    navigation.getParam('sem', '1')
-  );
+  let url = classToUrlForm(navigation.getParam('branch', '0'), navigation.getParam('sem', '1'));
 
   let data = [];
   data = useAxios(`http://attendance.mec.ac.in/view4stud.php?class=${url}`);

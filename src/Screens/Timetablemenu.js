@@ -1,11 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  View,
-  ScrollView,
-  Text,
-  StyleSheet,
-  TouchableHighlight
-} from 'react-native';
+import {View, ScrollView, Text, StyleSheet, TouchableHighlight} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import ClassMenu from '../Components/ClassMenu';
