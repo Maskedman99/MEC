@@ -3,12 +3,16 @@ import {Text, View, StyleSheet} from 'react-native';
 
 import useEvaluationAxios from '../Components/Logic/useEvaluationAxios';
 import EvaluationParser from '../Components/Logic/EvaluationParser';
+import classToUrlForm from '../Components/Logic/classToUrlForm';
 
 import Spinner from '../Components/Spinner';
 
-const Evaluation = () => {
+const Evaluation = ({navigation}) => {
   const [loading, setLoading] = useState(true);
-  let Clas = 'C5B';
+  let Clas = classToUrlForm(
+    navigation.getParam('branch', '0'),
+    navigation.getParam('sem', '1')
+  );
   let rollNo = '44';
   let response = [];
 

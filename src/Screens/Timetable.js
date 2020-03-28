@@ -5,6 +5,7 @@ import TimetableElement from '../Components/TimetableElement';
 import Spinner from '../Components/Spinner';
 import TimetableParser from '../Components/Logic/TimetableParser';
 import useAxios from '../Components/Logic/useAxios';
+import classToUrlForm from '../Components/Logic/classToUrlForm';
 
 const Timetable = ({navigation}) => {
   const [state, setState] = useState({
@@ -16,16 +17,10 @@ const Timetable = ({navigation}) => {
   });
   const [isloading, setIsLoading] = useState(true);
 
-  let clas = navigation.getParam('branch', '0');
-  let s = navigation.getParam('sem', '1');
-
-  let url = s;
-  if (clas === 0) url = 'C' + url + 'A';
-  else if (clas === 1) url = 'C' + url + 'B';
-  else if (clas === 2) url = 'EE' + url;
-  else if (clas === 3) url = 'E' + url + 'A';
-  else if (clas === 4) url = 'E' + url + 'B';
-  else url = 'B' + url;
+  let url = classToUrlForm(
+    navigation.getParam('branch', '0'),
+    navigation.getParam('sem', '1')
+  );
 
   let data = [];
   data = useAxios(`http://attendance.mec.ac.in/view4stud.php?class=${url}`);

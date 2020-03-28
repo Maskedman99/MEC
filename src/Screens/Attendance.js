@@ -5,22 +5,18 @@ import AttendanceDisplay from '../Components/AttendanceDisplay';
 import Spinner from '../Components/Spinner';
 import useAxios from '../Components/Logic/useAxios';
 import AttendanceParser from '../Components/Logic/AttendanceParser';
+import classToUrlForm from '../Components/Logic/classToUrlForm';
 
-const Attendance = ({navigation = navigation}) => {
+const Attendance = ({navigation}) => {
   // x => Name, roll.no and percentages, et => Subject names and entries till
   const [state, setState] = useState({x: [], et: [], a: [], tc: []});
   const [loading, setLoading] = useState(true);
   const Rollno = navigation.getParam('rollno', '1');
-  let clas = navigation.getParam('branch', '0');
-  let sem = navigation.getParam('sem', '1');
 
-  let url = sem;
-  if (clas === 0) url = 'C' + url + 'A';
-  else if (clas === 1) url = 'C' + url + 'B';
-  else if (clas === 2) url = 'EE' + url;
-  else if (clas === 3) url = 'E' + url + 'A';
-  else if (clas === 4) url = 'E' + url + 'B';
-  else url = 'B' + url;
+  let url = classToUrlForm(
+    navigation.getParam('branch', '0'),
+    navigation.getParam('sem', '1')
+  );
 
   let data = [];
   data = useAxios(`http://attendance.mec.ac.in/view4stud.php?class=${url}`);
