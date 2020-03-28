@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   ScrollView,
@@ -11,128 +11,114 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import ClassButton from '../Components/ClassButton';
 
-export class AttendanceMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.branchhandler = this.branchhandler.bind(this);
-    this.semhandler = this.semhandler.bind(this);
-    this.state = {
-      data: ['CSA', 'CSB', 'EEE', 'ECA', 'ECB', 'EB'],
-      ind: 0,
-      sem: 1,
-      roll: 1
-    };
-    this.getMyValue();
-  }
+const AttendanceMenu = ({navigation}) => {
+  const data = ['CSA', 'CSB', 'EEE', 'ECA', 'ECB', 'EB'];
+  const [index, setIndex] = useState(0);
+  const [roll, setRollNo] = useState(1);
+  const [sem, setSemester] = useState(1);
 
-  // Function is necessary for the child component to change the state value of parent (Refer Components/ClassButton)
-  branchhandler = value => {
-    this.setState({ind: value});
+  useEffect(() => {
+    getMyValue();
+  }, []);
+
+  const branchhandler = value => {
+    setIndex(value);
   };
-
-  semhandler = value => {
-    this.setState({sem: value});
+  const semhandler = value => {
+    setSemester(value);
   };
 
   // Function to get the class and roll.no stored locally using the async-storage package
-  getMyValue = async () => {
+  const getMyValue = async () => {
     try {
-      this.setState({
-        ind: JSON.parse(await AsyncStorage.getItem('@branch')),
-        sem: JSON.parse(await AsyncStorage.getItem('@sem')),
-        roll: JSON.parse(await AsyncStorage.getItem('@roll'))
-      });
+      setIndex(JSON.parse(await AsyncStorage.getItem('@branch')));
+      setSemester(JSON.parse(await AsyncStorage.getItem('@sem')));
+      setRollNo(JSON.parse(await AsyncStorage.getItem('@roll')));
     } catch (e) {
       //  console.log(e);
     }
   };
+
   //Function to store the submitted values locally so user doesn't have to re-enter (async-storage)
-  setValue = async () => {
+  const setValue = async () => {
     try {
-      await AsyncStorage.setItem('@branch', JSON.stringify(this.state.ind));
-      await AsyncStorage.setItem('@sem', JSON.stringify(this.state.sem));
-      await AsyncStorage.setItem('@roll', JSON.stringify(this.state.roll));
+      await AsyncStorage.setItem('@branch', JSON.stringify(index));
+      await AsyncStorage.setItem('@sem', JSON.stringify(sem));
+      await AsyncStorage.setItem('@roll', JSON.stringify(roll));
     } catch (e) {
       //  console.log(e);
     }
-    this.props.navigation.navigate('AttendanceScreen', {
-      branch: this.state.ind,
-      sem: this.state.sem,
-      rollno: this.state.roll
+    navigation.navigate('AttendanceScreen', {
+      branch: index,
+      sem: sem,
+      rollno: roll
     });
   };
 
-  render() {
-    return (
-      <ScrollView style={styles.container}>
-        <View style={styles.livetextcontainer}>
-          <Text style={styles.livetext}>{this.state.data[this.state.ind]}</Text>
-          <Text style={styles.livetext}>{this.state.sem}</Text>
-          <Text style={styles.livetext}>{this.state.roll}</Text>
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.livetextcontainer}>
+        <Text style={styles.livetext}>{data[index]}</Text>
+        <Text style={styles.livetext}>{sem}</Text>
+        <Text style={styles.livetext}>{roll}</Text>
+      </View>
+      {// eslint-disable-next-line eqeqeq
+      roll == 0 || roll == null || sem == null || index == null ? (
+        <View style={styles.warningcontainer}>
+          <Text style={styles.warningtext}> Enter Data </Text>
         </View>
-        {// eslint-disable-next-line eqeqeq
-        this.state.roll == 0 ||
-        this.state.roll == null ||
-        this.state.sem == null ||
-        this.state.ind == null ? (
-          <View style={styles.warningcontainer}>
-            <Text style={styles.warningtext}> Enter Valid Data </Text>
-          </View>
-        ) : (
-          <TouchableHighlight
-            style={styles.submitcontainer}
-            onPress={this.setValue}>
-            <Text style={styles.submittext}>SUBMIT</Text>
-          </TouchableHighlight>
-        )}
+      ) : (
+        <TouchableHighlight style={styles.submitcontainer} onPress={setValue}>
+          <Text style={styles.submittext}>SUBMIT</Text>
+        </TouchableHighlight>
+      )}
 
-        <Text style={styles.rolltext}>Roll no.</Text>
-        <TextInput
-          style={styles.textinput}
-          placeholder="Enter roll no. here "
-          placeholderTextColor="gray"
-          keyboardType="numeric"
-          maxLength={2}
-          returnKeyType={'go'}
-          selectionColor="white"
-          enablesReturnKeyAutomatically={true}
-          onSubmitEditing={this.setValue}
-          keyboardAppearance={'dark'}
-          onChangeText={roll => this.setState({roll})}
-        />
+      <Text style={styles.rolltext}>Roll no.</Text>
+      <TextInput
+        style={styles.textinput}
+        placeholder="Enter roll no. here "
+        placeholderTextColor="gray"
+        keyboardType="numeric"
+        maxLength={2}
+        returnKeyType={'go'}
+        selectionColor="white"
+        enablesReturnKeyAutomatically={true}
+        onSubmitEditing={setValue}
+        keyboardAppearance={'dark'}
+        onChangeText={i => setRollNo(i)}
+      />
 
-        <Text style={styles.headtext}>Class</Text>
-        <View style={styles.class}>
-          <View style={styles.classinner}>
-            <ClassButton title="CSA" value={0} action={this.branchhandler} />
-            <ClassButton title="CSB" value={1} action={this.branchhandler} />
-            <ClassButton title="EEE" value={2} action={this.branchhandler} />
-          </View>
-          <View style={styles.classinner}>
-            <ClassButton title="ECA" value={3} action={this.branchhandler} />
-            <ClassButton title="ECB" value={4} action={this.branchhandler} />
-            <ClassButton title="EB" value={5} action={this.branchhandler} />
-          </View>
+      <Text style={styles.headtext}>Class</Text>
+      <View style={styles.class}>
+        <View style={styles.classinner}>
+          <ClassButton title="CSA" value={0} action={branchhandler} />
+          <ClassButton title="CSB" value={1} action={branchhandler} />
+          <ClassButton title="EEE" value={2} action={branchhandler} />
         </View>
-        <Text style={styles.headtext}>Semester</Text>
-        <View style={styles.class}>
-          <View style={styles.classinner}>
-            <ClassButton title="1" value={1} action={this.semhandler} />
-            <ClassButton title="2" value={2} action={this.semhandler} />
-            <ClassButton title="3" value={3} action={this.semhandler} />
-            <ClassButton title="4" value={4} action={this.semhandler} />
-          </View>
-          <View style={styles.classinner}>
-            <ClassButton title="5" value={5} action={this.semhandler} />
-            <ClassButton title="6" value={6} action={this.semhandler} />
-            <ClassButton title="7" value={7} action={this.semhandler} />
-            <ClassButton title="8" value={8} action={this.semhandler} />
-          </View>
+        <View style={styles.classinner}>
+          <ClassButton title="ECA" value={3} action={branchhandler} />
+          <ClassButton title="ECB" value={4} action={branchhandler} />
+          <ClassButton title="EB" value={5} action={branchhandler} />
         </View>
-      </ScrollView>
-    );
-  }
-}
+      </View>
+      <Text style={styles.headtext}>Semester</Text>
+      <View style={styles.class}>
+        <View style={styles.classinner}>
+          <ClassButton title="1" value={1} action={semhandler} />
+          <ClassButton title="2" value={2} action={semhandler} />
+          <ClassButton title="3" value={3} action={semhandler} />
+          <ClassButton title="4" value={4} action={semhandler} />
+        </View>
+        <View style={styles.classinner}>
+          <ClassButton title="5" value={5} action={semhandler} />
+          <ClassButton title="6" value={6} action={semhandler} />
+          <ClassButton title="7" value={7} action={semhandler} />
+          <ClassButton title="8" value={8} action={semhandler} />
+        </View>
+      </View>
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
