@@ -4,58 +4,61 @@ import {Text, View, ScrollView, StyleSheet} from 'react-native';
 import useEvaluationAxios from '../Components/Logic/useEvaluationAxios';
 import EvaluationParser from '../Components/Logic/EvaluationParser';
 import classToUrlForm from '../Components/Logic/classToUrlForm';
-var HTMLParser = require('fast-html-parser');
 
 import Spinner from '../Components/Spinner';
 
 const Evaluation = ({navigation}) => {
   const [loading, setLoading] = useState(true);
-  const [x, setX] = useState([]);
-  const [y, setY] = useState([]);
+  const [rows, setRows] = useState([]);
+  const [cols, setCols] = useState([]);
+  const [name, setName] = useState('');
   let Clas = classToUrlForm(navigation.getParam('branch', '0'), navigation.getParam('sem', '1'));
-  let rollNo = '44';
-  let response = [];
+  let rollNo = navigation.getParam('rollno', '1');
 
+  let response = [];
   response = useEvaluationAxios({Clas, rollNo});
   if (response.length !== 0 && loading === true) {
-    let root = HTMLParser.parse(JSON.stringify(response.data));
-    let cols = root.querySelectorAll('th');
-    let rows = root.querySelectorAll('td');
-    rows = rows.map(item => item.childNodes[0].rawText.replace('\\n', '').trim());
-    cols = cols.map(item => item.childNodes[0].rawText);
-    cols.shift();
-    cols.shift();
-    cols.shift();
-    setX(rows);
-    setY(cols);
-    console.log(cols);
+    let A = EvaluationParser(response);
+    setRows(A.rows);
+    setCols(A.cols);
+    setName(A.name);
     setLoading(false);
   }
 
   return loading ? (
     <Spinner />
   ) : (
-    <ScrollView style={styles.container}>
-      {x.map((item, key) =>
-        item.charCodeAt(0) < 58 ? (
-          <View style={styles.rowstyle}>
-            <Text style={styles.textnorm}>{y[(key % y.length) - 1]}</Text>
-            <Text style={styles.textnorm}>{item}</Text>
-          </View>
-        ) : (
-          <Text style={styles.subject}>{item}</Text>
-        )
+    <View style={styles.container}>
+      {cols === [] || rows === [] || name === '' ? (
+        <Text style={styles.subject}>No Marks has been Entered</Text>
+      ) : (
+        <View>
+          <Text style={styles.subject}>{name}</Text>
+          <ScrollView style={styles.scroll}>
+            {rows.map((item, key) =>
+              item.charCodeAt(0) < 58 ? (
+                <View style={styles.rowstyle}>
+                  <Text style={styles.textnorm}>{cols[key]}</Text>
+                  <Text style={styles.mark}>{item}</Text>
+                </View>
+              ) : (
+                <Text style={styles.subject}>{item}</Text>
+              )
+            )}
+          </ScrollView>
+        </View>
       )}
-    </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#000000',
     flex: 1,
-    borderTopWidth: 1,
-    borderTopColor: 'white'
+    backgroundColor: '#000000'
+  },
+  scroll: {
+    marginTop: 10
   },
   rowstyle: {
     flexDirection: 'row'
@@ -72,9 +75,17 @@ const styles = StyleSheet.create({
     color: '#8bc34a',
     fontWeight: 'bold',
     fontSize: 17,
-    borderTopWidth: 3,
+    paddingTop: 10,
+    borderTopWidth: 2,
     borderTopColor: '#8bc34a',
     textAlignVertical: 'bottom'
+  },
+  mark: {
+    color: '#fcfc02',
+    fontSize: 16,
+    marginLeft: 40,
+    marginVertical: 5,
+    textAlign: 'center'
   }
 });
 
