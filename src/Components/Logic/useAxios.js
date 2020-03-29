@@ -1,4 +1,5 @@
-import {useState, useEffect, Alert} from 'react';
+import {useState, useEffect} from 'react';
+import {Alert} from 'react-native';
 import axios from 'axios';
 
 const useAxios = url => {
@@ -8,7 +9,7 @@ const useAxios = url => {
     axios
       .get(url)
       .then(response => setData(response.data))
-      .catch(err => Alert.alert(err.message));
+      .catch(e => Alert.alert('Error', e.message));
   }, [url]);
 
   return data;

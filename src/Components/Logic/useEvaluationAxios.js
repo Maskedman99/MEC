@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {Alert} from 'react-native';
 import axios from 'axios';
 
 const useEvaluationAxios = ({Clas = Clas, rollNo = rollNo}) => {
@@ -14,7 +15,7 @@ const useEvaluationAxios = ({Clas = Clas, rollNo = rollNo}) => {
       headers: {'Content-type': 'application/x-www-form-urlencoded'}
     })
       .then(response => setData(response))
-      .catch(error => console.log(error));
+      .catch(e => Alert.alert('Error', e.message));
   }, [Clas, rollNo]);
 
   return data;

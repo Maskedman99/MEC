@@ -43,15 +43,20 @@ const Settings = props => {
         <TouchableHighlight
           activeOpacity={0.5}
           onPress={() => {
-            Alert.alert('Create an Issue at:', 'https://github.com/Maskedman99/MEC/issues', [
-              {text: 'Cancel'},
-              {
-                text: 'Create Issue!',
-                onPress: () => {
-                  Linking.openURL('https://github.com/Maskedman99/MEC/issues');
+            Alert.alert(
+              'Create an Issue at:',
+              'https://github.com/Maskedman99/MEC/issues',
+              [
+                {text: 'Cancel'},
+                {
+                  text: 'Create Issue!',
+                  onPress: () => {
+                    Linking.openURL('https://github.com/Maskedman99/MEC/issues');
+                  }
                 }
-              }
-            ]);
+              ],
+              {cancelable: true}
+            );
           }}>
           <Text style={styles.menutext}>Report Bugs</Text>
         </TouchableHighlight>
