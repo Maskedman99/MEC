@@ -13,14 +13,9 @@ const TimeTableParser = response => {
   rows = x.split('\\\\t');
   rows.shift();
   rows.pop();
-  rows = rows.filter(function(e) {
+  rows = rows.filter(function (e) {
     return (
-      e !== ' ' &&
-      e !== ' MON' &&
-      e !== ' TUE' &&
-      e !== ' WED' &&
-      e !== ' THU' &&
-      e !== ' FRI'
+      e !== ' ' && e !== ' MON' && e !== ' TUE' && e !== ' WED' && e !== ' THU' && e !== ' FRI'
     );
   });
   rows = rows.filter((value, index) => index % 2);
