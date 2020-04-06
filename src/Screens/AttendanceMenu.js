@@ -54,16 +54,18 @@ const AttendanceMenu = ({navigation}) => {
         <Text style={styles.livetext}>{sem}</Text>
         <Text style={styles.livetext}>{roll}</Text>
       </View>
-      {// eslint-disable-next-line eqeqeq
-      roll == 0 || roll == null ? (
-        <View style={styles.warningcontainer}>
-          <Text style={styles.warningtext}> Enter Data </Text>
-        </View>
-      ) : (
-        <TouchableHighlight style={styles.submitcontainer} onPress={setValue}>
-          <Text style={styles.submittext}>SUBMIT</Text>
-        </TouchableHighlight>
-      )}
+      {
+        // eslint-disable-next-line eqeqeq
+        roll == 0 || roll == null ? (
+          <View style={styles.warningcontainer}>
+            <Text style={styles.warningtext}> Enter Data </Text>
+          </View>
+        ) : (
+          <TouchableHighlight style={styles.submitcontainer} onPress={setValue}>
+            <Text style={styles.submittext}>SUBMIT</Text>
+          </TouchableHighlight>
+        )
+      }
 
       <Text style={styles.rolltext}>Roll no.</Text>
       <TextInput
