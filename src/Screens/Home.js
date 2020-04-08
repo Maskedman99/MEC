@@ -6,7 +6,7 @@ import HomeButton from '../Components/HomeButton';
 import ImageSlider from 'react-native-image-slider';
 import SplashScreen from 'react-native-splash-screen';
 
-function Home(props) {
+const Home = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       SplashScreen.hide();
@@ -41,13 +41,13 @@ function Home(props) {
           <View style={styles.buttonContainer}>
             <HomeButton
               navscreen="EvaluationMenuScreen"
-              nav={props.navigation}
+              nav={navigation}
               title="EVALUATION"
               img={require('../Assets/Evaluation.png')}
             />
             <HomeButton
               navscreen="AttendanceMenuScreen"
-              nav={props.navigation}
+              nav={navigation}
               title="ATTENDANCE"
               img={require('../Assets/Attendance.png')}
             />
@@ -56,13 +56,13 @@ function Home(props) {
           <View style={styles.buttonContainer}>
             <HomeButton
               navscreen="KTUAnnouncementsScreen"
-              nav={props.navigation}
+              nav={navigation}
               title="ANNOUNCEMENTS"
               img={require('../Assets/Announcements.png')}
             />
             <HomeButton
               navscreen="TimetableMenuScreen"
-              nav={props.navigation}
+              nav={navigation}
               title="TIME-TABLE"
               img={require('../Assets/Timetable.png')}
             />
@@ -71,13 +71,13 @@ function Home(props) {
           <View style={styles.buttonContainer}>
             <HomeButton
               navscreen="SyllabusMenuScreen"
-              nav={props.navigation}
+              nav={navigation}
               title="SYLLABUS"
               img={require('../Assets/Syllabus.png')}
             />
             <HomeButton
               navscreen="SettingScreen"
-              nav={props.navigation}
+              nav={navigation}
               title="SETTINGS"
               img={require('../Assets/Settings.png')}
             />
@@ -86,7 +86,7 @@ function Home(props) {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
