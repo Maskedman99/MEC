@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ScrollView, Text, View, StyleSheet} from 'react-native';
+import {Text, FlatList, View, StyleSheet} from 'react-native';
 
 import AttendanceDisplay from '../Components/AttendanceDisplay';
 import Spinner from '../Components/Spinner';
@@ -37,35 +37,18 @@ const Attendance = ({navigation}) => {
         <Text style={styles.textbig}>{state.x[1]}</Text>
       </View>
 
-      <ScrollView style={styles.scroll}>
-        <View style={styles.rowcontainer}>
-          {/* 
-                            Need to test once the site is back up
-          <FlatList
-            //  ItemSeparatorComponent={Platform.OS !== 'android' && ({highlighted}) => (
-            //    <View style={[style.separator, highlighted && {marginLeft: 0}]} />
-            //  )}
-            data={state.a}
-            renderItem={({item, key}) => (
-              <AttendanceDisplay
-                subject={item}
-                percentage={state.x[key + 3]}
-                entriestill={state.et[key + 2]}
-                totalClasses={state.tc[key]}
-              />
-            )}
+      <FlatList
+        style={styles.list}
+        data={state.a}
+        renderItem={({item, index}) => (
+          <AttendanceDisplay
+            subject={item}
+            percentage={state.x[index + 3]}
+            entriestill={state.et[index + 2]}
+            totalClasses={state.tc[index]}
           />
-          */}
-          {state.a.map((item, key) => (
-            <AttendanceDisplay
-              subject={item}
-              percentage={state.x[key + 3]}
-              entriestill={state.et[key + 2]}
-              totalClasses={state.tc[key]}
-            />
-          ))}
-        </View>
-      </ScrollView>
+        )}
+      />
     </View>
   );
 };
@@ -91,15 +74,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10
+    paddingVertical: 5
   },
-  scroll: {
-    marginTop: 10,
+  list: {
+    paddingTop: 10,
     borderTopColor: '#8bc34a',
     borderTopWidth: 2
-  },
-  rowcontainer: {
-    marginTop: 15
   }
 });
 
