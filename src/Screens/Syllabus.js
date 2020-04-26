@@ -1,25 +1,20 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import TXT from '../Assets/Syllabus/CS.json';
 
-import SyllabusList from '../Components/SyllabusList';
+// import SyllabusList from '../Components/SyllabusList';
 
-function Syllabus(props) {
-  return props.navigation.getParam('branch', '0') === 0 &&
-    props.navigation.getParam('sem', '1') === 5 ? (
-    <View style={styles.container}>
-      <SyllabusList data={TXT.S5} />
-    </View>
-  ) : (
+const Syllabus = props => {
+  return (
     <View style={styles.container}>
       <Text style={styles.textnorm}>Comming Soon!</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#000000',
+    justifyContent: 'center',
     flex: 1,
     borderTopWidth: 1,
     borderColor: 'white'
