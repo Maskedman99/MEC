@@ -39,6 +39,23 @@ const Attendance = ({navigation}) => {
 
       <ScrollView style={styles.scroll}>
         <View style={styles.rowcontainer}>
+          {/* 
+                            Need to test once the site is back up
+          <FlatList
+            //  ItemSeparatorComponent={Platform.OS !== 'android' && ({highlighted}) => (
+            //    <View style={[style.separator, highlighted && {marginLeft: 0}]} />
+            //  )}
+            data={state.a}
+            renderItem={({item, key}) => (
+              <AttendanceDisplay
+                subject={item}
+                percentage={state.x[key + 3]}
+                entriestill={state.et[key + 2]}
+                totalClasses={state.tc[key]}
+              />
+            )}
+          />
+          */}
           {state.a.map((item, key) => (
             <AttendanceDisplay
               subject={item}

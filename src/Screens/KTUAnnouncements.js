@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, ScrollView, TouchableHighlight, Linking, StyleSheet} from 'react-native';
+import {View, Text, FlatList, TouchableHighlight, Linking, StyleSheet} from 'react-native';
 
 import Spinner from '../Components/Spinner';
 import useAxios from '../Components/Logic/useAxios';
@@ -21,26 +21,32 @@ const KTUAnnouncements = () => {
     <Spinner />
   ) : (
     <View style={styles.container}>
-      <ScrollView style={styles.scroll}>
-        {rows.map((item, keys) =>
-          keys % 2 ? (
-            <View />
-          ) : (
+      <FlatList
+        style={styles.list}
+        data={rows}
+        renderItem={({item, index}) => {
+          if (index % 2 === 0) {
+            return (
+              <View>
+                <Text style={styles.date}>{item}</Text>
+              </View>
+            );
+          }
+          return (
             <View>
-              <Text style={styles.announcements}>{rows[keys + 1]}</Text>
-              <Text style={styles.date}>{item}</Text>
+              <Text style={styles.announcements}>{item}</Text>
             </View>
-          )
-        )}
+          );
+        }}
+      />
 
-        <TouchableHighlight
-          activeOpacity={0.5}
-          onPress={() => {
-            Linking.openURL('https://ktu.edu.in/eu/core/announcements.htm');
-          }}>
-          <Text style={styles.viewmore}>https://ktu.edu.in/eu/core/announcements.htm</Text>
-        </TouchableHighlight>
-      </ScrollView>
+      <TouchableHighlight
+        activeOpacity={0.5}
+        onPress={() => {
+          Linking.openURL('https://ktu.edu.in/eu/core/announcements.htm');
+        }}>
+        <Text style={styles.viewmore}>https://ktu.edu.in/eu/core/announcements.htm</Text>
+      </TouchableHighlight>
     </View>
   );
 };
@@ -58,21 +64,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     flex: 1,
     borderTopWidth: 1,
-    borderColor: 'white'
+    borderColor: 'white',
+    paddingTop: 10
   },
   announcements: {
     paddingVertical: 10,
     color: 'white',
     fontSize: 15,
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    borderBottomWidth: 1,
+    borderBottomColor: '#8bc34a'
   },
   date: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#8bc34a',
     color: 'white',
     textAlign: 'right'
   },
-  scroll: {
+  list: {
     color: 'white',
     marginHorizontal: 3
   }
