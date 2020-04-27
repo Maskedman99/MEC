@@ -36,54 +36,52 @@ const Home = ({navigation}) => {
         />
       </View>
 
-      <View style={styles.inner}>
-        <ScrollView>
-          <View style={styles.buttonContainer}>
-            <HomeButton
-              navscreen="EvaluationMenuScreen"
-              nav={navigation}
-              title="EVALUATION"
-              img={require('../Assets/Evaluation.png')}
-            />
-            <HomeButton
-              navscreen="AttendanceMenuScreen"
-              nav={navigation}
-              title="ATTENDANCE"
-              img={require('../Assets/Attendance.png')}
-            />
-          </View>
+      <ScrollView style={styles.inner}>
+        <View style={styles.buttonContainer}>
+          <HomeButton
+            navscreen="EvaluationMenuScreen"
+            nav={navigation}
+            title="EVALUATION"
+            img={require('../Assets/Evaluation.png')}
+          />
+          <HomeButton
+            navscreen="AttendanceMenuScreen"
+            nav={navigation}
+            title="ATTENDANCE"
+            img={require('../Assets/Attendance.png')}
+          />
+        </View>
 
-          <View style={styles.buttonContainer}>
-            <HomeButton
-              navscreen="KTUAnnouncementsScreen"
-              nav={navigation}
-              title="ANNOUNCEMENTS"
-              img={require('../Assets/Announcements.png')}
-            />
-            <HomeButton
-              navscreen="TimetableMenuScreen"
-              nav={navigation}
-              title="TIME-TABLE"
-              img={require('../Assets/Timetable.png')}
-            />
-          </View>
+        <View style={styles.buttonContainer}>
+          <HomeButton
+            navscreen="KTUAnnouncementsScreen"
+            nav={navigation}
+            title="ANNOUNCEMENTS"
+            img={require('../Assets/Announcements.png')}
+          />
+          <HomeButton
+            navscreen="TimetableMenuScreen"
+            nav={navigation}
+            title="TIME-TABLE"
+            img={require('../Assets/Timetable.png')}
+          />
+        </View>
 
-          <View style={styles.buttonContainer}>
-            <HomeButton
-              navscreen="SyllabusMenuScreen"
-              nav={navigation}
-              title="SYLLABUS"
-              img={require('../Assets/Syllabus.png')}
-            />
-            <HomeButton
-              navscreen="SettingScreen"
-              nav={navigation}
-              title="SETTINGS"
-              img={require('../Assets/Settings.png')}
-            />
-          </View>
-        </ScrollView>
-      </View>
+        <View style={styles.buttonContainer}>
+          <HomeButton
+            navscreen="SyllabusMenuScreen"
+            nav={navigation}
+            title="SYLLABUS"
+            img={require('../Assets/Syllabus.png')}
+          />
+          <HomeButton
+            navscreen="SettingScreen"
+            nav={navigation}
+            title="SETTINGS"
+            img={require('../Assets/Settings.png')}
+          />
+        </View>
+      </ScrollView>
     </View>
   );
 };

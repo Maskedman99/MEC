@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  View,
   Text,
   TouchableHighlight,
   Alert,
@@ -30,56 +29,54 @@ const Settings = props => {
   };
 
   return (
-    <View style={styles.container}>
-      <ScrollView style={styles.scroll}>
-        <TouchableHighlight
-          activeOpacity={0.5}
-          onPress={() => {
-            Linking.openURL('market://details?id=com.maskedmanmec');
-          }}>
-          <Text style={styles.menutext}>Check for Updates</Text>
-        </TouchableHighlight>
+    <ScrollView style={styles.container}>
+      <TouchableHighlight
+        activeOpacity={0.5}
+        onPress={() => {
+          Linking.openURL('market://details?id=com.maskedmanmec');
+        }}>
+        <Text style={styles.menutext}>Check for Updates</Text>
+      </TouchableHighlight>
 
-        <TouchableHighlight
-          activeOpacity={0.5}
-          onPress={() => {
-            Alert.alert(
-              'Create an Issue at:',
-              'https://github.com/Maskedman99/MEC/issues',
-              [
-                {text: 'Cancel'},
-                {
-                  text: 'Create Issue!',
-                  onPress: () => {
-                    Linking.openURL('https://github.com/Maskedman99/MEC/issues');
-                  }
+      <TouchableHighlight
+        activeOpacity={0.5}
+        onPress={() => {
+          Alert.alert(
+            'Create an Issue at:',
+            'https://github.com/Maskedman99/MEC/issues',
+            [
+              {text: 'Cancel'},
+              {
+                text: 'Create Issue!',
+                onPress: () => {
+                  Linking.openURL('https://github.com/Maskedman99/MEC/issues');
                 }
-              ],
-              {cancelable: true}
-            );
-          }}>
-          <Text style={styles.menutext}>Report Bugs</Text>
-        </TouchableHighlight>
+              }
+            ],
+            {cancelable: true}
+          );
+        }}>
+        <Text style={styles.menutext}>Report Bugs</Text>
+      </TouchableHighlight>
 
-        <TouchableHighlight activeOpacity={0.5} onPress={() => onShare()}>
-          <Text style={styles.menutext}>Share</Text>
-        </TouchableHighlight>
+      <TouchableHighlight activeOpacity={0.5} onPress={() => onShare()}>
+        <Text style={styles.menutext}>Share</Text>
+      </TouchableHighlight>
 
-        <TouchableHighlight
-          activeOpacity={0.5}
-          onPress={() => props.navigation.navigate('CreditsScreen')}>
-          <Text style={styles.menutext}>Credits</Text>
-        </TouchableHighlight>
+      <TouchableHighlight
+        activeOpacity={0.5}
+        onPress={() => props.navigation.navigate('CreditsScreen')}>
+        <Text style={styles.menutext}>Credits</Text>
+      </TouchableHighlight>
 
-        <TouchableHighlight
-          activeOpacity={0.5}
-          onPress={() => {
-            Alert.alert('About', 'Version 1.5');
-          }}>
-          <Text style={styles.menutext}>About</Text>
-        </TouchableHighlight>
-      </ScrollView>
-    </View>
+      <TouchableHighlight
+        activeOpacity={0.5}
+        onPress={() => {
+          Alert.alert('About', 'Version 1.5');
+        }}>
+        <Text style={styles.menutext}>About</Text>
+      </TouchableHighlight>
+    </ScrollView>
   );
 };
 
@@ -95,13 +92,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
     paddingLeft: 10,
-    marginVertical: 15,
-    marginHorizontal: 5,
+    paddingTop: 30,
+    paddingHorizontal: 5,
     borderBottomWidth: 0.5,
     borderBottomColor: '#8bc34a'
-  },
-  scroll: {
-    marginTop: 20
   }
 });
 

@@ -22,21 +22,12 @@ const KTUAnnouncements = () => {
   ) : (
     <View style={styles.container}>
       <FlatList
-        style={styles.list}
         data={rows}
         renderItem={({item, index}) => {
           if (index % 2 === 0) {
-            return (
-              <View>
-                <Text style={styles.date}>{item}</Text>
-              </View>
-            );
+            return <Text style={styles.date}>{item}</Text>;
           }
-          return (
-            <View>
-              <Text style={styles.announcements}>{item}</Text>
-            </View>
-          );
+          return <Text style={styles.announcements}>{item}</Text>;
         }}
       />
 
@@ -54,7 +45,7 @@ const KTUAnnouncements = () => {
 const styles = StyleSheet.create({
   viewmore: {
     color: '#00cdcd',
-    marginVertical: 20,
+    paddingVertical: 20,
     fontSize: 16,
     fontStyle: 'italic',
     textDecorationLine: 'underline',
@@ -73,15 +64,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: 'sans-serif',
     borderBottomWidth: 1,
-    borderBottomColor: '#8bc34a'
+    borderBottomColor: '#8bc34a',
+    paddingHorizontal: 5
   },
   date: {
     color: 'white',
-    textAlign: 'right'
-  },
-  list: {
-    color: 'white',
-    marginHorizontal: 3
+    textAlign: 'right',
+    paddingHorizontal: 5
   }
 });
 
