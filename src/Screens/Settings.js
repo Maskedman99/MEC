@@ -70,7 +70,7 @@ const Settings = ({navigation}) => {
       <TouchableHighlight
         activeOpacity={0.5}
         onPress={() => {
-          Alert.alert('About', 'Version 1.5', [], {cancelable: true});
+          Alert.alert('About', 'Version 1.6', [], {cancelable: true});
         }}>
         <Text style={styles.menutext}>About</Text>
       </TouchableHighlight>

@@ -26,7 +26,7 @@ const SyllabusMenu = ({navigation}) => {
       <TouchableHighlight
         style={styles.submitcontainer}
         onPress={() =>
-          navigation.navigate('SyllabusScreen', {
+          navigation.navigate('Syllabus', {
             branch: index,
             sem: sem
           })

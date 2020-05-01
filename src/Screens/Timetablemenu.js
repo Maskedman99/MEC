@@ -40,7 +40,7 @@ const TimetableMenu = ({navigation}) => {
       <TouchableHighlight
         style={styles.submitcontainer}
         onPress={() =>
-          navigation.navigate('TimetableScreen', {
+          navigation.navigate('Timetable', {
             branch: index,
             sem: sem
           })

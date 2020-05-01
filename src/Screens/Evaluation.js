@@ -12,11 +12,11 @@ const Evaluation = ({route}) => {
   const [rows, setRows] = useState([]);
   const [cols, setCols] = useState([]);
   const [name, setName] = useState('');
-  let Clas = classToUrlForm(route.param?.branch ?? '0', route.param?.sem ?? '1');
-  let rollNo = route.param?.rollno ?? '1';
+  let Clas = classToUrlForm(route.params?.branch ?? '0', route.params?.sem ?? '1');
+  let rollNo = route.params?.rollno ?? '1';
 
   let response = [];
-  response = useEvaluationAxios({Clas, rollNo});
+  response = useEvaluationAxios(Clas, rollNo);
   if (response.length !== 0 && loading === true) {
     let A = EvaluationParser(response);
     setRows(A.rows);
@@ -76,7 +76,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
     paddingTop: 10,
-    textAlignVertical: 'bottom'
+    textAlignVertical: 'bottom',
+    borderTopColor: '#8bc34a',
+    borderTopWidth: 1
   },
   mark: {
     color: '#fcfc02',

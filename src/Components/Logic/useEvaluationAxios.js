@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import {Alert} from 'react-native';
 import axios from 'axios';
 
-const useEvaluationAxios = ({Clas = Clas, rollNo = rollNo}) => {
+const useEvaluationAxios = (Clas, rollNo) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
