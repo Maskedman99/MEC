@@ -76,8 +76,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
     paddingTop: 10,
-    borderTopWidth: 2,
-    borderTopColor: '#8bc34a',
     textAlignVertical: 'bottom'
   },
   mark: {

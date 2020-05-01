@@ -15,9 +15,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#000000',
     justifyContent: 'center',
-    flex: 1,
-    borderTopWidth: 1,
-    borderColor: 'white'
+    flex: 1
   },
   textnorm: {
     color: 'white',

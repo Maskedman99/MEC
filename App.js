@@ -26,7 +26,11 @@ const App = () => {
         headerMode="screen"
         screenOptions={{
           headerTintColor: '#ffffff',
-          headerStyle: {backgroundColor: '#000000'},
+          headerStyle: {
+            backgroundColor: '#000000',
+            borderBottomColor: '#ffffff',
+            borderBottomWidth: 1
+          },
           gestureEnabled: true
         }}>
         <Stack.Screen

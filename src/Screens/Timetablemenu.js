@@ -57,9 +57,7 @@ const TimetableMenu = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#000000',
-    flex: 1,
-    borderTopWidth: 1,
-    borderColor: 'white'
+    flex: 1
   },
   livetextcontainer: {
     marginTop: 30,

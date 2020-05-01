@@ -9,7 +9,7 @@ import {
   Share
 } from 'react-native';
 
-const Settings = props => {
+const Settings = ({navigation}) => {
   const onShare = async () => {
     try {
       await Share.share(
@@ -63,7 +63,7 @@ const Settings = props => {
         <Text style={styles.menutext}>Share</Text>
       </TouchableHighlight>
 
-      <TouchableHighlight activeOpacity={0.5} onPress={() => props.navigation.navigate('Credits')}>
+      <TouchableHighlight activeOpacity={0.5} onPress={() => navigation.navigate('Credits')}>
         <Text style={styles.menutext}>Credits</Text>
       </TouchableHighlight>
 
@@ -81,9 +81,7 @@ const Settings = props => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#000000',
-    flex: 1,
-    borderTopWidth: 1,
-    borderColor: 'white'
+    flex: 1
   },
   menutext: {
     color: 'white',

@@ -36,9 +36,7 @@ const Timetable = ({route}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#000000',
-    flex: 1,
-    borderTopWidth: 1,
-    borderTopColor: 'white'
+    flex: 1
   }
 });
 

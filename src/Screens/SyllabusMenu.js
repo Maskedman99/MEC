@@ -53,8 +53,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#000000',
     flex: 1,
-    borderTopWidth: 1,
-    borderColor: 'white',
     marginBottom: -10
   },
   headtext: {

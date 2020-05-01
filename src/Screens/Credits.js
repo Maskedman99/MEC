@@ -12,18 +12,16 @@ const Credits = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#000000',
+    flex: 1
+  },
   text: {
     marginTop: 30,
     color: '#8bc34a',
     fontWeight: 'bold',
     fontSize: 17,
     textAlign: 'center'
-  },
-  container: {
-    backgroundColor: '#000000',
-    flex: 1,
-    borderTopWidth: 1,
-    borderColor: 'white'
   },
   specialthankstext: {
     color: 'white',
