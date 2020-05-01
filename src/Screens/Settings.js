@@ -63,9 +63,7 @@ const Settings = props => {
         <Text style={styles.menutext}>Share</Text>
       </TouchableHighlight>
 
-      <TouchableHighlight
-        activeOpacity={0.5}
-        onPress={() => props.navigation.navigate('CreditsScreen')}>
+      <TouchableHighlight activeOpacity={0.5} onPress={() => props.navigation.navigate('Credits')}>
         <Text style={styles.menutext}>Credits</Text>
       </TouchableHighlight>
 

@@ -40,7 +40,7 @@ const AttendanceMenu = ({navigation}) => {
     } catch (e) {
       //  console.log(e);
     }
-    navigation.navigate('AttendanceScreen', {
+    navigation.navigate('Attendance', {
       branch: index,
       sem: sem,
       rollno: roll

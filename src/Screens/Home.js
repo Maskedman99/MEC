@@ -39,13 +39,13 @@ const Home = ({navigation}) => {
       <ScrollView style={styles.inner}>
         <View style={styles.buttonContainer}>
           <HomeButton
-            navscreen="EvaluationMenuScreen"
+            navscreen="EvaluationMenu"
             nav={navigation}
             title="EVALUATION"
             img={require('../Assets/Evaluation.png')}
           />
           <HomeButton
-            navscreen="AttendanceMenuScreen"
+            navscreen="AttendanceMenu"
             nav={navigation}
             title="ATTENDANCE"
             img={require('../Assets/Attendance.png')}
@@ -54,13 +54,13 @@ const Home = ({navigation}) => {
 
         <View style={styles.buttonContainer}>
           <HomeButton
-            navscreen="KTUAnnouncementsScreen"
+            navscreen="Announcements"
             nav={navigation}
             title="ANNOUNCEMENTS"
             img={require('../Assets/Announcements.png')}
           />
           <HomeButton
-            navscreen="TimetableMenuScreen"
+            navscreen="TimetableMenu"
             nav={navigation}
             title="TIME-TABLE"
             img={require('../Assets/Timetable.png')}
@@ -69,13 +69,13 @@ const Home = ({navigation}) => {
 
         <View style={styles.buttonContainer}>
           <HomeButton
-            navscreen="SyllabusMenuScreen"
+            navscreen="SyllabusMenu"
             nav={navigation}
             title="SYLLABUS"
             img={require('../Assets/Syllabus.png')}
           />
           <HomeButton
-            navscreen="SettingScreen"
+            navscreen="Settings"
             nav={navigation}
             title="SETTINGS"
             img={require('../Assets/Settings.png')}

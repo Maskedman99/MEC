@@ -1,5 +1,7 @@
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import React from 'react';
+import 'react-native-gesture-handler';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import Settings from './src/Screens/Settings';
 import Home from './src/Screens/Home';
@@ -14,131 +16,107 @@ import Syllabus from './src/Screens/Syllabus';
 import TimetableMenu from './src/Screens/Timetablemenu';
 import Timetable from './src/Screens/Timetable';
 
-const AppNavigator = createStackNavigator({
-  HomeScreen: {screen: Home, navigationOptions: {headerShown: false}},
+const Stack = createStackNavigator();
 
-  SettingScreen: {
-    screen: Settings,
-    navigationOptions: {
-      title: 'Settings',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  },
-
-  AttendanceScreen: {
-    screen: Attendance,
-    navigationOptions: {
-      title: 'Attendance',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  },
-
-  EvaluationScreen: {
-    screen: Evaluation,
-    navigationOptions: {
-      title: 'Evaluation',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  },
-
-  EvaluationMenuScreen: {
-    screen: EvaluationMenu,
-    navigationOptions: {
-      title: 'Evaluation',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  },
-
-  KTUAnnouncementsScreen: {
-    screen: Announcements,
-    navigationOptions: {
-      title: 'KTU Announcements',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  },
-
-  CreditsScreen: {
-    screen: Credits,
-    navigationOptions: {
-      title: 'Credits',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  },
-
-  AttendanceMenuScreen: {
-    screen: AttendanceMenu,
-    navigationOptions: {
-      title: 'Attendance',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  },
-
-  SyllabusMenuScreen: {
-    screen: SyllabusMenu,
-    navigationOptions: {
-      title: 'Syllabus',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  },
-
-  SyllabusScreen: {
-    screen: Syllabus,
-    navigationOptions: {
-      title: 'Syllabus',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  },
-
-  TimetableMenuScreen: {
-    screen: TimetableMenu,
-    navigationOptions: {
-      title: 'Time-table',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  },
-
-  TimetableScreen: {
-    screen: Timetable,
-    navigationOptions: {
-      title: 'Time-table',
-      headerStyle: {
-        backgroundColor: '#000000'
-      },
-      headerTintColor: '#fff'
-    }
-  }
-});
-
-const App = createAppContainer(AppNavigator);
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home"
+        headerMode="screen"
+        screenOptions={{
+          headerTintColor: '#ffffff',
+          headerStyle: {backgroundColor: '#000000'},
+          gestureEnabled: true
+        }}>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+            title: 'MEC'
+          }}
+        />
+        <Stack.Screen
+          name="Attendance"
+          component={Attendance}
+          options={{
+            title: 'Attendance'
+          }}
+        />
+        <Stack.Screen
+          name="AttendanceMenu"
+          component={AttendanceMenu}
+          options={{
+            title: 'Attendance'
+          }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
+          options={{
+            title: 'Settings'
+          }}
+        />
+        <Stack.Screen
+          name="Evaluation"
+          component={Evaluation}
+          options={{
+            title: 'Evaluation'
+          }}
+        />
+        <Stack.Screen
+          name="EvaluationMenu"
+          component={EvaluationMenu}
+          options={{
+            title: 'Evaluation'
+          }}
+        />
+        <Stack.Screen
+          name="Credits"
+          component={Credits}
+          options={{
+            title: 'Credits'
+          }}
+        />
+        <Stack.Screen
+          name="Syllabus"
+          component={Syllabus}
+          options={{
+            title: 'Syllabus'
+          }}
+        />
+        <Stack.Screen
+          name="SyllabusMenu"
+          component={SyllabusMenu}
+          options={{
+            title: 'Syllabus'
+          }}
+        />
+        <Stack.Screen
+          name="Announcements"
+          component={Announcements}
+          options={{
+            title: 'KTU Announcements'
+          }}
+        />
+        <Stack.Screen
+          name="Timetable"
+          component={Timetable}
+          options={{
+            title: 'Timetable'
+          }}
+        />
+        <Stack.Screen
+          name="TimetableMenu"
+          component={TimetableMenu}
+          options={{
+            title: 'Timetable'
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App;
