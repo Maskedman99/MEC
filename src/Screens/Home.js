@@ -40,13 +40,11 @@ const Home = ({navigation}) => {
         <View style={styles.buttonContainer}>
           <HomeButton
             navscreen="EvaluationMenu"
-            nav={navigation}
             title="EVALUATION"
             img={require('../Assets/Evaluation.png')}
           />
           <HomeButton
             navscreen="AttendanceMenu"
-            nav={navigation}
             title="ATTENDANCE"
             img={require('../Assets/Attendance.png')}
           />
@@ -55,13 +53,11 @@ const Home = ({navigation}) => {
         <View style={styles.buttonContainer}>
           <HomeButton
             navscreen="Announcements"
-            nav={navigation}
             title="ANNOUNCEMENTS"
             img={require('../Assets/Announcements.png')}
           />
           <HomeButton
             navscreen="TimetableMenu"
-            nav={navigation}
             title="TIME-TABLE"
             img={require('../Assets/Timetable.png')}
           />
@@ -70,13 +66,11 @@ const Home = ({navigation}) => {
         <View style={styles.buttonContainer}>
           <HomeButton
             navscreen="SyllabusMenu"
-            nav={navigation}
             title="SYLLABUS"
             img={require('../Assets/Syllabus.png')}
           />
           <HomeButton
             navscreen="Settings"
-            nav={navigation}
             title="SETTINGS"
             img={require('../Assets/Settings.png')}
           />

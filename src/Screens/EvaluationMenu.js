@@ -40,7 +40,7 @@ const EvaluationMenu = ({navigation}) => {
     } catch (e) {
       //  console.log(e);
     }
-    navigation.navigate('EvaluationScreen', {
+    navigation.navigate('Evaluation', {
       branch: index,
       sem: sem,
       rollno: roll

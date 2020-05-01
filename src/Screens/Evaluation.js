@@ -7,13 +7,13 @@ import classToUrlForm from '../Components/Logic/classToUrlForm';
 
 import Spinner from '../Components/Spinner';
 
-const Evaluation = ({navigation}) => {
+const Evaluation = ({route}) => {
   const [loading, setLoading] = useState(true);
   const [rows, setRows] = useState([]);
   const [cols, setCols] = useState([]);
   const [name, setName] = useState('');
-  let Clas = classToUrlForm(navigation.getParam('branch', '0'), navigation.getParam('sem', '1'));
-  let rollNo = navigation.getParam('rollno', '1');
+  let Clas = classToUrlForm(route.param?.branch ?? '0', route.param?.sem ?? '1');
+  let rollNo = route.param?.rollno ?? '1';
 
   let response = [];
   response = useEvaluationAxios({Clas, rollNo});

@@ -7,11 +7,11 @@ import TimetableParser from '../Components/Logic/TimetableParser';
 import useAxios from '../Components/Logic/useAxios';
 import classToUrlForm from '../Components/Logic/classToUrlForm';
 
-const Timetable = ({navigation}) => {
+const Timetable = ({route}) => {
   const [state, setState] = useState({mon: [], tue: [], wed: [], thu: [], fri: []});
   const [isloading, setIsLoading] = useState(true);
 
-  let url = classToUrlForm(navigation.getParam('branch', '0'), navigation.getParam('sem', '1'));
+  let url = classToUrlForm(route.param?.branch ?? '0', route.param?.sem ?? '1');
   let data = [];
   data = useAxios(`http://attendance.mec.ac.in/view4stud.php?class=${url}`);
   if (data.length !== 0 && isloading === true) {

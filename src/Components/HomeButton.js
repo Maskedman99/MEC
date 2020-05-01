@@ -1,10 +1,13 @@
 import React from 'react';
 import {View, Text, TouchableHighlight, Image, StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const HomeButton = props => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <TouchableHighlight onPress={() => props.nav.navigate(props.navscreen)}>
+      <TouchableHighlight onPress={() => navigation.navigate(props.navscreen)}>
         <View style={styles.button}>
           <Image style={styles.img} source={props.img} />
           <Text style={styles.textstyle}>{props.title}</Text>

@@ -7,13 +7,13 @@ import useAxios from '../Components/Logic/useAxios';
 import AttendanceParser from '../Components/Logic/AttendanceParser';
 import classToUrlForm from '../Components/Logic/classToUrlForm';
 
-const Attendance = ({navigation}) => {
+const Attendance = ({route}) => {
   // x => Name, roll.no and percentages, et => Subject names and entries till
   const [state, setState] = useState({x: [], et: [], a: [], tc: []});
   const [loading, setLoading] = useState(true);
-  const Rollno = navigation.getParam('rollno', '1');
+  const Rollno = route.params?.rollno ?? '1';
 
-  let url = classToUrlForm(navigation.getParam('branch', '0'), navigation.getParam('sem', '1'));
+  let url = classToUrlForm(route.params?.branch ?? '0', route.params?.sem ?? '1');
 
   let data = [];
   data = useAxios(`http://attendance.mec.ac.in/view4stud.php?class=${url}`);
