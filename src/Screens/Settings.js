@@ -72,7 +72,7 @@ const Settings = props => {
       <TouchableHighlight
         activeOpacity={0.5}
         onPress={() => {
-          Alert.alert('About', 'Version 1.5');
+          Alert.alert('About', 'Version 1.5', [], {cancelable: true});
         }}>
         <Text style={styles.menutext}>About</Text>
       </TouchableHighlight>
