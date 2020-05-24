@@ -3,10 +3,10 @@ import {View, StyleSheet, ScrollView, StatusBar, Image} from 'react-native';
 
 import HomeButton from '../Components/HomeButton';
 
-import ImageSlider from 'react-native-image-slider';
+import ImageSlider from 'rn-image-slider';
 import SplashScreen from 'react-native-splash-screen';
 
-const Home = ({navigation}) => {
+const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       SplashScreen.hide();
