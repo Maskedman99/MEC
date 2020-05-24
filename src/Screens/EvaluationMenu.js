@@ -23,23 +23,24 @@ const EvaluationMenu = ({navigation}) => {
   };
 
   const getMyValue = async () => {
-    try {
-      setIndex(JSON.parse(await AsyncStorage.getItem('@branch')) || 0);
-      setSemester(JSON.parse(await AsyncStorage.getItem('@sem')) || 1);
-      setRollNo(JSON.parse(await AsyncStorage.getItem('@roll')) || 1);
-    } catch (e) {
-      //  console.log(e);
-    }
+    const [x, y, z] = await Promise.all([
+      AsyncStorage.getItem('@branch'),
+      AsyncStorage.getItem('@sem'),
+      AsyncStorage.getItem('@roll')
+    ]);
+
+    setIndex(JSON.parse(x) || 0);
+    setSemester(JSON.parse(y) || 1);
+    setRollNo(JSON.parse(z) || 1);
   };
 
   const setValue = async () => {
-    try {
-      await AsyncStorage.setItem('@branch', JSON.stringify(index));
-      await AsyncStorage.setItem('@sem', JSON.stringify(sem));
-      await AsyncStorage.setItem('@roll', JSON.stringify(roll));
-    } catch (e) {
-      //  console.log(e);
-    }
+    await Promise.all([
+      AsyncStorage.setItem('@branch', JSON.stringify(index)),
+      AsyncStorage.setItem('@sem', JSON.stringify(sem)),
+      AsyncStorage.setItem('@roll', JSON.stringify(roll))
+    ]);
+
     navigation.navigate('Evaluation', {
       branch: index,
       sem: sem,

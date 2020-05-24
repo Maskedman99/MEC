@@ -22,12 +22,12 @@ const TimetableMenu = ({navigation}) => {
   };
 
   const getMyValue = async () => {
-    try {
-      setIndex(JSON.parse(await AsyncStorage.getItem('@branch')) || 0);
-      setSemester(JSON.parse(await AsyncStorage.getItem('@sem')) || 1);
-    } catch (e) {
-      //  console.log(e);
-    }
+    const [x, y] = await Promise.all([
+      AsyncStorage.getItem('@branch'),
+      AsyncStorage.getItem('@sem')
+    ]);
+    setIndex(JSON.parse(x) || 0);
+    setSemester(JSON.parse(y) || 1);
   };
 
   return (
