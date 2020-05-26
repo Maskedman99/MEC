@@ -21,7 +21,7 @@
     "react-native": "0.62.1",
     "react-native-gesture-handler": "1.6.1",
     "react-native-reanimated": "1.9.0",
-    "react-native-safe-area-context": "^2.0.0",
+    "react-native-safe-area-context": "^2.0.3",
     "react-native-screens": "2.8.0",
     "react-native-splash-screen": "^3.2.0",
     "rn-image-slider": "^0.2.0",
