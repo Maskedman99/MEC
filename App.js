@@ -33,21 +33,8 @@ const App = () => {
           },
           gestureEnabled: true
         }}>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            headerShown: false,
-            title: 'MEC'
-          }}
-        />
-        <Stack.Screen
-          name="Attendance"
-          component={Attendance}
-          options={{
-            title: 'Attendance'
-          }}
-        />
+        <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
+        <Stack.Screen name="Attendance" component={Attendance} options={{headerShown: false}} />
         <Stack.Screen
           name="AttendanceMenu"
           component={AttendanceMenu}
@@ -55,20 +42,8 @@ const App = () => {
             title: 'Attendance'
           }}
         />
-        <Stack.Screen
-          name="Settings"
-          component={Settings}
-          options={{
-            title: 'Settings'
-          }}
-        />
-        <Stack.Screen
-          name="Evaluation"
-          component={Evaluation}
-          options={{
-            title: 'Evaluation'
-          }}
-        />
+        <Stack.Screen name="Settings" component={Settings} options={{title: 'Settings'}} />
+        <Stack.Screen name="Evaluation" component={Evaluation} options={{headerShown: false}} />
         <Stack.Screen
           name="EvaluationMenu"
           component={EvaluationMenu}
@@ -76,20 +51,8 @@ const App = () => {
             title: 'Evaluation'
           }}
         />
-        <Stack.Screen
-          name="Credits"
-          component={Credits}
-          options={{
-            title: 'Credits'
-          }}
-        />
-        <Stack.Screen
-          name="Syllabus"
-          component={Syllabus}
-          options={{
-            title: 'Syllabus'
-          }}
-        />
+        <Stack.Screen name="Credits" component={Credits} options={{title: 'Credits'}} />
+        <Stack.Screen name="Syllabus" component={Syllabus} options={{headerShown: false}} />
         <Stack.Screen
           name="SyllabusMenu"
           component={SyllabusMenu}
@@ -104,13 +67,7 @@ const App = () => {
             title: 'KTU Announcements'
           }}
         />
-        <Stack.Screen
-          name="Timetable"
-          component={Timetable}
-          options={{
-            title: 'Timetable'
-          }}
-        />
+        <Stack.Screen name="Timetable" component={Timetable} options={{headerShown: false}} />
         <Stack.Screen
           name="TimetableMenu"
           component={TimetableMenu}

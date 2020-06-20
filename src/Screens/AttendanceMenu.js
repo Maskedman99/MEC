@@ -8,8 +8,8 @@ import SemesterMenu from '../Components/SemesterMenu';
 const AttendanceMenu = ({navigation}) => {
   const data = ['CSA', 'CSB', 'EEE', 'ECA', 'ECB', 'EB'];
   const [index, setIndex] = useState(0);
-  const [roll, setRollNo] = useState(null);
-  const [sem, setSemester] = useState(null);
+  const [roll, setRollNo] = useState(1);
+  const [sem, setSemester] = useState(1);
 
   useEffect(() => {
     getMyValue();

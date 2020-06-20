@@ -18,7 +18,12 @@ const useEvaluationAxios = (clas, rollNo) => {
       .catch(error => {
         if (error.response) {
           //The request was made and the server responded with a status code that falls out of the range of 2xx
-          Alert.alert('Error', 'Sorry try again later', [], {cancelable: true});
+          Alert.alert(
+            'Error',
+            `Sorry, sever responses with ${error.response.status}. Try again later.`,
+            [],
+            {cancelable: true}
+          );
         } else if (error.request) {
           //The request was made but no response was received, `error.request`
           Alert.alert('Error', 'Check your connection', [], {cancelable: true});
