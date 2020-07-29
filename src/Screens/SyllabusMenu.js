@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableHighlight, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, Pressable, ScrollView} from 'react-native';
 
 import ClassButton from '../Components/ClassButton';
 import SemesterMenu from '../Components/SemesterMenu';
@@ -23,7 +23,7 @@ const SyllabusMenu = ({navigation}) => {
         <Text style={styles.livetext}>{sem}</Text>
       </View>
 
-      <TouchableHighlight
+      <Pressable
         style={styles.submitcontainer}
         onPress={() =>
           navigation.navigate('Syllabus', {
@@ -32,7 +32,7 @@ const SyllabusMenu = ({navigation}) => {
           })
         }>
         <Text style={styles.submittext}>SUBMIT</Text>
-      </TouchableHighlight>
+      </Pressable>
 
       <Text style={styles.headtext}>Class</Text>
       <View style={styles.classinner}>

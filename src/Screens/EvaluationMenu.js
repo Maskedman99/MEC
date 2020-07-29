@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, ScrollView, Text, TouchableHighlight, StyleSheet, TextInput} from 'react-native';
+import {View, ScrollView, Text, Pressable, StyleSheet, TextInput} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import ClassMenu from '../Components/ClassMenu';
@@ -62,9 +62,9 @@ const EvaluationMenu = ({navigation}) => {
             <Text style={styles.warningtext}> Enter Data </Text>
           </View>
         ) : (
-          <TouchableHighlight style={styles.submitcontainer} onPress={setValue}>
+          <Pressable style={styles.submitcontainer} onPress={setValue}>
             <Text style={styles.submittext}>SUBMIT</Text>
-          </TouchableHighlight>
+          </Pressable>
         )
       }
 
@@ -77,7 +77,7 @@ const EvaluationMenu = ({navigation}) => {
         maxLength={2}
         returnKeyType={'go'}
         selectionColor="white"
-        enablesReturnKeyAutomatically={true}
+        enablesReturnKeyAutomatically
         onSubmitEditing={setValue}
         keyboardAppearance={'dark'}
         onChangeText={i => setRollNo(i)}

@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  TouchableHighlight,
-  Alert,
-  Linking,
-  StyleSheet,
-  ScrollView,
-  Share
-} from 'react-native';
+import {Text, Alert, Linking, StyleSheet, ScrollView, Share, Pressable} from 'react-native';
 
 const Settings = ({navigation}) => {
   const onShare = async () => {
@@ -30,16 +22,16 @@ const Settings = ({navigation}) => {
 
   return (
     <ScrollView style={styles.container}>
-      <TouchableHighlight
-        activeOpacity={0.5}
+      <Pressable
+        android_ripple={{color: 'lime'}}
         onPress={() => {
           Linking.openURL('market://details?id=com.maskedmanmec');
         }}>
         <Text style={styles.menutext}>Check for Updates</Text>
-      </TouchableHighlight>
+      </Pressable>
 
-      <TouchableHighlight
-        activeOpacity={0.5}
+      <Pressable
+        android_ripple={{color: 'lime'}}
         onPress={() => {
           Alert.alert(
             'Create an Issue at:',
@@ -57,23 +49,23 @@ const Settings = ({navigation}) => {
           );
         }}>
         <Text style={styles.menutext}>Report Bugs</Text>
-      </TouchableHighlight>
+      </Pressable>
 
-      <TouchableHighlight activeOpacity={0.5} onPress={() => onShare()}>
+      <Pressable android_ripple={{color: 'lime'}} onPress={() => onShare()}>
         <Text style={styles.menutext}>Share</Text>
-      </TouchableHighlight>
+      </Pressable>
 
-      <TouchableHighlight activeOpacity={0.5} onPress={() => navigation.navigate('Credits')}>
+      <Pressable android_ripple={{color: 'lime'}} onPress={() => navigation.navigate('Credits')}>
         <Text style={styles.menutext}>Credits</Text>
-      </TouchableHighlight>
+      </Pressable>
 
-      <TouchableHighlight
-        activeOpacity={0.5}
+      <Pressable
+        android_ripple={{color: 'lime'}}
         onPress={() => {
           Alert.alert('About', 'Version 1.6', [], {cancelable: true});
         }}>
         <Text style={styles.menutext}>About</Text>
-      </TouchableHighlight>
+      </Pressable>
     </ScrollView>
   );
 };

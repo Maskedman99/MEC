@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, ScrollView, Text, StyleSheet, TouchableHighlight} from 'react-native';
+import {View, ScrollView, Text, StyleSheet, Pressable} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import ClassMenu from '../Components/ClassMenu';
@@ -37,7 +37,7 @@ const TimetableMenu = ({navigation}) => {
         <Text style={styles.livetext}>{sem}</Text>
       </View>
 
-      <TouchableHighlight
+      <Pressable
         style={styles.submitcontainer}
         onPress={() =>
           navigation.navigate('Timetable', {
@@ -46,7 +46,7 @@ const TimetableMenu = ({navigation}) => {
           })
         }>
         <Text style={styles.submittext}>SUBMIT</Text>
-      </TouchableHighlight>
+      </Pressable>
 
       <ClassMenu action={branchhandler} />
       <SemesterMenu action={semhandler} />
